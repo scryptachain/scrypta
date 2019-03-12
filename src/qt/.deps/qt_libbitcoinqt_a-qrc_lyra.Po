@@ -1,0 +1,4 @@
+qt/qt_libbitcoinqt_a-qrc_lyra.o: qt/qrc_lyra.cpp \
+ /usr/include/stdc-predef.h
+
+/usr/include/stdc-predef.h:
