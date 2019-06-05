@@ -3,17 +3,26 @@
 ## BUILD IMAGE
 
 Commands:
-	```docker build -t scrypta:latest .```
+
+```
+docker build -t scrypta:latest .
+```
 
 (can be a long running task)
 
 ## RUN
 
 Create directory (example):
-	```mkdir /opt/lyra-data```
+
+```
+mkdir /opt/lyra-data
+```
 
 Create config file:
-	```/opt/lyra-data/lyra.conf```
+
+```
+/opt/lyra-data/lyra.conf
+```
 
 Config file must contains **rpcuser** and **rpcpassword**:
 
@@ -23,14 +32,24 @@ rpcpassword=<choice a password>
 ```
 
 Command:
-	```docker run --name=scrypta -dit -v /opt/lyra-data:/.root/.lyra -v /opt/lyra-data/lyra.conf:/root/.lyra/lyra.conf scrypta:latest```
+
+```
+docker run --name=scrypta -dit -v /opt/lyra-data:/.root/.lyra -v /opt/lyra-data/lyra.conf:/root/.lyra/lyra.conf scrypta:latest
+```
+
 ## TEST
 
 Command:
-	```docker exec -it scrypta /opt/scrypta/lyra-cli getinfo```
+
+```
+docker exec -it scrypta /opt/scrypta/lyra-cli getinfo
+```
 
 ## STOP AND CLEAN
 
 Commands:
-	```docker stop scrypta```
-	```docker rm scrypta```
+
+```
+docker stop scrypta
+docker rm scrypta
+```
