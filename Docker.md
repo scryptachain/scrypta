@@ -20,7 +20,7 @@ Config file must contains **rpcuser** and **rpcpassword**:
 	rpcpassword=<choice a password>	
 
 Command:
-	docker run --name=scrypta -dit -v /opt/lyra-data:/.root/.lyra -v /opt/lyra-data/lyra.conf:/root/.lyra/lyra.conf scrypta:latest
+	docker run --name=scrypta -dit -p 42222:42222 -p 42223:42223 -v /opt/lyra-data:/.root/.lyra -v /opt/lyra-data/lyra.conf:/root/.lyra/lyra.conf scrypta:latest
 ## TEST
 
 Command:

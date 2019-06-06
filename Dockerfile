@@ -20,5 +20,7 @@ RUN mv lyra-1.0.0-x86_64-linux-gnu /opt/scrypta
 
 WORKDIR /opt/scrypta
 
+EXPOSE 42222 42223
+
 CMD ["./lyrad"]
 
