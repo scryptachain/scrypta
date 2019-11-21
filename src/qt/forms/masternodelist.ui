@@ -70,6 +70,12 @@
                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Deploy your masternode with one click or stake full time&lt;br/&gt;without physical devices on our official partner hosting platform &lt;/span&gt;&lt;a href=&quot;https://thehub.host&quot;&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline; color:#0000ff;&quot;&gt;TheHub&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;. &lt;/span&gt;&lt;br/&gt;&lt;br&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;
 Note: &lt;/span&gt;Status of your masternodes in local wallet can potentially be slightly incorrect.&lt;br /&gt;Always wait for wallet to fully sync additional data and double check from another node&lt;br /&gt;if your node should be running but you still see &quot;MISSING&quot; in &quot;Status&quot; field.</string>
                </property>
+               <property name="openExternalLinks">
+              <bool>true</bool>
+             </property>
+             <property name="textInteractionFlags">
+              <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+             </property>
               </widget>
              </item>
             </layout>
