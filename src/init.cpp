@@ -517,15 +517,15 @@ std::string LicenseInfo()
            "\n" +
            FormatParagraph(_("Distributed under the MIT software license, see the accompanying file COPYING or <http://www.opensource.org/licenses/mit-license.php>.")) + "\n" +
            "\n" +
-           FormatParagraph(_("This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit <https://www.openssl.org/> and cryptographic software written by Eric Young and UPnP software written by Thomas Bernard.")) +
-           "\n"; +
+           FormatParagraph(_("This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit <https://www.openssl.org/> and cryptographic software written by Eric Young and UPnP software written by Thomas Bernard.")) + "\n" +
+           "\n" +
            FormatParagraph(_("Official Website <https://scryptachain.org/>.")) + "\n" +
-           "\n"; +
-           FormatParagraph(_("Scrypta Foundation Official Website <https://scrypta.foundation/>.")) + "\n" +
-           "\n"; +
-           FormatParagraph(_("Scrypta Official Wiki <https://wiki.scryptachain.org/>.")) + "\n" +
-           "\n"; +
-           FormatParagraph(_("Official Scrypta Mobile wallet and app <https://manent.app/en/>.")) + "\n" +
+           "\n" +
+           FormatParagraph(_("Scrypta Foundation Official Website <https://scrypta.foundation>")) + "\n" +
+           "\n" +
+           FormatParagraph(_("Scrypta Official Wiki <https://wiki.scryptachain.org>")) + "\n" +
+           "\n" +
+           FormatParagraph(_("Official Scrypta Mobile wallet and app <https://manent.app/en/>")) + "\n" +
            "\n";
 }
 
