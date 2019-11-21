@@ -519,6 +519,14 @@ std::string LicenseInfo()
            "\n" +
            FormatParagraph(_("This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit <https://www.openssl.org/> and cryptographic software written by Eric Young and UPnP software written by Thomas Bernard.")) +
            "\n";
+           FormatParagraph(_("Official Website <https://scryptachain.org/>.")) +
+           "\n";
+           FormatParagraph(_("Scrypta Foundation Official Website <https://scrypta.foundation/>.")) +
+           "\n";
+           FormatParagraph(_("Scrypta Official Wiki <https://wiki.scryptachain.org/>.")) +
+           "\n";
+           FormatParagraph(_("Official Scrypta Mobile wallet and app <https://manent.app/en/>.")) +
+           "\n";
 }
 
 static void BlockNotifyCallback(const uint256& hashNewTip)
