@@ -92,6 +92,22 @@
 <table style="width: 373px;">
 <tbody>
 <tr>
+<td style="width: 136px;"><strong>Website</strong></td>
+<td style="width: 227px;"><a href="https://scryptachain.org/">https://scryptachain.org</a>&nbsp;</td>
+</tr>
+<tr>
+<td style="width: 136px;"><strong>Scrypta Foundation</strong></td>
+<td style="width: 227px;"><a href="https://scrypta.foundation/">https://scrypta.foundation</a>&nbsp;</td>
+</tr>
+<tr>
+<td style="width: 136px;"><strong>Official Wiki</strong></td>
+<td style="width: 227px;"><a href="https://wiki.scryptachain.org/">https://wiki.scryptachain.org</a>&nbsp;</td>
+</tr>
+<tr>
+<td style="width: 136px;"><strong>Official Mobile App</strong></td>
+<td style="width: 227px;"><a href="https://manent.app/en/">https://manent.app/en</a>&nbsp;</td>
+</tr>
+<tr>
 <td style="width: 136px;"><strong>Twitter</strong></td>
 <td style="width: 227px;">https://twitter.com/scryptachain</td>
 </tr>
@@ -100,12 +116,8 @@
 <td style="width: 227px;"><a href="https://discord.io/scrypta/">https://discord.io/scrypta</a>&nbsp;</td>
 </tr>
 <tr>
-<td style="width: 136px;"><strong>Website</strong></td>
-<td style="width: 227px;"><a href="https://scryptachain.org/">https://scryptachain.org</a>&nbsp;</td>
-</tr>
-<tr>
 <td style="width: 136px;"><strong>Contact</strong></td>
-<td style="width: 227px;">scryptachain@criptext.com</td>
+<td style="width: 227px;">info@scryptachain.org</td>
 </tr>
 </tbody>
 </table>
