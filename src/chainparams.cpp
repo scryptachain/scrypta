@@ -426,7 +426,7 @@ public:
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x2D)(0x02)(0x31)(0x33).convert_to_container<std::vector<unsigned char> >();
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x02)(0x21)(0x25)(0x2B).convert_to_container<std::vector<unsigned char> >();
         // 	BIP44 coin type is from https://github.com/satoshilabs/slips/blob/master/slip-0044.md
-        base58Prefixes[EXT_COIN_TYPE] = boost::assign::list_of(0x80)(0x00)(0x00)(0x77).convert_to_container<std::vector<unsigned char> >();
+        base58Prefixes[EXT_COIN_TYPE] = boost::assign::list_of(0x80)(0x00)(0x01)(0xF1).convert_to_container<std::vector<unsigned char> >();
 
 	convertSeed6(vFixedSeeds, pnSeed6_main, ARRAYLEN(pnSeed6_main));
 	vSeeds.push_back(CDNSSeedData("seed01.scryptachain.org", "seed01.scryptachain.org"));
@@ -512,7 +512,7 @@ public:
         base58Prefixes[EXT_COIN_TYPE] = boost::assign::list_of(0x80)(0x00)(0x00)(0x01).convert_to_container<std::vector<unsigned char> >();
 
         convertSeed6(vFixedSeeds, pnSeed6_test, ARRAYLEN(pnSeed6_test));
-	vSeeds.push_back(CDNSSeedData("testseed01.scryptachain.org", "testseed01.scryptachain.org"));
+	    vSeeds.push_back(CDNSSeedData("testseed01.scryptachain.org", "testseed01.scryptachain.org"));
         vSeeds.push_back(CDNSSeedData("testseed02.scryptachain.org", "testseed02.scryptachain.org"));
         vSeeds.push_back(CDNSSeedData("testseed03.scryptachain.org", "testseed03.scryptachain.org"));
         vSeeds.push_back(CDNSSeedData("testseed04.scryptachain.org", "testseed04.scryptachain.org"));
