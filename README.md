@@ -123,7 +123,6 @@
 </table>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
-<br><br>
 
 # Install with a bash script
 
