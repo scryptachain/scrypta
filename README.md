@@ -122,7 +122,7 @@
 </tbody>
 </table>
 
-# Install with a bash script
+# Install with bash script
 
 If you're on Ubuntu you can install the wallet with our `install.sh` script.
 
