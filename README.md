@@ -121,8 +121,6 @@
 </tr>
 </tbody>
 </table>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
 
 # Install with a bash script
 
