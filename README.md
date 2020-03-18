@@ -122,6 +122,24 @@
 </tbody>
 </table>
 <p>&nbsp;</p>
-<p>&nbsp;</p
-<br>
-<a href="http://tiny.cc/devbounty"><img src="https://i.imgur.com/Yf2iz8w.png" title="source: imgur.com" /></a>
+<p>&nbsp;</p>
+<br><br>
+
+# Install with a bash script
+
+If you're on Ubuntu you can install the wallet with our `install.sh` script.
+
+Just open a terminal and run following commands:
+
+```
+git clone https://github.com/scryptachain/scrypta
+cd scrypta
+chmod 777 install.sh
+./install.sh
+```
+
+# Install with Docker
+
+To install inside a Docker container follow this guide:
+
+https://github.com/scryptachain/scrypta/blob/master/Docker.md
