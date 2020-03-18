@@ -12,34 +12,19 @@ docker build -t scrypta:latest .
 
 ## RUN
 
-Create directory (example):
+First run container:
 
 ```
-mkdir /opt/lyra-data
+docker run --name=scrypta -dit -p 42222:42222 -p 42223:42223 scrypta:latest
 ```
 
-Create config file:
+Then run the daemon inside the container:
 
 ```
-/opt/lyra-data/lyra.conf
+docker exec -it scrypta /opt/scrypta/lyrad &
 ```
 
-Config file must contains **rpcuser** and **rpcpassword**:
-
-```
-rpcuser=lyrarpc
-rpcpassword=<choice a password>	
-```
-
-Command:
-
-```
-docker run --name=scrypta -dit -p 42222:42222 -p 42223:42223 -v /opt/lyra-data:/.root/.lyra -v /opt/lyra-data/lyra.conf:/root/.lyra/lyra.conf scrypta:latest
-```
-
-## TEST
-
-Command:
+Now you're able to launch every command like: 
 
 ```
 docker exec -it scrypta /opt/scrypta/lyra-cli getinfo

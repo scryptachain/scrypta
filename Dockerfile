@@ -28,4 +28,4 @@ WORKDIR /opt/scrypta
 
 EXPOSE 42222 42223
 
-CMD ["./lyrad"]
+CMD tail -f /dev/null
