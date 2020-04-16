@@ -5,6 +5,8 @@
 Commands:
 
 ```
+git clone https://github.com/scryptachain/scrypta
+cd scrypta
 docker build -t scrypta:latest .
 ```
 
