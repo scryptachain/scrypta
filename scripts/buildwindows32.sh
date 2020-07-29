@@ -20,4 +20,4 @@ cd depends
 make HOST=x86_64-w64-mingw32
 cd ..
 cd scripts
-bash build-win64.sh
+bash build-win32.sh
