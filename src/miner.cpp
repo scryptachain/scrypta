@@ -111,19 +111,6 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
     txNew.vin[0].prevout.SetNull();
     txNew.vout.resize(1);
     txNew.vout[0].scriptPubKey = scriptPubKeyIn;
-    CBlockIndex* prev = chainActive.Tip();
-    if(prev->nHeight <= 10) { txNew.vout[0].nValue = 0 * COIN;} //   Empty genesis block
-    if (prev->nHeight > 10 && prev->nHeight <= 30) { txNew.vout[0].nValue = 450000 * COIN;} // 9 million coins premine
-    if (prev->nHeight > 30 && prev->nHeight <= 499) { txNew.vout[0].nValue = 0 * COIN;} // Empty block to asset blockchain
-    if (prev->nHeight > 499 && prev->nHeight <= 750) { txNew.vout[0].nValue = 2 * COIN;}  // Reward for the POW phase
-    if (prev->nHeight > 750 && prev->nHeight <= 180301) { txNew.vout[0].nValue = 10 * COIN;}
-    if (prev->nHeight > 180301 && prev->nHeight <= 698702) { txNew.vout[0].nValue = 9 * COIN;}
-    if (prev->nHeight > 698702 && prev->nHeight <= 1217103) { txNew.vout[0].nValue = 8.1 * COIN;}
-    if (prev->nHeight > 1217103 && prev->nHeight <= 2253904) { txNew.vout[0].nValue = 6.5 * COIN;}
-    if (prev->nHeight > 2253904 && prev->nHeight <= 3290705) { txNew.vout[0].nValue = 5.2 * COIN;}
-    if (prev->nHeight > 3290705 && prev->nHeight <= 5364306) { txNew.vout[0].nValue = 3.1 * COIN;}
-    if (prev->nHeight > 5364306 && prev->nHeight <= 7437907) { txNew.vout[0].nValue = 1.9 * COIN;}
-    if (prev->nHeight > 7437907) { txNew.vout[0].nValue = 1.1 * COIN;}   //  Block reward until max coin supply of 50 million coins
     pblock->vtx.push_back(txNew);
     pblocktemplate->vTxFees.push_back(-1);   // updated at end
     pblocktemplate->vTxSigOps.push_back(-1); // updated at end
@@ -348,10 +335,13 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
         if (!fProofOfStake) {
             //Masternode and general budget payments
             FillBlockPayee(txNew, nFees, fProofOfStake);
-
             //Make payee
             if (txNew.vout.size() > 1) {
                 pblock->payee = txNew.vout[1].scriptPubKey;
+            } else {
+                CAmount blockValue = nFees + GetBlockValue(nHeight);
+                txNew.vout[0].nValue = blockValue;
+                txNew.vin[0].scriptSig = CScript() << nHeight << OP_0;
             }
         }
 
