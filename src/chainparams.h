@@ -96,6 +96,10 @@ public:
     int64_t StartMasternodePayments() const { return nStartMasternodePayments; }
     CBaseChainParams::Network NetworkID() const { return networkID; }
 
+    // Validation bypass
+    int64_t LyraBadBlockTime() const { return nLyraBadBlockTime; }
+    unsigned int LyraBadBlockBits() const { return nLyraBadBlockBits; }
+
 protected:
     CChainParams() {}
 
@@ -112,6 +116,9 @@ protected:
     int nToCheckBlockUpgradeMajority;
     int64_t nTargetTimespan;
     int64_t nTargetSpacing;
+    // validation by-pass
+    int64_t nLyraBadBlockTime;
+    unsigned int nLyraBadBlockBits;
     int nLastPOWBlock;
     int nMasternodeCountDrift;
     int nMaturity;

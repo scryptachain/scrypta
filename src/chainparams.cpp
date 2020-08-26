@@ -416,6 +416,9 @@ public:
         genesis.nBits = 0x1e0ffff0;
         genesis.nNonce = 2546225;
 
+        // validation by-pass
+        nLyraBadBlockTime = 1545446256; // Block 751
+        nLyraBadBlockBits = 0x1e013b10; // Block 751
 
         hashGenesisBlock = genesis.GetHash();
         assert(hashGenesisBlock == uint256("0xe2aacf31ce196903e00157a50d207d04a152176b4eb83ecbb0b75b0c9455d1fd"));
@@ -494,6 +497,10 @@ public:
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
         genesis.nTime = 1546642871;
         genesis.nNonce = 3205836;
+
+                // validation by-pass
+        nLyraBadBlockTime = 1545446256; // Block 751
+        nLyraBadBlockBits = 0x1e013b10; // Block 751
 
         hashGenesisBlock = genesis.GetHash();
         assert(hashGenesisBlock == uint256("0xd07464ddcf6a6d7e7f48de12d9e824bc1a874965d5f52b300d9962ca489bb8e3"));

@@ -3419,18 +3419,19 @@ bool CheckWork(const CBlock block, CBlockIndex* const pindexPrev)
 
     unsigned int nBitsRequired = GetNextWorkRequired(pindexPrev, &block);
 
-    if (block.IsProofOfWork() && (pindexPrev->nHeight + 1 <= 68589)) {
-        double n1 = ConvertBitsToDouble(block.nBits);
-        double n2 = ConvertBitsToDouble(nBitsRequired);
+	if (block.IsProofOfWork() && pindexPrev->nHeight + 1 > Params().LAST_POW_BLOCK())
+        return error("%s: reject proof-of-work at height %d", __func__, pindexPrev->nHeight + 1);
+    
+    if (block.nBits != nBitsRequired) {
+            if ((block.nTime == (uint32_t)Params().LyraBadBlockTime()) &&
+                (block.nBits == (uint32_t)Params().LyraBadBlockBits())) {
+                // accept Lyra block minted with incorrect proof of work threshold after pow ended!
+                printf("%s : Accepting incorrect proof of work at block %d", __func__, pindexPrev->nHeight + 1);
+                return true;
+            }
 
-        if (abs(n1 - n2) > n1 * 0.5)
-            return error("%s : incorrect proof of work (DGW pre-fork) - %f %f %f at %d", __func__, abs(n1 - n2), n1, n2, pindexPrev->nHeight + 1);
-
-        return true;
+            return error("%s : incorrect proof of work at %d", __func__, pindexPrev->nHeight + 1);
     }
-
-    if (block.nBits != nBitsRequired)
-        return error("%s : incorrect proof of work at %d", __func__, pindexPrev->nHeight + 1);
 
     if (block.IsProofOfStake()) {
         uint256 hashProofOfStake;
