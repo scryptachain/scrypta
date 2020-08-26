@@ -2439,6 +2439,28 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
             REJECT_INVALID, "bad-cb-amount");
     }
 
+    if (IsSporkActive(SPORK_17_BLOCK_RECIPIENT_ENFORCEMENT) && ActiveProtocol() >= BLOCK_RECIPIENT_ENFORCEMENT){
+
+        bool properStake = block.nNonce == 0;
+        unsigned int stakeRecipientSize = block.vtx[properStake].vout.size() - (int)properStake;
+            LogPrintf("block %d has %d recipients\n", pindex->nHeight, stakeRecipientSize);
+        if (stakeRecipientSize == 1) {
+            LogPrintf("  - block does not honour the current masternode payment required.\n");
+            if (IsSporkActive(SPORK_17_BLOCK_RECIPIENT_ENFORCEMENT) && ActiveProtocol() >= BLOCK_RECIPIENT_ENFORCEMENT)
+                return false;
+        } else {
+            auto mnOut = block.vtx[1].vout[stakeRecipientSize].nValue;
+            auto mnExp = GetMasternodePayment(pindex->nHeight, nExpectedMint, 0);
+            if (mnExp - mnOut > 100) {
+                LogPrintf("  - masternode isnt receiving the full reward (expected %llu, found %llu)\n", mnExp, mnOut);
+                if (IsSporkActive(SPORK_17_BLOCK_RECIPIENT_ENFORCEMENT) && ActiveProtocol() >= BLOCK_RECIPIENT_ENFORCEMENT)
+                    return false;
+            } else {
+                LogPrintf("  - masternode is receiving expected reward (expected %llu, found %llu)\n", mnExp, mnOut);
+            }
+        }
+    }
+
     if (!control.Wait())
         return state.DoS(100, false);
     int64_t nTime2 = GetTimeMicros();
@@ -5624,9 +5646,10 @@ int ActiveProtocol()
     // SPORK_15 is used for 70910. Nodes < 70910 don't see it and still get their protocol version via SPORK_14 and their
     // own ModifierUpgradeBlock()
 	*/
-    if (IsSporkActive(SPORK_14_NEW_PROTOCOL_ENFORCEMENT))
-            return MIN_PEER_PROTO_VERSION_AFTER_ENFORCEMENT;
-
+    if (IsSporkActive(SPORK_15_NEW_PROTOCOL_ENFORCEMENT_2)) {
+        if (ActiveProtocol() >= BLOCK_RECIPIENT_ENFORCEMENT)
+            return MIN_PEER_PROTO_VERSION_AFTER_ENFORCEMENT;        
+    }
     return MIN_PEER_PROTO_VERSION_BEFORE_ENFORCEMENT;
 
 }
