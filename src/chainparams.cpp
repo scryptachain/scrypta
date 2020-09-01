@@ -7,18 +7,14 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "chainparams.h"
-#include "bignum.h"
-#include "crypto/scrypt.h"
+
 #include "random.h"
 #include "util.h"
 #include "utilstrencodings.h"
 
 #include <assert.h>
+
 #include <boost/assign/list_of.hpp>
-#include <openssl/sha.h>
-#include <stdint.h>
-#include <stdlib.h>
-#include <string.h>
 
 using namespace std;
 using namespace boost::assign;
