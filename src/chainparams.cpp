@@ -69,7 +69,7 @@ static const Checkpoints::CCheckpointData data = {
 
 static Checkpoints::MapCheckpoints mapCheckpointsTestnet =
     boost::assign::map_list_of
-    0, uint256("0x11462a958d6e95fc2b98092d0999e9678f847c55ecbd3f1a046b0cc3334d4557"));
+    (0, uint256("0x11462a958d6e95fc2b98092d0999e9678f847c55ecbd3f1a046b0cc3334d4557"));
 static const Checkpoints::CCheckpointData dataTestnet = {
     &mapCheckpointsTestnet,
     1546642871, // * UNIX timestamp of last TESTNET checkpoint block
