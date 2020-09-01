@@ -1,7 +1,6 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2017-2018 Scrypta Development Team
 // Copyright (c) 2015-2018 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
@@ -53,7 +52,8 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 //    timestamp before)
 // + Contains no strange transactions
 static Checkpoints::MapCheckpoints mapCheckpoints =
-    boost::assign::map_list_of(0, uint256("0xe2aacf31ce196903e00157a50d207d04a152176b4eb83ecbb0b75b0c9455d1fd"))
+    boost::assign::map_list_of
+    (0, uint256("0xe2aacf31ce196903e00157a50d207d04a152176b4eb83ecbb0b75b0c9455d1fd"))
     (750, uint256("0x000000bf6ca733834f543433247145ad2451728e79bcc18f5b109a6bbd11cf87")) //Last POW Block
     (20925, uint256("0xd1e129981da28059d1d2484e8f098bab1f41e011631dee8771ab8bc16a00ee2c"))
     (302930, uint256("0xcc63411f5e6bac2d6e88c3347b6ed3baf0744a16466d7920225ac77edfd37414"))
@@ -68,7 +68,8 @@ static const Checkpoints::CCheckpointData data = {
 };
 
 static Checkpoints::MapCheckpoints mapCheckpointsTestnet =
-    boost::assign::map_list_of(0, uint256("0xd07464ddcf6a6d7e7f48de12d9e824bc1a874965d5f52b300d9962ca489bb8e3"));
+    boost::assign::map_list_of
+    0, uint256("0x11462a958d6e95fc2b98092d0999e9678f847c55ecbd3f1a046b0cc3334d4557"));
 static const Checkpoints::CCheckpointData dataTestnet = {
     &mapCheckpointsTestnet,
     1546642871, // * UNIX timestamp of last TESTNET checkpoint block
@@ -138,8 +139,14 @@ public:
         nLyraBadBlockTime = 1545446256; // Block 751
         nLyraBadBlockBits = 0x1e013b10; // Block 751
 
+        // Make sure we get the correct genesis info.
+        printf("genesis.nTime = %u \n", genesis.nTime);
+        printf("genesis.nNonce = %u \n", genesis.nNonce);
+        printf("genesis.GetHash = %s\n", genesis.GetHash().ToString().c_str());
+        printf("genesis.MerkleRoot = %s\n", genesis.hashMerkleRoot.ToString().c_str());
         hashGenesisBlock = genesis.GetHash();
         assert(hashGenesisBlock == uint256("0xe2aacf31ce196903e00157a50d207d04a152176b4eb83ecbb0b75b0c9455d1fd"));
+        assert(genesis.hashMerkleRoot == uint256S("0x2346f9c436d961bf4f5a3818f60154e15ddd056d59f05b270240d0837d15daa5"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 48); // Mainnet lyra addresses start with 'L'
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 13); // Mainnet lyra script addresses start with '6'
@@ -221,7 +228,8 @@ public:
         nLyraBadBlockBits = 0x1e013b10; // Block 751
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0xd07464ddcf6a6d7e7f48de12d9e824bc1a874965d5f52b300d9962ca489bb8e3"));
+        assert(hashGenesisBlock == uint256("0x11462a958d6e95fc2b98092d0999e9678f847c55ecbd3f1a046b0cc3334d4557"));
+        assert(genesis.hashMerkleRoot == uint256S("0x1866238cd288394d78f2c2503bae1892427bca84ef5bd37adf7487990641e7bb"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
