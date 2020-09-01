@@ -227,6 +227,11 @@ public:
         nLyraBadBlockTime = 1545446256; // Block 751
         nLyraBadBlockBits = 0x1e013b10; // Block 751
 
+                // Make sure we get the correct genesis info.
+        printf("genesis.nTime = %u \n", genesis.nTime);
+        printf("genesis.nNonce = %u \n", genesis.nNonce);
+        printf("genesis.GetHash = %s\n", genesis.GetHash().ToString().c_str());
+        printf("genesis.MerkleRoot = %s\n", genesis.hashMerkleRoot.ToString().c_str());
         hashGenesisBlock = genesis.GetHash();
         assert(hashGenesisBlock == uint256("0x11462a958d6e95fc2b98092d0999e9678f847c55ecbd3f1a046b0cc3334d4557"));
         assert(genesis.hashMerkleRoot == uint256S("0x1866238cd288394d78f2c2503bae1892427bca84ef5bd37adf7487990641e7bb"));
