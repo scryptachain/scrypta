@@ -8,7 +8,7 @@
 #include "spork.h"
 
 //
-// Bootup the Masternode, look for a 10000 lyra input and register on the network
+// Bootup the Masternode, look for a 10000 PIVX input and register on the network
 //
 void CActiveMasternode::ManageStatus()
 {
@@ -64,13 +64,13 @@ void CActiveMasternode::ManageStatus()
         }
 
         if (Params().NetworkID() == CBaseChainParams::MAIN) {
-            if (service.GetPort() != 42222) {
-                notCapableReason = strprintf("Invalid port: %u - only 42222 is supported on mainnet.", service.GetPort());
+            if (service.GetPort() != 51472) {
+                notCapableReason = strprintf("Invalid port: %u - only 51472 is supported on mainnet.", service.GetPort());
                 LogPrintf("CActiveMasternode::ManageStatus() - not capable: %s\n", notCapableReason);
                 return;
             }
-        } else if (service.GetPort() == 42222) {
-            notCapableReason = strprintf("Invalid port: %u - 42222 is only supported on mainnet.", service.GetPort());
+        } else if (service.GetPort() == 51472) {
+            notCapableReason = strprintf("Invalid port: %u - 51472 is only supported on mainnet.", service.GetPort());
             LogPrintf("CActiveMasternode::ManageStatus() - not capable: %s\n", notCapableReason);
             return;
         }
@@ -263,13 +263,13 @@ bool CActiveMasternode::Register(std::string strService, std::string strKeyMaste
 
     CService service = CService(strService);
     if (Params().NetworkID() == CBaseChainParams::MAIN) {
-        if (service.GetPort() != 42222) {
-            errorMessage = strprintf("Invalid port %u for masternode %s - only 42222 is supported on mainnet.", service.GetPort(), strService);
+        if (service.GetPort() != 51472) {
+            errorMessage = strprintf("Invalid port %u for masternode %s - only 51472 is supported on mainnet.", service.GetPort(), strService);
             LogPrintf("CActiveMasternode::Register() - %s\n", errorMessage);
             return false;
         }
-    } else if (service.GetPort() == 42222) {
-        errorMessage = strprintf("Invalid port %u for masternode %s - 42222 is only supported on mainnet.", service.GetPort(), strService);
+    } else if (service.GetPort() == 51472) {
+        errorMessage = strprintf("Invalid port %u for masternode %s - 51472 is only supported on mainnet.", service.GetPort(), strService);
         LogPrintf("CActiveMasternode::Register() - %s\n", errorMessage);
         return false;
     }
@@ -468,9 +468,7 @@ vector<COutput> CActiveMasternode::SelectCoinsMasternode()
 
     // Filter
     BOOST_FOREACH (const COutput& out, vCoins) {
-	
-       if (out.tx->vout[out.i].nValue == MASTER_NODE_AMOUNT * COIN) { //exactly
-
+        if (out.tx->vout[out.i].nValue == 10000 * COIN) { //exactly
             filteredCoins.push_back(out);
         }
     }

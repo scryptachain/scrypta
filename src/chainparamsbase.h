@@ -1,5 +1,4 @@
 // Copyright (c) 2014 The Bitcoin developers
-// Copyright (c) 2015-2018 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -10,8 +9,8 @@
 #include <vector>
 
 /**
- * CBaseChainParams defines the base parameters (shared between lyra-cli and lyrad)
- * of a given instance of the lyra system.
+ * CBaseChainParams defines the base parameters (shared between pivx-cli and pivxd)
+ * of a given instance of the Pivx system.
  */
 class CBaseChainParams
 {

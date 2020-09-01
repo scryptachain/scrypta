@@ -1,6 +1,5 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
-// Copyright (c) 2015-2018 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -24,7 +23,7 @@ struct CDNSSeedData {
 
 /**
  * CChainParams defines various tweakable parameters of a given instance of the
- * lyra system. There are three: the main network on which people trade goods
+ * PIVX system. There are three: the main network on which people trade goods
  * and services, the public test network which gets reset from time to time and
  * a regression test mode which is intended for private networks only. It has
  * minimal difficulty to ensure that blocks can be found instantly.
@@ -96,10 +95,6 @@ public:
     int64_t StartMasternodePayments() const { return nStartMasternodePayments; }
     CBaseChainParams::Network NetworkID() const { return networkID; }
 
-    // Validation bypass
-    int64_t LyraBadBlockTime() const { return nLyraBadBlockTime; }
-    unsigned int LyraBadBlockBits() const { return nLyraBadBlockBits; }
-
 protected:
     CChainParams() {}
 
@@ -116,9 +111,6 @@ protected:
     int nToCheckBlockUpgradeMajority;
     int64_t nTargetTimespan;
     int64_t nTargetSpacing;
-    // validation by-pass
-    int64_t nLyraBadBlockTime;
-    unsigned int nLyraBadBlockBits;
     int nLastPOWBlock;
     int nMasternodeCountDrift;
     int nMaturity;

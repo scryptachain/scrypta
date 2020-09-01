@@ -8,18 +8,17 @@
 
 #include "chainparams.h"
 #include "bignum.h"
+#include "crypto/scrypt.h"
 #include "random.h"
 #include "util.h"
 #include "utilstrencodings.h"
-#include "crypto/scrypt.h"
-#include "util.h"
 
 #include <assert.h>
 #include <boost/assign/list_of.hpp>
-#include <stdlib.h>
-#include <stdint.h>
-#include <string.h>
 #include <openssl/sha.h>
+#include <stdint.h>
+#include <stdlib.h>
+#include <string.h>
 
 using namespace std;
 using namespace boost::assign;
@@ -58,13 +57,11 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 //    timestamp before)
 // + Contains no strange transactions
 static Checkpoints::MapCheckpoints mapCheckpoints =
-      boost::assign::map_list_of
-      (0, uint256("0xe2aacf31ce196903e00157a50d207d04a152176b4eb83ecbb0b75b0c9455d1fd"))
-      (750, uint256("0x000000bf6ca733834f543433247145ad2451728e79bcc18f5b109a6bbd11cf87"))  //Last POW Block
-      (20925, uint256("0xd1e129981da28059d1d2484e8f098bab1f41e011631dee8771ab8bc16a00ee2c"))
-      (302930, uint256("0xcc63411f5e6bac2d6e88c3347b6ed3baf0744a16466d7920225ac77edfd37414"))
-      (475000, uint256("0xded790ed1b7158216d6e46206b2740a1ae9f3e1cea002d0f8cfe980ff8b3c457"))
-;
+    boost::assign::map_list_of(0, uint256("0xe2aacf31ce196903e00157a50d207d04a152176b4eb83ecbb0b75b0c9455d1fd"))
+    (750, uint256("0x000000bf6ca733834f543433247145ad2451728e79bcc18f5b109a6bbd11cf87")) //Last POW Block
+    (20925, uint256("0xd1e129981da28059d1d2484e8f098bab1f41e011631dee8771ab8bc16a00ee2c"))
+    (302930, uint256("0xcc63411f5e6bac2d6e88c3347b6ed3baf0744a16466d7920225ac77edfd37414"))
+    (475000, uint256("0xded790ed1b7158216d6e46206b2740a1ae9f3e1cea002d0f8cfe980ff8b3c457"));
 
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
@@ -75,8 +72,7 @@ static const Checkpoints::CCheckpointData data = {
 };
 
 static Checkpoints::MapCheckpoints mapCheckpointsTestnet =
-    boost::assign::map_list_of
-        (0, uint256("0xd07464ddcf6a6d7e7f48de12d9e824bc1a874965d5f52b300d9962ca489bb8e3"));
+    boost::assign::map_list_of(0, uint256("0xd07464ddcf6a6d7e7f48de12d9e824bc1a874965d5f52b300d9962ca489bb8e3"));
 static const Checkpoints::CCheckpointData dataTestnet = {
     &mapCheckpointsTestnet,
     1546642871, // * UNIX timestamp of last TESTNET checkpoint block
@@ -120,12 +116,12 @@ public:
         nToCheckBlockUpgradeMajority = 1000;
         nMinerThreads = 0;
         nTargetTimespan = 1 * 60 * 60; // Scrypta 1 hours
-        nTargetSpacing = 1 * 60;  // Scrypta Block Time: 1 Min
-        nLastPOWBlock = 750;   //Last Pow Block
+        nTargetSpacing = 1 * 60;       // Scrypta Block Time: 1 Min
+        nLastPOWBlock = 750;           //Last Pow Block
         nMaturity = 20;
         nMasternodeCountDrift = 20;
         nModifierUpdateBlock = 615800;
-        nMaxMoneyOut = 50000000 * COIN;   //Max coin supply 50 Millions Lyra
+        nMaxMoneyOut = 50000000 * COIN; //Max coin supply 50 Millions Lyra
 
         const char* pszTimestamp = "Trump Pushes Government Toward Shutdown Over Border Wall // From NYT 21th of Dec, 2018";
         CMutableTransaction txNew;
@@ -149,7 +145,7 @@ public:
         hashGenesisBlock = genesis.GetHash();
         assert(hashGenesisBlock == uint256("0xe2aacf31ce196903e00157a50d207d04a152176b4eb83ecbb0b75b0c9455d1fd"));
 
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 48);  // Mainnet lyra addresses start with 'L'
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 48); // Mainnet lyra addresses start with 'L'
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 13); // Mainnet lyra script addresses start with '6'
         base58Prefixes[SECRET_KEY] = std::vector<unsigned char>(1, 174);
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x2D)(0x02)(0x31)(0x33).convert_to_container<std::vector<unsigned char> >();
@@ -157,8 +153,8 @@ public:
         // 	BIP44 coin type is from https://github.com/satoshilabs/slips/blob/master/slip-0044.md
         base58Prefixes[EXT_COIN_TYPE] = boost::assign::list_of(0x80)(0x00)(0x01)(0xF1).convert_to_container<std::vector<unsigned char> >();
 
-	convertSeed6(vFixedSeeds, pnSeed6_main, ARRAYLEN(pnSeed6_main));
-	vSeeds.push_back(CDNSSeedData("seed01.scryptachain.org", "seed01.scryptachain.org"));
+        convertSeed6(vFixedSeeds, pnSeed6_main, ARRAYLEN(pnSeed6_main));
+        vSeeds.push_back(CDNSSeedData("seed01.scryptachain.org", "seed01.scryptachain.org"));
         vSeeds.push_back(CDNSSeedData("seed02.scryptachain.org", "seed02.scryptachain.org"));
         vSeeds.push_back(CDNSSeedData("seed03.scryptachain.org", "seed03.scryptachain.org"));
         vSeeds.push_back(CDNSSeedData("seed04.scryptachain.org", "seed04.scryptachain.org"));
@@ -186,7 +182,7 @@ public:
     }
 
     const Checkpoints::CCheckpointData& Checkpoints() const
-     {
+    {
         return data;
     }
 };
@@ -224,7 +220,7 @@ public:
         genesis.nTime = 1546642871;
         genesis.nNonce = 3205836;
 
-                // validation by-pass
+        // validation by-pass
         nLyraBadBlockTime = 1545446256; // Block 751
         nLyraBadBlockBits = 0x1e013b10; // Block 751
 
@@ -245,7 +241,7 @@ public:
         base58Prefixes[EXT_COIN_TYPE] = boost::assign::list_of(0x80)(0x00)(0x00)(0x01).convert_to_container<std::vector<unsigned char> >();
 
         convertSeed6(vFixedSeeds, pnSeed6_test, ARRAYLEN(pnSeed6_test));
-	    vSeeds.push_back(CDNSSeedData("testseed01.scryptachain.org", "testseed01.scryptachain.org"));
+        vSeeds.push_back(CDNSSeedData("testseed01.scryptachain.org", "testseed01.scryptachain.org"));
         vSeeds.push_back(CDNSSeedData("testseed02.scryptachain.org", "testseed02.scryptachain.org"));
         vSeeds.push_back(CDNSSeedData("testseed03.scryptachain.org", "testseed03.scryptachain.org"));
         vSeeds.push_back(CDNSSeedData("testseed04.scryptachain.org", "testseed04.scryptachain.org"));

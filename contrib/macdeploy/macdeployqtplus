@@ -155,7 +155,7 @@ class FrameworkInfo(object):
 class ApplicationBundleInfo(object):
     def __init__(self, path):
         self.path = path
-        appName = "lyra-Qt"
+        appName = "PIVX-Qt"
         self.binaryPath = os.path.join(path, "Contents", "MacOS", appName)
         if not os.path.exists(self.binaryPath):
             raise RuntimeError("Could not find bundle binary for " + path)
@@ -604,7 +604,7 @@ else:
 
 # ------------------------------------------------
 
-target = os.path.join("dist", "lyra-Qt.app")
+target = os.path.join("dist", "PIVX-Qt.app")
 
 if verbose >= 2:
     print("+ Copying source bundle +")
@@ -695,7 +695,7 @@ if len(config.add_resources) > 0 and verbose >= 2:
     print("+ Adding additional resources +")
 
 for p in config.add_resources:
-    t = os.path.join(applicationBundle.path, "Contents", "Frameworks")
+    t = os.path.join(applicationBundle.resourcesPath, os.path.basename(p))
     if verbose >= 3:
         print(p, "->", t)
     if os.path.isdir(p):

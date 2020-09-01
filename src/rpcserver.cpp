@@ -1,8 +1,7 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2017-2018 Scrypta Development Team
-// Copyright (c) 2015-2018 The PIVX developers
+// Copyright (c) 2015-2017 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -220,10 +219,10 @@ Value stop(const Array& params, bool fHelp)
     if (fHelp || params.size() > 1)
         throw runtime_error(
             "stop\n"
-            "\nStop lyra server.");
+            "\nStop PIVX server.");
     // Shutdown will take long enough that the response should get back
     StartShutdown();
-    return "lyra server stopping";
+    return "PIVX server stopping";
 }
 
 
@@ -300,16 +299,36 @@ static const CRPCCommand vRPCCommands[] =
         {"hidden", "reconsiderblock", &reconsiderblock, true, true, false},
         {"hidden", "setmocktime", &setmocktime, true, false, false},
 
-        /* lyra features */
-        {"lyra", "masternode", &masternode, true, true, false},
-        {"lyra", "masternodelist", &masternodelist, true, true, false},
-        {"lyra", "mnbudget", &mnbudget, true, true, false},
-        {"lyra", "mnbudgetvoteraw", &mnbudgetvoteraw, true, true, false},
-        {"lyra", "mnfinalbudget", &mnfinalbudget, true, true, false},
-        {"lyra", "mnsync", &mnsync, true, true, false},
-        {"lyra", "spork", &spork, true, true, false},
+        /* Pivx features */
+        {"pivx", "masternode", &masternode, true, true, false},
+        {"pivx", "listmasternodes", &listmasternodes, true, true, false},
+        {"pivx", "getmasternodecount", &getmasternodecount, true, true, false},
+        {"pivx", "masternodeconnect", &masternodeconnect, true, true, false},
+        {"pivx", "masternodecurrent", &masternodecurrent, true, true, false},
+        {"pivx", "masternodedebug", &masternodedebug, true, true, false},
+        {"pivx", "startmasternode", &startmasternode, true, true, false},
+        {"pivx", "createmasternodekey", &createmasternodekey, true, true, false},
+        {"pivx", "getmasternodeoutputs", &getmasternodeoutputs, true, true, false},
+        {"pivx", "listmasternodeconf", &listmasternodeconf, true, true, false},
+        {"pivx", "getmasternodestatus", &getmasternodestatus, true, true, false},
+        {"pivx", "getmasternodewinners", &getmasternodewinners, true, true, false},
+        {"pivx", "getmasternodescores", &getmasternodescores, true, true, false},
+        {"pivx", "mnbudget", &mnbudget, true, true, false},
+        {"pivx", "preparebudget", &preparebudget, true, true, false},
+        {"pivx", "submitbudget", &submitbudget, true, true, false},
+        {"pivx", "mnbudgetvote", &mnbudgetvote, true, true, false},
+        {"pivx", "getbudgetvotes", &getbudgetvotes, true, true, false},
+        {"pivx", "getnextsuperblock", &getnextsuperblock, true, true, false},
+        {"pivx", "getbudgetprojection", &getbudgetprojection, true, true, false},
+        {"pivx", "getbudgetinfo", &getbudgetinfo, true, true, false},
+        {"pivx", "mnbudgetrawvote", &mnbudgetrawvote, true, true, false},
+        {"pivx", "mnfinalbudget", &mnfinalbudget, true, true, false},
+        {"pivx", "checkbudgets", &checkbudgets, true, true, false},
+        {"pivx", "mnsync", &mnsync, true, true, false},
+        {"pivx", "spork", &spork, true, true, false},
+        {"pivx", "getpoolinfo", &getpoolinfo, true, true, false},
 #ifdef ENABLE_WALLET
-        {"lyra", "obfuscation", &obfuscation, false, false, true}, /* not threadSafe because of SendMoney */
+        {"pivx", "obfuscation", &obfuscation, false, false, true}, /* not threadSafe because of SendMoney */
 
         /* Wallet */
         {"wallet", "addmultisigaddress", &addmultisigaddress, true, false, true},
@@ -471,8 +490,8 @@ private:
 void ServiceConnection(AcceptedConnection* conn);
 
 //! Forward declaration required for RPCListen
-template <typename Protocol>
-static void RPCAcceptHandler(boost::shared_ptr<basic_socket_acceptor<Protocol> > acceptor,
+template <typename Protocol, typename SocketAcceptorService>
+static void RPCAcceptHandler(boost::shared_ptr<basic_socket_acceptor<Protocol, SocketAcceptorService> > acceptor,
     ssl::context& context,
     bool fUseSSL,
     boost::shared_ptr<AcceptedConnection> conn,
@@ -481,8 +500,8 @@ static void RPCAcceptHandler(boost::shared_ptr<basic_socket_acceptor<Protocol> >
 /**
  * Sets up I/O resources to accept and handle a new connection.
  */
-template <typename Protocol>
-static void RPCListen(boost::shared_ptr<basic_socket_acceptor<Protocol> > acceptor,
+template <typename Protocol, typename SocketAcceptorService>
+static void RPCListen(boost::shared_ptr<basic_socket_acceptor<Protocol, SocketAcceptorService> > acceptor,
     ssl::context& context,
     const bool fUseSSL)
 {
@@ -492,7 +511,7 @@ static void RPCListen(boost::shared_ptr<basic_socket_acceptor<Protocol> > accept
     acceptor->async_accept(
         conn->sslStream.lowest_layer(),
         conn->peer,
-        boost::bind(&RPCAcceptHandler<Protocol>,
+        boost::bind(&RPCAcceptHandler<Protocol, SocketAcceptorService>,
             acceptor,
             boost::ref(context),
             fUseSSL,
@@ -504,8 +523,8 @@ static void RPCListen(boost::shared_ptr<basic_socket_acceptor<Protocol> > accept
 /**
  * Accept and handle incoming connection.
  */
-template <typename Protocol>
-static void RPCAcceptHandler(boost::shared_ptr<basic_socket_acceptor<Protocol> > acceptor,
+template <typename Protocol, typename SocketAcceptorService>
+static void RPCAcceptHandler(boost::shared_ptr<basic_socket_acceptor<Protocol, SocketAcceptorService> > acceptor,
     ssl::context& context,
     const bool fUseSSL,
     boost::shared_ptr<AcceptedConnection> conn,
@@ -574,16 +593,16 @@ void StartRPCThreads()
         unsigned char rand_pwd[32];
         GetRandBytes(rand_pwd, 32);
         uiInterface.ThreadSafeMessageBox(strprintf(
-                                             _("To use lyrad, or the -server option to lyra-qt, you must set an rpcpassword in the configuration file:\n"
+                                             _("To use pivxd, or the -server option to pivx-qt, you must set an rpcpassword in the configuration file:\n"
                                                "%s\n"
                                                "It is recommended you use the following random password:\n"
-                                               "rpcuser=lyrarpc\n"
+                                               "rpcuser=pivxrpc\n"
                                                "rpcpassword=%s\n"
                                                "(you do not need to remember this password)\n"
                                                "The username and password MUST NOT be the same.\n"
                                                "If the file does not exist, create it with owner-readable-only file permissions.\n"
                                                "It is also recommended to set alertnotify so you are notified of problems;\n"
-                                               "for example: alertnotify=echo %%s | mail -s \"lyra Alert\" admin@foo.com\n"),
+                                               "for example: alertnotify=echo %%s | mail -s \"PIVX Alert\" admin@foo.com\n"),
                                              GetConfigFile().string(),
                                              EncodeBase58(&rand_pwd[0], &rand_pwd[0] + 32)),
             "", CClientUIInterface::MSG_ERROR | CClientUIInterface::SECURE);
@@ -593,7 +612,7 @@ void StartRPCThreads()
 
     assert(rpc_io_service == NULL);
     rpc_io_service = new asio::io_service();
-    rpc_ssl_context = new ssl::context(ssl::context::sslv23);
+    rpc_ssl_context = new ssl::context(*rpc_io_service, ssl::context::sslv23);
 
     const bool fUseSSL = GetBoolArg("-rpcssl", false);
 
@@ -615,7 +634,7 @@ void StartRPCThreads()
             LogPrintf("ThreadRPCServer ERROR: missing server private key file %s\n", pathPKFile.string());
 
         string strCiphers = GetArg("-rpcsslciphers", "TLSv1.2+HIGH:TLSv1+HIGH:!SSLv2:!aNULL:!eNULL:!3DES:@STRENGTH");
-        SSL_CTX_set_cipher_list(rpc_ssl_context->native_handle(), strCiphers.c_str());
+        SSL_CTX_set_cipher_list(rpc_ssl_context->impl(), strCiphers.c_str());
     }
 
     std::vector<ip::tcp::endpoint> vEndpoints;
@@ -1034,14 +1053,14 @@ std::vector<std::string> CRPCTable::listCommands() const
 
 std::string HelpExampleCli(string methodname, string args)
 {
-    return "> lyra-cli " + methodname + " " + args + "\n";
+    return "> pivx-cli " + methodname + " " + args + "\n";
 }
 
 std::string HelpExampleRpc(string methodname, string args)
 {
     return "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", "
            "\"method\": \"" +
-           methodname + "\", \"params\": [" + args + "] }' -H 'content-type: text/plain;' http://127.0.0.1:42223/\n";
+           methodname + "\", \"params\": [" + args + "] }' -H 'content-type: text/plain;' http://127.0.0.1:51473/\n";
 }
 
 const CRPCTable tableRPC;
