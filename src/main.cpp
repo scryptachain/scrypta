@@ -1613,43 +1613,42 @@ double ConvertBitsToDouble(unsigned int nBits)
 int64_t GetBlockValue(int nHeight)
 {
     int64_t nSubsidy = 0;
+    nHeight--;
 
-    if (Params().NetworkID() == CBaseChainParams::TESTNET) {
-        if (nHeight < 200 && nHeight > 0)
-            return 250000 * COIN;
-    }
-
-    if (nHeight == 0) {
-        nSubsidy = 60001 * COIN;
-    } else if (nHeight < 86400 && nHeight > 0) {
-        nSubsidy = 250 * COIN;
-    } else if (nHeight < (Params().NetworkID() == CBaseChainParams::TESTNET ? 145000 : 151200) && nHeight >= 86400) {
-        nSubsidy = 225 * COIN;
-    } else if (nHeight <= Params().LAST_POW_BLOCK() && nHeight >= 151200) {
-        nSubsidy = 45 * COIN;
-    } else if (nHeight <= 302399 && nHeight > Params().LAST_POW_BLOCK()) {
-        nSubsidy = 45 * COIN;
-    } else if (nHeight <= 345599 && nHeight >= 302400) {
-        nSubsidy = 40.5 * COIN;
-    } else if (nHeight <= 388799 && nHeight >= 345600) {
-        nSubsidy = 36 * COIN;
-    } else if (nHeight <= 431999 && nHeight >= 388800) {
-        nSubsidy = 31.5 * COIN;
-    } else if (nHeight <= 475199 && nHeight >= 432000) {
-        nSubsidy = 27 * COIN;
-    } else if (nHeight <= 518399 && nHeight >= 475200) {
-        nSubsidy = 22.5 * COIN;
-    } else if (nHeight <= 561599 && nHeight >= 518400) {
-        nSubsidy = 18 * COIN;
-    } else if (nHeight <= 604799 && nHeight >= 561600) {
-        nSubsidy = 13.5 * COIN;
-    } else if (nHeight <= 647999 && nHeight >= 604800) {
-        nSubsidy = 9 * COIN;
-    } else if (nHeight >= 648000) {
-        nSubsidy = 4.5 * COIN;
-    } else {
+    if (nHeight <= 10) {
         nSubsidy = 0 * COIN;
+    } else if (nHeight > 10 && nHeight <= 30) {
+        nSubsidy = 450000 * COIN; // Premine 18% of total supply
+    } else if (nHeight > 30 && nHeight <= 499) {
+        nSubsidy = 0 * COIN;
+    } else if (nHeight > 499 && nHeight <= 750) { // Last POW Block
+        nSubsidy = 2 * COIN;
+    } else if (nHeight > 750 && nHeight <= 180301) {
+        nSubsidy = 10 * COIN;
+    } else if (nHeight > 180301 && nHeight <= 698702) {
+        nSubsidy = 9 * COIN;
+    } else if (nHeight > 698702 && nHeight <= 1217103) {
+        nSubsidy = 8.1 * COIN;
+    } else if (nHeight > 1217103 && nHeight <= 2253904) {
+        nSubsidy = 6.5 * COIN;
+    } else if (nHeight > 2253904 && nHeight <= 3290705) {
+        nSubsidy = 5.2 * COIN;
+    } else if (nHeight > 3290705 && nHeight <= 5364306) {
+        nSubsidy = 3.1 * COIN;
+    } else if (nHeight > 5365306 && nHeight <= 7437907) {
+        nSubsidy = 1.9 * COIN;
+    } else if (nHeight > 7437907) {
+        nSubsidy = 1.1 * COIN;
     }
+
+    // Check if we reached the coin max supply.
+    int64_t nMoneySupply = chainActive.Tip()->nMoneySupply;
+
+    if (nMoneySupply + nSubsidy >= Params().MaxMoneyOut())
+        nSubsidy = Params().MaxMoneyOut() - nMoneySupply;
+    if (nMoneySupply >= Params().MaxMoneyOut())
+        nSubsidy = 0;
+
     return nSubsidy;
 }
 
@@ -1657,42 +1656,26 @@ int64_t GetMasternodePayment(int nHeight, int64_t blockValue, int nMasternodeCou
 {
     int64_t ret = 0;
 
-    if (Params().NetworkID() == CBaseChainParams::TESTNET) {
-        if (nHeight < 200)
-            return 0;
-    }
-
-    if (nHeight <= 43200) {
-        ret = blockValue / 5;
-    } else if (nHeight < 86400 && nHeight > 43200) {
-        ret = blockValue / (100 / 30);
-    } else if (nHeight < (Params().NetworkID() == CBaseChainParams::TESTNET ? 145000 : 151200) && nHeight >= 86400) {
-        ret = 50 * COIN;
-    } else if (nHeight <= Params().LAST_POW_BLOCK() && nHeight >= 151200) {
-        ret = blockValue / 2;
+    if (nHeight <= 7500) {
+        ret = blockValue / 5; // Under that block_height MN get 20% of block reward
     } else if (nHeight > Params().LAST_POW_BLOCK()) {
         int64_t nMoneySupply = chainActive.Tip()->nMoneySupply;
+        int64_t mNodeCoins = mnodeman.size() * 15000 * COIN; // Collateral needed to run a single Scrypta Masternode
 
         //if a mn count is inserted into the function we are looking for a specific result for a masternode count
-        if (nMasternodeCount < 1){
-            if (IsSporkActive(SPORK_8_MASTERNODE_PAYMENT_ENFORCEMENT))
-                nMasternodeCount = mnodeman.stable_size();
-            else
-                nMasternodeCount = mnodeman.size();
-        }
-
-        int64_t mNodeCoins = nMasternodeCount * 10000 * COIN;
+        if (nMasternodeCount)
+            mNodeCoins = nMasternodeCount * 15000 * COIN;
 
         // Use this log to compare the masternode count for different clients
         LogPrintf("Adjusting seesaw at height %d with %d masternodes (without drift: %d) at %ld\n", nHeight, nMasternodeCount, nMasternodeCount - Params().MasternodeCountDrift(), GetTime());
-        
+
         if (fDebug)
             LogPrintf("GetMasternodePayment(): moneysupply=%s, nodecoins=%s \n", FormatMoney(nMoneySupply).c_str(),
                 FormatMoney(mNodeCoins).c_str());
 
         if (mNodeCoins == 0) {
             ret = 0;
-        } else if (nHeight < 325000) {
+        } else if (nHeight <= 125000) {
             if (mNodeCoins <= (nMoneySupply * .05) && mNodeCoins > 0) {
                 ret = blockValue * .85;
             } else if (mNodeCoins <= (nMoneySupply * .1) && mNodeCoins > (nMoneySupply * .05)) {
@@ -1726,7 +1709,7 @@ int64_t GetMasternodePayment(int nHeight, int64_t blockValue, int nMasternodeCou
             } else {
                 ret = blockValue * .1;
             }
-        } else if (nHeight > 325000) {
+        } else if (nHeight > 125000) {
             if (mNodeCoins <= (nMoneySupply * .01) && mNodeCoins > 0) {
                 ret = blockValue * .90;
             } else if (mNodeCoins <= (nMoneySupply * .02) && mNodeCoins > (nMoneySupply * .01)) {
@@ -3427,14 +3410,14 @@ bool CheckWork(const CBlock block, CBlockIndex* const pindexPrev)
 
     unsigned int nBitsRequired = GetNextWorkRequired(pindexPrev, &block);
 
-    if (block.IsProofOfWork() && (pindexPrev->nHeight + 1 <= 68589)) {
-        double n1 = ConvertBitsToDouble(block.nBits);
-        double n2 = ConvertBitsToDouble(nBitsRequired);
-
-        if (abs(n1 - n2) > n1 * 0.5)
-            return error("%s : incorrect proof of work (DGW pre-fork) - %f %f %f at %d", __func__, abs(n1 - n2), n1, n2, pindexPrev->nHeight + 1);
-
-        return true;
+    if (block.nBits != nBitsRequired) {
+        if ((block.nTime == (uint32_t)Params().LyraBadBlockTime()) &&
+            (block.nBits == (uint32_t)Params().LyraBadBlockBits())) {
+            // accept Lyra block minted with incorrect proof of work threshold after pow ended!
+            printf("%s : Accepting incorrect proof of work at block %d", __func__, pindexPrev->nHeight + 1);
+            return true;
+        }
+        return error("%s : incorrect proof of work at %d", __func__, pindexPrev->nHeight + 1);
     }
 
     if (block.nBits != nBitsRequired)
