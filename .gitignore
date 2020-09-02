@@ -152,3 +152,21 @@ qa/pull-tester/test.*/*
 .vs/slnx.sqlite
 
 .vs/VSWorkspaceState.json
+
+.vs/scrypta/v16/Browse.VC.db-shm
+
+.vs/scrypta/v16/Browse.VC.db-wal
+
+.vs/scrypta/v16/ipch/AutoPCH/1df80651e8323984/BITCOINGUI.ipch
+
+.vs/scrypta/v16/ipch/AutoPCH/646f78b57376ddb9/RPCMINING.ipch
+
+.vs/scrypta/v16/ipch/AutoPCH/6ab7f014610521e0/POW.ipch
+
+.vs/scrypta/v16/ipch/AutoPCH/75a441998aadf52e/ZMQNOTIFICATIONINTERFACE.ipch
+
+.vs/scrypta/v16/ipch/AutoPCH/a33c666d93b7526a/SCRYPT.ipch
+
+.vs/scrypta/v16/ipch/AutoPCH/c9213bb967fc34f/LEVELDBWRAPPER.ipch
+
+.vs/scrypta/v16/ipch/AutoPCH/eb60bb6289f933c6/GUIUTIL.ipch

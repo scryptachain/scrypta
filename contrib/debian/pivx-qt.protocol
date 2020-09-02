@@ -1,6 +1,6 @@
 [Protocol]
-exec=pivx-qt '%u'
-protocol=pivx
+exec=lyra-qt '%u'
+protocol=lyra
 input=none
 output=none
 helper=true

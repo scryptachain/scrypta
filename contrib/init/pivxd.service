@@ -1,19 +1,19 @@
 [Unit]
-Description=PIVX's distributed currency daemon
+Description=LYRA's distributed currency daemon
 After=network.target
 
 [Service]
-User=pivx
-Group=pivx
+User=lyra
+Group=lyra
 
 Type=forking
-PIDFile=/var/lib/pivxd/pivxd.pid
+PIDFile=/var/lib/lyrad/lyrad.pid
 
-ExecStart=/usr/bin/pivxd -daemon -pid=/var/lib/pivxd/pivxd.pid \
-          -conf=/etc/pivx/pivx.conf -datadir=/var/lib/pivxd
+ExecStart=/usr/bin/lyrad -daemon -pid=/var/lib/lyrad/lyrad.pid \
+          -conf=/etc/lyra/lyra.conf -datadir=/var/lib/lyrad
 
-ExecStop=-/usr/bin/pivx-cli -conf=/etc/pivx/pivx.conf \
-         -datadir=/var/lib/pivxd stop
+ExecStop=-/usr/bin/lyra-cli -conf=/etc/lyra/lyra.conf \
+         -datadir=/var/lib/lyrad stop
 
 Restart=always
 PrivateTmp=true

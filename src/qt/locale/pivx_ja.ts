@@ -260,6 +260,6 @@
     </message>
     </context>
 <context>
-    <name>pivx-core</name>
+    <name>lyra-core</name>
     </context>
 </TS>

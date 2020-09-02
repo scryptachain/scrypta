@@ -1,10 +1,10 @@
 Sample configuration files for:
 
-SystemD: pivxd.service
-Upstart: pivxd.conf
-OpenRC:  pivxd.openrc
-         pivxd.openrcconf
-CentOS:  pivxd.init
+SystemD: lyrad.service
+Upstart: lyrad.conf
+OpenRC:  lyrad.openrc
+         lyrad.openrcconf
+CentOS:  lyrad.init
 
 have been made available to assist packagers in creating node packages here.
 
