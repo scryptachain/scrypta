@@ -513,6 +513,7 @@ void ReadConfigFile(map<string, string>& mapSettingsRet,
                 "# https://explorer.masternodes.online/currencies/lyra/ \n";
             fwrite(strHeader.c_str(), std::strlen(strHeader.c_str()), 1, configFile);
             fclose(configFile);
+        }
         return; // Nothing to read, so just return
     }
 
