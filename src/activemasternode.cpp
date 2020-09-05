@@ -2,6 +2,7 @@
 #include "activemasternode.h"
 #include "addrman.h"
 #include "masternode.h"
+#include "main.h"
 #include "masternodeconfig.h"
 #include "masternodeman.h"
 #include "protocol.h"
@@ -468,7 +469,7 @@ vector<COutput> CActiveMasternode::SelectCoinsMasternode()
 
     // Filter
     BOOST_FOREACH (const COutput& out, vCoins) {
-        if (out.tx->vout[out.i].nValue == 10000 * COIN) { //exactly
+        if (out.tx->vout[out.i].nValue == GetCurrentCollateral() * COIN) { //exactly
             filteredCoins.push_back(out);
         }
     }

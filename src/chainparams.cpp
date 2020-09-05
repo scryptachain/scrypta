@@ -118,6 +118,7 @@ public:
         nMaturity = 20;
         nMasternodeCountDrift = 20;
         nModifierUpdateBlock = 615800;
+        nMasternodeCollateralAmt = 15000;
         nMaxMoneyOut = 50000000 * COIN; //Max coin supply 50 Millions Lyra
 
         const char* pszTimestamp = "Trump Pushes Government Toward Shutdown Over Border Wall // From NYT 21th of Dec, 2018";
@@ -140,10 +141,12 @@ public:
         nLyraBadBlockBits = 0x1e013b10; // Block 751
 
         // Make sure we get the correct genesis info.
+        /*
         printf("genesis.nTime = %u \n", genesis.nTime);
         printf("genesis.nNonce = %u \n", genesis.nNonce);
         printf("genesis.GetHash = %s\n", genesis.GetHash().ToString().c_str());
         printf("genesis.MerkleRoot = %s\n", genesis.hashMerkleRoot.ToString().c_str());
+        */
         hashGenesisBlock = genesis.GetHash();
         assert(hashGenesisBlock == uint256("0xe2aacf31ce196903e00157a50d207d04a152176b4eb83ecbb0b75b0c9455d1fd"));
         assert(genesis.hashMerkleRoot == uint256S("0x2346f9c436d961bf4f5a3818f60154e15ddd056d59f05b270240d0837d15daa5"));
@@ -227,11 +230,13 @@ public:
         nLyraBadBlockTime = 1545446256; // Block 751
         nLyraBadBlockBits = 0x1e013b10; // Block 751
 
-                // Make sure we get the correct genesis info.
+        // Make sure we get the correct genesis info.
+        /*
         printf("genesis.nTime = %u \n", genesis.nTime);
         printf("genesis.nNonce = %u \n", genesis.nNonce);
         printf("genesis.GetHash = %s\n", genesis.GetHash().ToString().c_str());
         printf("genesis.MerkleRoot = %s\n", genesis.hashMerkleRoot.ToString().c_str());
+        */
         hashGenesisBlock = genesis.GetHash();
         assert(hashGenesisBlock == uint256("0xd07464ddcf6a6d7e7f48de12d9e824bc1a874965d5f52b300d9962ca489bb8e3"));
         assert(genesis.hashMerkleRoot == uint256S("0x2346f9c436d961bf4f5a3818f60154e15ddd056d59f05b270240d0837d15daa5"));

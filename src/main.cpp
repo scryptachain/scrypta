@@ -1590,6 +1590,10 @@ bool ReadBlockFromDisk(CBlock& block, const CBlockIndex* pindex)
     return true;
 }
 
+CAmount GetCurrentCollateral()
+{
+        return Params().MasternodeCollateralAmt();
+}
 
 double ConvertBitsToDouble(unsigned int nBits)
 {

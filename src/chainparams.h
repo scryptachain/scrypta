@@ -99,6 +99,9 @@ public:
     int64_t LyraBadBlockTime() const { return nLyraBadBlockTime; }
     unsigned int LyraBadBlockBits() const { return nLyraBadBlockBits; }
 
+    // Masternode Collateral
+    CAmount MasternodeCollateralAmt() const { return nMasternodeCollateralAmt; }
+
 protected:
     CChainParams() {}
 
@@ -118,6 +121,8 @@ protected:
     // validation by-pass
     int64_t nLyraBadBlockTime;
     unsigned int nLyraBadBlockBits;
+    // Masternode Collateral
+    CAmount nMasternodeCollateralAmt;
     int nLastPOWBlock;
     int nMasternodeCountDrift;
     int nMaturity;
