@@ -182,6 +182,7 @@ public:
         fHeadersFirstSyncingActive = false;
 
         nPoolMaxTransactions = 3;
+        strBootstrapUrl = "https://galilel.org/bootstrap/v3/mainnet";
         strSporkKey = "02381786ba02d6dd08229fd4f4d6ef285ac21f93833f6b108045bbf180fffedf51";
         strObfuscationPoolDummyAddress = "LTxuXP8eUcdu7dYZR7QP42AScrSdjTGQR2";
         nStartMasternodePayments = 1545129003; // Tuesday 18 December 2018 10:30:03
@@ -271,6 +272,7 @@ public:
         fTestnetToBeDeprecatedFieldRPC = true;
 
         nPoolMaxTransactions = 2;
+        strBootstrapUrl = "https://galilel.org/bootstrap/v3/testnet";
         strSporkKey = "0354b4ab1ec749189681540c0ce73c0c1c7f72f95d636e590026a3180f57cbe2ca";
         strObfuscationPoolDummyAddress = "t7afHrateavDhxKiYe4eLNr6zVSLHcLuaK";
         nStartMasternodePayments = 1545129003; // Tuesday 18 December 2018 10:30:03

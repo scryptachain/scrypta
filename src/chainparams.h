@@ -102,6 +102,7 @@ public:
     // Masternode Collateral
     CAmount MasternodeCollateralAmt() const { return nMasternodeCollateralAmt; }
 
+    std::string GetBootstrapUrl() const { return strBootstrapUrl; };
 protected:
     CChainParams() {}
 
@@ -148,6 +149,7 @@ protected:
     std::string strSporkKey;
     std::string strObfuscationPoolDummyAddress;
     int64_t nStartMasternodePayments;
+    std::string strBootstrapUrl;
 };
 
 /** 
