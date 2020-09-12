@@ -1,4 +1,4 @@
-DIST_SUBDIRS = secp256k1
+DIST_SUBDIRS = secp256k1 univalue minizip
 AM_LDFLAGS = $(PTHREAD_CFLAGS) $(LIBTOOL_LDFLAGS)
 
 
@@ -18,9 +18,15 @@ $(LIBLEVELDB) $(LIBMEMENV):
 endif
 
 BITCOIN_CONFIG_INCLUDES=-I$(builddir)/config
+LIBMINIZIP = minizip/libminizip.la
+$(LIBMINIZIP):
+	@echo "Building minizip ..." && $(MAKE) -C $(@D) $(@F) CXX="$(CXX)" CC="$(CC)" PLATFORM=$(TARGET_OS) AR="$(AR)" OPT="$(AM_CXXFLAGS) $(PIE_FLAGS) $(CXXFLAGS) $(AM_CPPFLAGS) $(CPPFLAGS)"
+
 BITCOIN_INCLUDES=-I$(builddir) -I$(builddir)/obj $(BOOST_CPPFLAGS) $(LEVELDB_CPPFLAGS) $(CRYPTO_CFLAGS) $(SSL_CFLAGS)
 
 BITCOIN_INCLUDES += -I$(srcdir)/secp256k1/include
+BITCOIN_INCLUDES += -I$(srcdir)/minizip
+BITCOIN_INCLUDES += $(UNIVALUE_CFLAGS)
 
 LIBBITCOIN_SERVER=libbitcoin_server.a
 LIBBITCOIN_WALLET=libbitcoin_wallet.a
@@ -74,6 +80,10 @@ endif
 .PHONY: FORCE
 # lyra core #
 BITCOIN_CORE_H = \
+  bootstrap/bootstrapmodel.h \
+  bootstrap/curl.h \
+  bootstrap/finally.h \
+  bootstrap/ziputil.h \
   activemasternode.h \
   addrman.h \
   alert.h \
@@ -94,6 +104,7 @@ BITCOIN_CORE_H = \
   compat.h \
   compat/sanity.h \
   compressor.h \
+  context.h \
   primitives/block.h \
   primitives/transaction.h \
   core_io.h \
@@ -330,12 +341,16 @@ libbitcoin_common_a_SOURCES = \
 # backward-compatibility objects and their sanity checks are linked.
 libbitcoin_util_a_CPPFLAGS = $(BITCOIN_INCLUDES)
 libbitcoin_util_a_SOURCES = \
+  bootstrap/bootstrapmodel.cpp \
+  bootstrap/curl.cpp \
+  bootstrap/ziputil.cpp \
   allocators.cpp \
   compat/strnlen.cpp \
   compat/glibc_sanity.cpp \
   compat/glibcxx_sanity.cpp \
   chainparamsbase.cpp \
   clientversion.cpp \
+  context.cpp \
   random.cpp \
   rpcprotocol.cpp \
   sync.cpp \
@@ -369,7 +384,8 @@ lyrad_LDADD = \
   $(LIBBITCOIN_CRYPTO) \
   $(LIBLEVELDB) \
   $(LIBMEMENV) \
-  $(LIBSECP256K1)
+  $(LIBSECP256K1) \
+  $(LIBMINIZIP)
 
 if ENABLE_ZMQ
 lyrad_LDADD += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
@@ -385,7 +401,7 @@ if TARGET_WINDOWS
 lyrad_SOURCES += lyrad-res.rc
 endif
 
-lyrad_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS)
+lyrad_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS) $(CURL_LIBS)
 lyrad_CPPFLAGS = $(BITCOIN_INCLUDES)
 lyrad_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
@@ -402,6 +418,7 @@ lyra_cli_SOURCES = \
   lyra-cli.cpp
 
 lyra_cli_CPPFLAGS = $(BITCOIN_INCLUDES)
+lyra_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS) $(CURL_LIBS)
 #
 
 # lyra-tx binary #
@@ -416,6 +433,8 @@ lyra_tx_LDADD = \
 
 lyra_tx_SOURCES = lyra-tx.cpp
 lyra_tx_CPPFLAGS = $(BITCOIN_INCLUDES)
+lyra_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS) $(CURL_LIBS)
+
 #
 lyra_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 

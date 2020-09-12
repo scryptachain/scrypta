@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>674</width>
-    <height>363</height>
+    <width>680</width>
+    <height>440</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -202,6 +202,16 @@
       </layout>
      </item>
     </layout>
+   </item>
+   <item>
+    <widget class="QCheckBox" name="bootstrapBlockchain">
+     <property name="text">
+      <string>Bootstrap from the cloud (wallet syncs with network much faster)</string>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+    </widget>
    </item>
    <item>
     <spacer name="verticalSpacer">

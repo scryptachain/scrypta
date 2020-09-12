@@ -12,12 +12,23 @@ sudo apt-get install libboost-system-dev libboost-filesystem-dev libboost-chrono
 sudo apt-get install libzmq3-dev -y
 sudo apt-get install libminiupnpc-dev -y
 sudo apt-get install libgmp3-dev libevent-dev bsdmainutils libboost-all-dev openssl -y
+sudo apt-get install libssl1.0-dev -y
+
+sudo git stash
+sudo git pull
+cd ../..
+sudo chmod -R 755 scrypta
+cd scrypta
 
 sudo apt install g++-mingw-w64-x86-64 -y
-sudo update-alternatives --config x86_64-w64-mingw32-g++ # Set the default mingw32 g++ compiler option to posix. or choose 0 for deb8
+sudo update-alternatives --config x86_64-w64-mingw32-g++ -y # Set the default mingw32 g++ compiler option to posix. or choose 0 for deb8
 PATH=$(echo "$PATH" | sed -e 's/:\/mnt.*//g') # strip out problematic Windows %PATH% imported var
 cd depends
-make HOST=x86_64-w64-mingw32
+sudo make HOST=x86_64-w64-mingw32 -j4
+
 cd ..
-cd scripts
-bash build-win32.sh
+sudo ./autogen.sh # not required when building from tarball
+sudo CONFIG_SITE=$PWD/depends/x86_64-w64-mingw32/share/config.site ./configure --prefix=/
+sudo make
+
+echo "Remember to strip the QT file!"

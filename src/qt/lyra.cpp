@@ -13,6 +13,7 @@
 #include "clientmodel.h"
 #include "guiconstants.h"
 #include "guiutil.h"
+#include "context.h"
 #include "intro.h"
 #include "net.h"
 #include "networkstyle.h"
@@ -20,6 +21,8 @@
 #include "splashscreen.h"
 #include "utilitydialog.h"
 #include "winshutdownmonitor.h"
+#include "bootstrapdialog.h"
+#include "bootstrap/bootstrapmodel.h"
 
 #ifdef ENABLE_WALLET
 #include "paymentserver.h"
@@ -520,6 +523,8 @@ WId BitcoinApplication::getMainWinId() const
 #ifndef BITCOIN_QT_TEST
 int main(int argc, char* argv[])
 {
+    ContextScopeInit context;
+
     SetupEnvironment();
 
     /// 1. Parse command-line options. These take precedence over anything else.
@@ -580,7 +585,8 @@ int main(int argc, char* argv[])
 
     /// 5. Now that settings and translations are available, ask user for data directory
     // User language is set up: pick a data directory
-    if (!Intro::pickDataDirectory())
+    bool bootstrap = false;
+    if (!Intro::pickDataDirectory(bootstrap))
         return 0;
 
     /// 6. Determine availability of data directory and parse lyra.conf
@@ -609,6 +615,21 @@ int main(int argc, char* argv[])
         QMessageBox::critical(0, QObject::tr("LYRA Core"), QObject::tr("Error: Invalid combination of -regtest and -testnet."));
         return 1;
     }
+
+        // Check for bootstrap option after network is selected
+    if (bootstrap) {
+        try {
+            BootstrapDialog::bootstrapBlockchain(GetContext().GetBootstrapModel());
+        } catch (std::exception& e) {
+            QMessageBox::critical(0, QObject::tr("Scrypta Core"),
+                QObject::tr("Bootstrap failed, error: \"%1\".\nPlease restart wallet.").arg(e.what()));
+            return 1;
+        } catch (...) {
+            QMessageBox::critical(0, QObject::tr("Galilel Core"), QObject::tr("Bootstrap failed, unexpected error. Please restart wallet."));
+            return 1;
+        }
+    }
+
 #ifdef ENABLE_WALLET
     // Parse URIs on command line -- this can affect Params()
     PaymentServer::ipcParseCommandLine(argc, argv);

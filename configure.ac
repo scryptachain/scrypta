@@ -1000,6 +1000,8 @@ PKG_CONFIG_LIBDIR="$PKGCONFIG_LIBDIR_TEMP"
 ac_configure_args="${ac_configure_args} --disable-shared --with-pic"
 AC_CONFIG_SUBDIRS([src/secp256k1])
 
+AC_CONFIG_SUBDIRS([src/minizip])
+
 AC_OUTPUT
 
 dnl Taken from https://wiki.debian.org/RpathIssue

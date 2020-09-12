@@ -10,10 +10,12 @@
 #endif
 
 #include "init.h"
+#include "context.h"
 
 #include "activemasternode.h"
 #include "addrman.h"
 #include "amount.h"
+#include "bootstrap/bootstrapmodel.h"
 #include "checkpoints.h"
 #include "compat/sanity.h"
 #include "key.h"
@@ -277,6 +279,12 @@ bool static InitError(const std::string& str)
 bool static InitWarning(const std::string& str)
 {
     uiInterface.ThreadSafeMessageBox(str, "", CClientUIInterface::MSG_WARNING);
+    return true;
+}
+
+bool static InitInformation(const std::string& str)
+{
+    uiInterface.ThreadSafeMessageBox(str, "", CClientUIInterface::MSG_INFORMATION);
     return true;
 }
 
@@ -652,6 +660,43 @@ bool AppInit2(boost::thread_group& threadGroup)
         return InitError(strprintf("Error: Winsock library failed to start (WSAStartup returned error %d)", ret));
     }
 #endif
+    if (!SetupNetworking())
+        return InitError("Error: Initializing networking failed");
+
+    BootstrapModelPtr model = GetContext().GetBootstrapModel();
+
+    // Check if we should run stage II of the blockchain bootstrap
+    if (model->RunStageIIPrepared()) {
+        InitInformation("Bootstrap option detected, running stage II of bootstrap...");
+
+        std::string err;
+        if (!model->RunStageII(err)) {
+            error("%s : %s", __func__, err);
+            return InitError(err);
+        }
+
+        if (!model->IsLatestRunSuccess(err)) {
+            error("%s : %s", __func__, err);
+            return InitError(err);
+        }
+
+        if (model->IsConfigMerged()) {
+            try {
+                InitInformation("Reloading configuration file...");
+                ReadConfigFile(mapArgs, mapMultiArgs);
+            } catch (const std::exception& e) {
+                std::string err = strprintf("Error: Cannot parse configuration file: %s (%s). Only use key=value syntax. File: %s", e.what(), __func__, GetConfigFile().string());
+                return InitError(err);
+            }
+        }
+
+        InitInformation("Stage II completed.");
+    } else {
+        std::string err;
+        if (!model->CleanUp(err))
+            error("%s : %s", __func__, err); // print to log and continue
+    }
+
 #ifndef WIN32
 
     if (GetBoolArg("-sysperms", false)) {
