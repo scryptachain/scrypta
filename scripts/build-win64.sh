@@ -14,6 +14,18 @@ sudo apt-get install libminiupnpc-dev -y
 sudo apt-get install libgmp3-dev libevent-dev bsdmainutils libboost-all-dev openssl -y
 sudo apt-get install libssl1.0-dev -y
 
+# Install libtool
+sudo apt-get install libtool -y
+
+# Install Libcurl
+sudo apt-get install libcurl4-openssl-dev -y
+
+# Install openssl
+apt-get install openssl -y
+sudo apt-get install -y autoconf g++ make openssl libssl-dev libcurl4-openssl-dev -y
+sudo apt-get install -y libcurl4-openssl-dev pkg-config -y
+sudo apt-get install -y libsasl2-dev -y
+
 sudo apt install g++-mingw-w64-x86-64 -y
 sudo update-alternatives --config x86_64-w64-mingw32-g++ -y # Set the default mingw32 g++ compiler option to posix. or choose 0 for deb8
 PATH=$(echo "$PATH" | sed -e 's/:\/mnt.*//g') # strip out problematic Windows %PATH% imported var
