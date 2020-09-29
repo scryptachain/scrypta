@@ -148,8 +148,8 @@
         <translation>Czy na pewno chcesz zakodować portfel?</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR lyra&lt;/b&gt;!</source>
-        <translation>Ostrzeżenie: Jeżeli zakodujesz portfel i stracisz do niego hasło , UTRACISZ WSZYSTKIE lyra!</translation>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR LYRA&lt;/b&gt;!</source>
+        <translation>Ostrzeżenie: Jeżeli zakodujesz portfel i stracisz do niego hasło , UTRACISZ WSZYSTKIE LYRA!</translation>
     </message>
     <message>
         <source>Wallet encrypted</source>
@@ -227,8 +227,8 @@
         <translation>Zakodowany klucz:</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this lyra address</source>
-        <translation>Zatwierdź wiadomość, aby udowodnić, że podany adres lyra jest w twoim posiadaniu</translation>
+        <source>Sign the message to prove you own this LYRA address</source>
+        <translation>Zatwierdź wiadomość, aby udowodnić, że podany adres LYRA jest w twoim posiadaniu</translation>
     </message>
     <message>
         <source>Encrypt &amp;Key</source>
@@ -518,12 +518,12 @@
         <translation>&amp;Pomoc</translation>
     </message>
     <message>
-        <source>Scrypta Client</source>
+        <source>LYRA Core</source>
         <translation>&amp;Rdzeń bitcoin</translation>
     </message>
     <message>
-        <source>Send coins to a lyra address</source>
-        <translation>Wyślij monety do adresu lyra</translation>
+        <source>Send coins to a LYRA address</source>
+        <translation>Wyślij monety do adresu LYRA</translation>
     </message>
     <message>
         <source>Request payments (generates QR codes and lyra: URIs)</source>
@@ -538,24 +538,24 @@
         <translation>Przeglądaj masternodes</translation>
     </message>
     <message>
-        <source>&amp;About Scrypta Client</source>
+        <source>&amp;About LYRA Core</source>
         <translation>&amp;O rdzeniu bitcoina</translation>
     </message>
     <message>
-        <source>Show information about Scrypta Client</source>
+        <source>Show information about LYRA Core</source>
         <translation>Pokaż informacje o rdzeniu bitcoina</translation>
     </message>
     <message>
-        <source>Modify configuration options for lyra</source>
-        <translation>Modyfikuj opcje konfiguracji lyra</translation>
+        <source>Modify configuration options for LYRA</source>
+        <translation>Modyfikuj opcje konfiguracji LYRA</translation>
     </message>
     <message>
-        <source>Sign messages with your lyra addresses to prove you own them</source>
-        <translation>Zatwierdź wiadomość z twoimi adresami lyra, by udowodnić, że jesteś w ich posiadaniu</translation>
+        <source>Sign messages with your LYRA addresses to prove you own them</source>
+        <translation>Zatwierdź wiadomość z twoimi adresami LYRA, by udowodnić, że jesteś w ich posiadaniu</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified lyra addresses</source>
-        <translation>Zweryfikuj wiadomości by upewnić się, że zostały zatwierdzone z podanego adresu lyra</translation>
+        <source>Verify messages to ensure they were signed with specified LYRA addresses</source>
+        <translation>Zweryfikuj wiadomości by upewnić się, że zostały zatwierdzone z podanego adresu LYRA</translation>
     </message>
     <message>
         <source>&amp;BIP38 tool</source>
@@ -582,8 +582,8 @@
         <translation>Otwórz &amp;Plik konfiguracji Masternode</translation>
     </message>
     <message>
-        <source>Open a lyra: URI or payment request</source>
-        <translation>Otwórz lyra: URI i żądanie zapłaty</translation>
+        <source>Open a LYRA: URI or payment request</source>
+        <translation>Otwórz LYRA: URI i żądanie zapłaty</translation>
     </message>
     <message>
         <source>&amp;Blockchain explorer</source>
@@ -594,12 +594,12 @@
         <translation>Okno eksplorera bloków</translation>
     </message>
     <message>
-        <source>Show the Scrypta Client help message to get a list with possible lyra command-line options</source>
-        <translation>Pokaż wiadomość pomocy rdzenia lyra, aby dostać listę możliwych opcji lyra command-line</translation>
+        <source>Show the LYRA Core help message to get a list with possible LYRA command-line options</source>
+        <translation>Pokaż wiadomość pomocy rdzenia LYRA, aby dostać listę możliwych opcji LYRA command-line</translation>
     </message>
     <message>
-        <source>Scrypta Client client</source>
-        <translation>Rdzeń lyra klient</translation>
+        <source>LYRA Core client</source>
+        <translation>Rdzeń LYRA klient</translation>
     </message>
     <message>
         <source>Synchronizing with network...</source>
@@ -916,7 +916,7 @@ MultiWysyłlka: %1</translation>
 <context>
     <name>HelpMessageDialog</name>
     <message>
-        <source>Scrypta Client</source>
+        <source>LYRA Core</source>
         <translation>&amp;Rdzeń bitcoin</translation>
     </message>
     </context>
@@ -931,7 +931,7 @@ MultiWysyłlka: %1</translation>
         <translation>Użyj niestandardowej ścieżki danych</translation>
     </message>
     <message>
-        <source>Scrypta Client</source>
+        <source>LYRA Core</source>
         <translation>&amp;Rdzeń bitcoin</translation>
     </message>
     <message>
@@ -1192,16 +1192,16 @@ Proszę sprawdzić adres i spróbować ponownie</translation>
         <translation>Zezwól na przychodzące połączenia</translation>
     </message>
     <message>
-        <source>Automatically start lyra after logging in to the system.</source>
-        <translation>Automatycznie uruchom lyra po zalogowaniu do systemu</translation>
+        <source>Automatically start LYRA after logging in to the system.</source>
+        <translation>Automatycznie uruchom LYRA po zalogowaniu do systemu</translation>
     </message>
     <message>
-        <source>&amp;Start lyra on system login</source>
-        <translation>&amp;Uruchom lyra podczas logowania do systemu</translation>
+        <source>&amp;Start LYRA on system login</source>
+        <translation>&amp;Uruchom LYRA podczas logowania do systemu</translation>
     </message>
     <message>
-        <source>Amount of lyra to keep anonymized</source>
-        <translation>Liczba lyra do anonimizacji</translation>
+        <source>Amount of LYRA to keep anonymized</source>
+        <translation>Liczba LYRA do anonimizacji</translation>
     </message>
     <message>
         <source>Whether to show coin control features or not.</source>
@@ -1220,8 +1220,8 @@ Proszę sprawdzić adres i spróbować ponownie</translation>
         <translation>&amp;Sieć</translation>
     </message>
     <message>
-        <source>The user interface language can be set here. This setting will take effect after restarting lyra.</source>
-        <translation>Język interfejsu użytkownika może być wybrany tutaj. Ustawienia ulegną zmianie po restarcie lyra</translation>
+        <source>The user interface language can be set here. This setting will take effect after restarting LYRA.</source>
+        <translation>Język interfejsu użytkownika może być wybrany tutaj. Ustawienia ulegną zmianie po restarcie LYRA</translation>
     </message>
     <message>
         <source>Language missing or translation incomplete? Help contributing translations here:
@@ -1230,8 +1230,8 @@ https://www.transifex.com/lyra-project/lyra-project-translations</source>
 https://www.transifex.com/lyra-project/lyra-project-translations </translation>
     </message>
     <message>
-        <source>Connect to the lyra network through a SOCKS5 proxy.</source>
-        <translation>Połącz z siecią lyra poprzez SOCKS5 proxy.</translation>
+        <source>Connect to the LYRA network through a SOCKS5 proxy.</source>
+        <translation>Połącz z siecią LYRA poprzez SOCKS5 proxy.</translation>
     </message>
     <message>
         <source>Proxy &amp;IP:</source>
@@ -1373,7 +1373,7 @@ https://www.transifex.com/lyra-project/lyra-project-translations </translation>
         <translation>Status:</translation>
     </message>
     <message>
-        <source>0 lyra / 0 Rounds</source>
+        <source>0 LYRA / 0 Rounds</source>
         <translation>0 OIVX / 0 Rund</translation>
     </message>
     <message>
@@ -1458,8 +1458,8 @@ https://www.transifex.com/lyra-project/lyra-project-translations </translation>
         <translation>Liczba</translation>
     </message>
     <message>
-        <source>Enter a lyra address (e.g. %1)</source>
-        <translation>Wprowadź adres lyra (np. %1)</translation>
+        <source>Enter a LYRA address (e.g. %1)</source>
+        <translation>Wprowadź adres LYRA (np. %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -1897,8 +1897,8 @@ https://www.transifex.com/lyra-project/lyra-project-translations </translation>
         <translation>Alt+P</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this lyra address</source>
-        <translation>Zatwierdź wiadomość, aby udowodnić, że podany adres lyra jest w twoim posiadaniu</translation>
+        <source>Sign the message to prove you own this LYRA address</source>
+        <translation>Zatwierdź wiadomość, aby udowodnić, że podany adres LYRA jest w twoim posiadaniu</translation>
     </message>
     <message>
         <source>Clear &amp;All</source>
@@ -1932,7 +1932,7 @@ https://www.transifex.com/lyra-project/lyra-project-translations </translation>
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>Scrypta Client</source>
+        <source>LYRA Core</source>
         <translation>&amp;Rdzeń bitcoin</translation>
     </message>
     </context>

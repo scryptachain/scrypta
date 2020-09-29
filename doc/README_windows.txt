@@ -1,20 +1,19 @@
-Scrypta Client
+LYRA Core
 =====================
 
 Intro
 -----
-Scryptas is a Proof-of-Stake digital asset based mainly adopted as cryptoccurrency and paymenth method
-Main features are:
-- Masternode technology withh See-Saw rewards mechanism
-- Governance Bugeting System
-- SwiftTX for fast transactions
-- Obfuscation protocol 
+LYRA is a free open source peer-to-peer electronic cash system that is
+completely decentralized, without the need for a central server or trusted
+parties.  Users hold the crypto keys to their own money and transact directly
+with each other, with the help of a P2P network to check for double-spending.
+
 
 Setup
 -----
 Unpack the files into a directory and run lyra-qt.exe.
 
-Scrypta Client is the original desktop wallet and it builds the backbone of the network working and acting as a node and staking wallet.
-However, it downloads and stores the entire history of transactions on Scrypta Blockchain;
-According on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more, specially all synchronization regarding masternode network.
-
+LYRA Core is the original LYRA client and it builds the backbone of the network.
+However, it downloads and stores the entire history of LYRA transactions;
+depending on the speed of your computer and network connection, the synchronization
+process can take anywhere from a few hours to a day or more.

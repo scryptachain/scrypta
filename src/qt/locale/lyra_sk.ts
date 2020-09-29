@@ -176,8 +176,8 @@
         <translation>Potvrďte šifrovanie peňaženky</translation>
     </message>
     <message>
-        <source>Lyra will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your LYRAs from being stolen by malware infecting your computer.</source>
-        <translation>Lyra sa teraz ukončí, aby dokončil proces šifrovania. Nezabudnite, že šifrovanie peňaženky nemôže úplne ochrániť vaše LYRA pred odcudzením škodlivým softvérom, ktorý infikuje váš počítač.</translation>
+        <source>LYRA will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your LYRAs from being stolen by malware infecting your computer.</source>
+        <translation>LYRA sa teraz ukončí, aby dokončil proces šifrovania. Nezabudnite, že šifrovanie peňaženky nemôže úplne ochrániť vaše LYRA pred odcudzením škodlivým softvérom, ktorý infikuje váš počítač.</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
@@ -239,8 +239,8 @@
         <translation>BIP 38 Šifrovanie</translation>
     </message>
     <message>
-        <source>Enter a LYRA Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
-        <translation>Zadajte adresu LYRA, ktorú chcete zašifrovať pomocou BIP 38. Zadajte prístupovú frázu do stredného poľa. Stlačte šifrovanie na výpočet šifrovaného privátneho kľúča.</translation>
+        <source>Enter a Lyra Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
+        <translation>Zadajte adresu Lyra, ktorú chcete zašifrovať pomocou BIP 38. Zadajte prístupovú frázu do stredného poľa. Stlačte šifrovanie na výpočet šifrovaného privátneho kľúča.</translation>
     </message>
     <message>
         <source>Address:</source>
@@ -598,16 +598,16 @@
         <translation>Panel nástrojov Záložky</translation>
     </message>
     <message>
-        <source>Scrypta Client</source>
-        <translation>Scrypta Client</translation>
+        <source>LYRA Core</source>
+        <translation>LYRA Core</translation>
     </message>
     <message>
         <source>Send coins to a LYRA address</source>
         <translation>Odoslať mince na adresu LYRA</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and LYRA: URIs)</source>
-        <translation>Vyžiadať platby (generuje QR kódy a LYRA: identifikátory URI)</translation>
+        <source>Request payments (generates QR codes and lyra: URIs)</source>
+        <translation>Vyžiadať platby (generuje QR kódy a lyra: identifikátory URI)</translation>
     </message>
     <message>
         <source>&amp;Masternodes</source>
@@ -618,12 +618,12 @@
         <translation>Prezrieť masternody</translation>
     </message>
     <message>
-        <source>&amp;About Scrypta Client</source>
-        <translation>O Scrypta Client</translation>
+        <source>&amp;About LYRA Core</source>
+        <translation>O LYRA Core</translation>
     </message>
     <message>
-        <source>Show information about Scrypta Client</source>
-        <translation>Zobraziť informácie o Scrypta Client</translation>
+        <source>Show information about LYRA Core</source>
+        <translation>Zobraziť informácie o LYRA Core</translation>
     </message>
     <message>
         <source>Modify configuration options for LYRA</source>
@@ -678,12 +678,12 @@
         <translation>Okno blockchain prehliadača</translation>
     </message>
     <message>
-        <source>Show the Scrypta Client help message to get a list with possible LYRA command-line options</source>
-        <translation>Zobraziť pomocnú správu programu Scrypta Client a získajte zoznam možností príkazového riadka LYRA</translation>
+        <source>Show the LYRA Core help message to get a list with possible LYRA command-line options</source>
+        <translation>Zobraziť pomocnú správu programu LYRA Core a získajte zoznam možností príkazového riadka LYRA</translation>
     </message>
     <message>
-        <source>Scrypta Client client</source>
-        <translation>Scrypta Client klient</translation>
+        <source>LYRA Core client</source>
+        <translation>LYRA Core klient</translation>
     </message>
     <message>
         <source>Synchronizing with network...</source>
@@ -813,8 +813,8 @@ MultiSend: %1</translation>
         <translation>TextLabel</translation>
     </message>
     <message>
-        <source>Not all transactions will be shown. To view all transactions you need to set txindex=1 in the configuration file (LYRA.conf).</source>
-        <translation>Nie všetky transakcie sa zobrazia. Ak chcete zobraziť všetky transakcie, musíte v konfiguračnom súbore (LYRA.conf) nastaviť txindex = 1.</translation>
+        <source>Not all transactions will be shown. To view all transactions you need to set txindex=1 in the configuration file (lyra.conf).</source>
+        <translation>Nie všetky transakcie sa zobrazia. Ak chcete zobraziť všetky transakcie, musíte v konfiguračnom súbore (lyra.conf) nastaviť txindex = 1.</translation>
     </message>
 </context>
 <context>
@@ -908,15 +908,15 @@ MultiSend: %1</translation>
 <context>
     <name>HelpMessageDialog</name>
     <message>
-        <source>Scrypta Client</source>
-        <translation>Scrypta Client</translation>
+        <source>LYRA Core</source>
+        <translation>LYRA Core</translation>
     </message>
     </context>
 <context>
     <name>Intro</name>
     <message>
-        <source>Scrypta Client</source>
-        <translation>Scrypta Client</translation>
+        <source>LYRA Core</source>
+        <translation>LYRA Core</translation>
     </message>
     <message>
         <source>Error</source>
@@ -1164,8 +1164,8 @@ MultiSend: %1</translation>
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>Scrypta Client</source>
-        <translation>Scrypta Client</translation>
+        <source>LYRA Core</source>
+        <translation>LYRA Core</translation>
     </message>
     </context>
 <context>
@@ -1260,7 +1260,7 @@ MultiSend: %1</translation>
     </message>
     </context>
 <context>
-    <name>LYRA-core</name>
+    <name>lyra-core</name>
     <message>
         <source>Error</source>
         <translation>Chyba</translation>

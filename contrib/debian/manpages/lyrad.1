@@ -1,14 +1,14 @@
-.TH PIED "1" "February 2017" "lyrad 2.1.4.1"
+.TH LYRAD "1" "February 2017" "lyrad 2.1.4.1"
 .SH NAME
-lyra \- peer-to-peer network based digital currency
+Lyra \- peer-to-peer network based digital currency
 .SH SYNOPSIS
 lyrad [options] <command> [params]
 .TP
 lyrad [options] help <command> \- Get help for a command
 .SH DESCRIPTION
-This  manual page documents the lyrad program. lyra is a peer-to-peer digital currency. Peer-to-peer (P2P) means that there is no central authority to issue new money or keep track of transactions. Instead, these tasks are managed collectively by the nodes of the network. Advantages:
+This  manual page documents the lyrad program. Lyra is a peer-to-peer digital currency. Peer-to-peer (P2P) means that there is no central authority to issue new money or keep track of transactions. Instead, these tasks are managed collectively by the nodes of the network. Advantages:
 
-lyra can be sent easily through the Internet, without having to trust middlemen. Transactions are designed to be irreversible. Be safe from instability caused by fractional reserve banking and central banks. The limited inflation of the lyra system’s money supply is distributed evenly (by CPU power) throughout the network, not monopolized by banks.
+Lyra can be sent easily through the Internet, without having to trust middlemen. Transactions are designed to be irreversible. Be safe from instability caused by fractional reserve banking and central banks. The limited inflation of the Lyra system’s money supply is distributed evenly (by CPU power) throughout the network, not monopolized by banks.
 
 .SH OPTIONS
 .TP
@@ -112,7 +112,7 @@ Returns the number of connections to other nodes.
 Returns the proof-of-work difficulty as a multiple of the minimum difficulty.
 .TP
 \fBgetgenerate\fR
-Returns boolean true if server is trying to generate lyra, false otherwise.
+Returns boolean true if server is trying to generate LYRA, false otherwise.
 .TP
 \fBsetgenerate 'generate' ['genproclimit']\fR
 Generation is limited to ['genproclimit'] processors, \-1 is unlimited.
@@ -183,7 +183,7 @@ Returns a list of the last ['count'] transactions for 'account' \- for all accou
 Moves funds between accounts.
 .TP
 \fBsendfrom* <'account'> <'lyraaddress'> <'amount'> ['minconf=1'] ['comment'] ['comment-to']\fR
-Sends amount from account's balance to 'lyraaddress'. This method will fail if there is less than amount lyra with ['minconf'] confirmations in the account's balance (unless account is the empty-string-named default account; it behaves like the *sendtoaddress* method). Returns transaction ID on success.
+Sends amount from account's balance to 'lyraaddress'. This method will fail if there is less than amount LYRA with ['minconf'] confirmations in the account's balance (unless account is the empty-string-named default account; it behaves like the *sendtoaddress* method). Returns transaction ID on success.
 .TP
 \fBsendtoaddress 'lyraaddress' 'amount' ['comment'] ['comment-to']\fR
 Sends amount from the server's available balance to 'lyraaddress'. amount is a real and is rounded to the nearest 0.01. Returns transaction id on success.
@@ -192,7 +192,7 @@ Sends amount from the server's available balance to 'lyraaddress'. amount is a r
 Stops the lyra server.
 .TP
 \fBvalidateaddress 'lyraaddress'\fR
-Checks that 'lyraaddress' looks like a proper lyra address. Returns an object containing:
+Checks that 'lyraaddress' looks like a proper Lyra address. Returns an object containing:
 
     "isvalid" : true or false.
     "ismine"  : true if the address is in the server's wallet.

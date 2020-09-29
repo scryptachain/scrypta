@@ -1,5 +1,5 @@
 [Unit]
-Description=lyra's distributed currency daemon
+Description=LYRA's distributed currency daemon
 After=network.target
 
 [Service]

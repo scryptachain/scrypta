@@ -2,13 +2,14 @@
 #include "activemasternode.h"
 #include "addrman.h"
 #include "masternode.h"
+#include "main.h"
 #include "masternodeconfig.h"
 #include "masternodeman.h"
 #include "protocol.h"
 #include "spork.h"
 
 //
-// Bootup the Masternode, look for a 10000 lyra input and register on the network
+// Bootup the Masternode, look for a 10000 LYRA input and register on the network
 //
 void CActiveMasternode::ManageStatus()
 {
@@ -468,9 +469,7 @@ vector<COutput> CActiveMasternode::SelectCoinsMasternode()
 
     // Filter
     BOOST_FOREACH (const COutput& out, vCoins) {
-	
-       if (out.tx->vout[out.i].nValue == MASTER_NODE_AMOUNT * COIN) { //exactly
-
+        if (out.tx->vout[out.i].nValue == GetCurrentCollateral() * COIN) { //exactly
             filteredCoins.push_back(out);
         }
     }

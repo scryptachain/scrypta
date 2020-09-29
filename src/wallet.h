@@ -1,8 +1,7 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2017-2018 Scrypta Development Team
-// Copyright (c) 2015-2018 The PIVX developers
+// Copyright (c) 2015-2017 The LYRA developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -75,7 +74,7 @@ enum AvailableCoinsType {
     ALL_COINS = 1,
     ONLY_DENOMINATED = 2,
     ONLY_NOT10000IFMN = 3,
-    ONLY_NONDENOMINATED_NOT10000IFMN = 4, // ONLY_NONDENOMINATED and not 10000 lyra at the same time
+    ONLY_NONDENOMINATED_NOT10000IFMN = 4, // ONLY_NONDENOMINATED and not 10000 LYRA at the same time
     ONLY_10000 = 5                        // find masternode outputs including locked ones (use with caution)
 };
 
@@ -162,15 +161,15 @@ private:
 
 public:
     bool MintableCoins();
-    bool SelectStakeCoins(std::set<std::pair<const CWalletTx*, unsigned int> >& setCoins, int64_t nTargetAmount) const;
-    bool SelectCoinsDark(int64_t nValueMin, int64_t nValueMax, std::vector<CTxIn>& setCoinsRet, int64_t& nValueRet, int nObfuscationRoundsMin, int nObfuscationRoundsMax) const;
-    bool SelectCoinsByDenominations(int nDenom, int64_t nValueMin, int64_t nValueMax, std::vector<CTxIn>& vCoinsRet, std::vector<COutput>& vCoinsRet2, int64_t& nValueRet, int nObfuscationRoundsMin, int nObfuscationRoundsMax);
-    bool SelectCoinsDarkDenominated(int64_t nTargetValue, std::vector<CTxIn>& setCoinsRet, int64_t& nValueRet) const;
+    bool SelectStakeCoins(std::set<std::pair<const CWalletTx*, unsigned int> >& setCoins, CAmount nTargetAmount) const;
+    bool SelectCoinsDark(CAmount nValueMin, CAmount nValueMax, std::vector<CTxIn>& setCoinsRet, CAmount& nValueRet, int nObfuscationRoundsMin, int nObfuscationRoundsMax) const;
+    bool SelectCoinsByDenominations(int nDenom, CAmount nValueMin, CAmount nValueMax, std::vector<CTxIn>& vCoinsRet, std::vector<COutput>& vCoinsRet2, CAmount& nValueRet, int nObfuscationRoundsMin, int nObfuscationRoundsMax);
+    bool SelectCoinsDarkDenominated(CAmount nTargetValue, std::vector<CTxIn>& setCoinsRet, CAmount& nValueRet) const;
     bool HasCollateralInputs(bool fOnlyConfirmed = true) const;
-    bool IsCollateralAmount(int64_t nInputAmount) const;
-    int CountInputsWithAmount(int64_t nInputAmount);
+    bool IsCollateralAmount(CAmount nInputAmount) const;
+    int CountInputsWithAmount(CAmount nInputAmount);
 
-    bool SelectCoinsCollateral(std::vector<CTxIn>& setCoinsRet, int64_t& nValueRet) const;
+    bool SelectCoinsCollateral(std::vector<CTxIn>& setCoinsRet, CAmount& nValueRet) const;
 
     /*
      * Main wallet lock.
@@ -311,7 +310,7 @@ public:
     void UnlockCoin(COutPoint& output);
     void UnlockAllCoins();
     void ListLockedCoins(std::vector<COutPoint>& vOutpts);
-    int64_t GetTotalValue(std::vector<CTxIn> vCoins);
+    CAmount GetTotalValue(std::vector<CTxIn> vCoins);
 
     //  keystore implementation
     // Generate a new key
@@ -442,7 +441,7 @@ public:
     bool IsDenominated(const CTxIn& txin) const;
     bool IsDenominated(const CTransaction& tx) const;
 
-    bool IsDenominatedAmount(int64_t nInputAmount) const;
+    bool IsDenominatedAmount(CAmount nInputAmount) const;
 
     isminetype IsMine(const CTxIn& txin) const;
     CAmount GetDebit(const CTxIn& txin, const isminefilter& filter) const;
@@ -897,7 +896,7 @@ public:
         if (IsCoinBase() && GetBlocksToMaturity() > 0)
             return 0;
 
-        int64_t credit = 0;
+        CAmount credit = 0;
         if (filter & ISMINE_SPENDABLE) {
             // GetBalance can assume transactions in mapWallet won't change
             if (fCreditCached)
@@ -980,7 +979,7 @@ public:
             const CTxIn vin = CTxIn(hashTx, i);
 
             if (pwallet->IsSpent(hashTx, i) || pwallet->IsLockedCoin(hashTx, i)) continue;
-            if (fMasterNode && vout[i].nValue == 10000 * COIN) continue; // do not count MN-like outputs
+            if (fMasterNode && vout[i].nValue == GetCurrentCollateral() * COIN) continue; // do not count MN-like outputs
 
             const int rounds = pwallet->GetInputObfuscationRounds(vin);
             if (rounds >= -2 && rounds < nObfuscationRounds) {
@@ -1192,7 +1191,7 @@ public:
     //Used with Obfuscation. Will return largest nondenom, then denominations, then very small inputs
     int Priority() const
     {
-        BOOST_FOREACH (int64_t d, obfuScationDenominations)
+        BOOST_FOREACH (CAmount d, obfuScationDenominations)
             if (tx->vout[i].nValue == d) return 10000;
         if (tx->vout[i].nValue < 1 * COIN) return 20000;
 

@@ -17,7 +17,7 @@
   <string>APPL</string>
 
   <key>CFBundleGetInfoString</key>
-  <string>@CLIENT_VERSION_MAJOR@.@CLIENT_VERSION_MINOR@.@CLIENT_VERSION_REVISION@, Copyright © 2009-@COPYRIGHT_YEAR@ The Bitcoin Core developers, 2014-@COPYRIGHT_YEAR@ The Dash Core developers, 2017-@COPYRIGHT_YEAR@ The Pivx Core developers, 2019-@COPYRIGHT_YEAR@ The Scrypta Core developers</string>
+  <string>@CLIENT_VERSION_MAJOR@.@CLIENT_VERSION_MINOR@.@CLIENT_VERSION_REVISION@, Copyright © 2009-@COPYRIGHT_YEAR@ The Bitcoin Core developers, 2014-@COPYRIGHT_YEAR@ The Dash Core developers, 2015-@COPYRIGHT_YEAR@ The Lyra Core developers</string>
 
   <key>CFBundleShortVersionString</key>
   <string>@CLIENT_VERSION_MAJOR@.@CLIENT_VERSION_MINOR@.@CLIENT_VERSION_REVISION@</string>
@@ -29,10 +29,10 @@
   <string>????</string>
 
   <key>CFBundleExecutable</key>
-  <string>lyra-Qt</string>
+  <string>LYRA-Qt</string>
 
   <key>CFBundleIdentifier</key>
-  <string>io.lyra.lyra-Qt</string>
+  <string>io.lyra.Lyra-Qt</string>
 
   <key>CFBundleURLTypes</key>
   <array>
@@ -40,7 +40,7 @@
       <key>CFBundleTypeRole</key>
       <string>Editor</string>
       <key>CFBundleURLName</key>
-      <string>io.lyra.lyraPayment</string>
+      <string>io.lyra.LyraPayment</string>
       <key>CFBundleURLSchemes</key>
       <array>
         <string>lyra</string>
@@ -54,7 +54,7 @@
       <key>UTTypeIdentifier</key>
       <string>io.lyra.paymentrequest</string>
       <key>UTTypeDescription</key>
-      <string>lyra payment request</string>
+      <string>Lyra payment request</string>
       <key>UTTypeConformsTo</key>
       <array>
         <string>public.data</string>

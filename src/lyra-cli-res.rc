@@ -16,14 +16,14 @@ BEGIN
     BEGIN
         BLOCK "040904E4" // U.S. English - multilingual (hex)
         BEGIN
-            VALUE "CompanyName",        "lyra"
-            VALUE "FileDescription",    "lyra-cli (OSS RPC client for lyra)"
+            VALUE "CompanyName",        "Lyra"
+            VALUE "FileDescription",    "Lyra-cli (OSS RPC client for Lyra)"
             VALUE "FileVersion",        VER_FILEVERSION_STR
             VALUE "InternalName",       "lyra-cli"
             VALUE "LegalCopyright",     COPYRIGHT_STR
             VALUE "LegalTrademarks1",   "Distributed under the MIT/X11 software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php."
             VALUE "OriginalFilename",   "lyra-cli.exe"
-            VALUE "ProductName",        "lyra-cli"
+            VALUE "ProductName",        "Lyra-cli"
             VALUE "ProductVersion",     VER_PRODUCTVERSION_STR
         END
     END

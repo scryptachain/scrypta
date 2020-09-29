@@ -1,6 +1,5 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
-// Copyright (c) 2015-2018 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -24,7 +23,7 @@ struct CDNSSeedData {
 
 /**
  * CChainParams defines various tweakable parameters of a given instance of the
- * lyra system. There are three: the main network on which people trade goods
+ * LYRA system. There are three: the main network on which people trade goods
  * and services, the public test network which gets reset from time to time and
  * a regression test mode which is intended for private networks only. It has
  * minimal difficulty to ensure that blocks can be found instantly.
@@ -96,6 +95,14 @@ public:
     int64_t StartMasternodePayments() const { return nStartMasternodePayments; }
     CBaseChainParams::Network NetworkID() const { return networkID; }
 
+    // Validation bypass
+    int64_t LyraBadBlockTime() const { return nLyraBadBlockTime; }
+    unsigned int LyraBadBlockBits() const { return nLyraBadBlockBits; }
+
+    // Masternode Collateral
+    CAmount MasternodeCollateralAmt() const { return nMasternodeCollateralAmt; }
+
+    std::string GetBootstrapUrl() const { return strBootstrapUrl; };
 protected:
     CChainParams() {}
 
@@ -112,6 +119,11 @@ protected:
     int nToCheckBlockUpgradeMajority;
     int64_t nTargetTimespan;
     int64_t nTargetSpacing;
+    // validation by-pass
+    int64_t nLyraBadBlockTime;
+    unsigned int nLyraBadBlockBits;
+    // Masternode Collateral
+    CAmount nMasternodeCollateralAmt;
     int nLastPOWBlock;
     int nMasternodeCountDrift;
     int nMaturity;
@@ -137,6 +149,7 @@ protected:
     std::string strSporkKey;
     std::string strObfuscationPoolDummyAddress;
     int64_t nStartMasternodePayments;
+    std::string strBootstrapUrl;
 };
 
 /** 
@@ -165,6 +178,9 @@ public:
  */
 const CChainParams& Params();
 
+/** Return whether network params are selected or not. */
+bool ParamsSelected();
+
 /** Return parameters for the given network. */
 CChainParams& Params(CBaseChainParams::Network network);
 
@@ -179,5 +195,22 @@ void SelectParams(CBaseChainParams::Network network);
  * Returns false if an invalid combination is given.
  */
 bool SelectParamsFromCommandLine();
+
+/**
+ * Return approximate blockchain size on disk, in Gb.
+ * Minimum free space (in bytes) needed for data directory.
+ */
+uint64_t GetBlockChainSize();
+
+/**
+ * @brief Check if genesis block in the given datadir has correct hash.
+ *        Compare first block from blk0000.dat in the given datadir against genesisHash.
+ *
+ * @param datadir full path to the data directory
+ * @param genesisHash hash of the genesis block
+ * @param err description of the problem
+ * @return true - ok, false - failed
+ */
+bool VerifyGenesisBlock(const std::string& datadir, const uint256& genesisHash, std::string& err);
 
 #endif // BITCOIN_CHAINPARAMS_H

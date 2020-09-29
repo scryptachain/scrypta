@@ -62,12 +62,12 @@
         <translation>Adresy pro přijetí peněz</translation>
     </message>
     <message>
-        <source>These are your lyra addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Toto jsou Vaše lyra adresy pro poslání platby. Vždy si překontrolujte množství peněz a cílovou adresu než platbu odešlete.</translation>
+        <source>These are your LYRA addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Toto jsou Vaše LYRA adresy pro poslání platby. Vždy si překontrolujte množství peněz a cílovou adresu než platbu odešlete.</translation>
     </message>
     <message>
-        <source>These are your lyra addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Toto jsou Vaše lyra adresy pro přijetí plateb. Je doporučeno použít novou adresu pro každou novou transakci.</translation>
+        <source>These are your LYRA addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>Toto jsou Vaše LYRA adresy pro přijetí plateb. Je doporučeno použít novou adresu pro každou novou transakci.</translation>
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -176,16 +176,16 @@
         <translation>Potvrdit zašifrování peněženky</translation>
     </message>
     <message>
-        <source>lyra will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your lyras from being stolen by malware infecting your computer.</source>
-        <translation>lyra se teď zavře pro dokončení šifrovacího procesu. Prosím, vemte na vědomí, že zašifrování Vaší peněženky plně neochrání Vaše lyray před krádží, pokud je Váš počítač infikován malwarem.</translation>
+        <source>LYRA will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your LYRAs from being stolen by malware infecting your computer.</source>
+        <translation>LYRA se teď zavře pro dokončení šifrovacího procesu. Prosím, vemte na vědomí, že zašifrování Vaší peněženky plně neochrání Vaše LYRAy před krádží, pokud je Váš počítač infikován malwarem.</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
         <translation>Opravdu chcete zašifrovat Vaši peněženku?</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR lyra&lt;/b&gt;!</source>
-        <translation>Varování: Pokud zašifrujete svou peněženku a ztratíte frázové heslo, tak &lt;b&gt;ZTRATÍTE VŠECHNY VAŠE lyray&lt;/b&gt;!</translation>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR LYRA&lt;/b&gt;!</source>
+        <translation>Varování: Pokud zašifrujete svou peněženku a ztratíte frázové heslo, tak &lt;b&gt;ZTRATÍTE VŠECHNY VAŠE LYRAy&lt;/b&gt;!</translation>
     </message>
     <message>
         <source>Wallet encrypted</source>
@@ -239,16 +239,16 @@
         <translation>&amp;BIP 38 Šifrovat</translation>
     </message>
     <message>
-        <source>Enter a lyra Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
-        <translation>Zadejte lyra adresu, kterou si přejete zašifrovat pomocí BIP38. Frázové heslo zadejte do prostředního boxu. Stiskněte šifrovat pro výpočet šifrovaného privátního klíče.</translation>
+        <source>Enter a Lyra Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
+        <translation>Zadejte LYRA adresu, kterou si přejete zašifrovat pomocí BIP38. Frázové heslo zadejte do prostředního boxu. Stiskněte šifrovat pro výpočet šifrovaného privátního klíče.</translation>
     </message>
     <message>
         <source>Address:</source>
         <translation>Adresa:</translation>
     </message>
     <message>
-        <source>The lyra address to sign the message with</source>
-        <translation>lyra adresa pro podepsání zprávy</translation>
+        <source>The LYRA address to sign the message with</source>
+        <translation>LYRA adresa pro podepsání zprávy</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -279,8 +279,8 @@
         <translation>Kopírovat aktuální podpis do systémové mezipaměti</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this lyra address</source>
-        <translation>Podepsat zprávu k prokázání, že vlastníte tuto lyra adresu</translation>
+        <source>Sign the message to prove you own this LYRA address</source>
+        <translation>Podepsat zprávu k prokázání, že vlastníte tuto LYRA adresu</translation>
     </message>
     <message>
         <source>Encrypt &amp;Key</source>
@@ -303,12 +303,12 @@
         <translation>Vložte BIP 38 šifrovaný privítní klíc. Frázové heslo vložte do prostředního boxu. Kliknětě na Dešifrovat Klíč pro výpočet privátního klíče. Poté co bude klíč dešifrován, kliknutím na 'Importovat Adresu' přidáte privátní klíč do Vaší peněženky.</translation>
     </message>
     <message>
-        <source>The lyra address the message was signed with</source>
-        <translation>lyra adresa zprávy byla podpsána</translation>
+        <source>The LYRA address the message was signed with</source>
+        <translation>LYRA adresa zprávy byla podpsána</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified lyra address</source>
-        <translation>Verifikujte zprávu pro ujištění, že byla podepsána zmíněnou lyra adresou</translation>
+        <source>Verify the message to ensure it was signed with the specified LYRA address</source>
+        <translation>Verifikujte zprávu pro ujištění, že byla podepsána zmíněnou LYRA adresou</translation>
     </message>
     <message>
         <source>Decrypt &amp;Key</source>
@@ -598,12 +598,12 @@
         <translation>Nástrojová lišta záložek</translation>
     </message>
     <message>
-        <source>Scrypta Client</source>
-        <translation>Scrypta Client</translation>
+        <source>LYRA Core</source>
+        <translation>LYRA Core</translation>
     </message>
     <message>
-        <source>Send coins to a lyra address</source>
-        <translation>Odeslat platbuna lyra adresu</translation>
+        <source>Send coins to a LYRA address</source>
+        <translation>Odeslat platbuna LYRA adresu</translation>
     </message>
     <message>
         <source>Request payments (generates QR codes and lyra: URIs)</source>
@@ -618,24 +618,24 @@
         <translation>Procházet masternody</translation>
     </message>
     <message>
-        <source>&amp;About Scrypta Client</source>
-        <translation>&amp;O Scrypta Client</translation>
+        <source>&amp;About LYRA Core</source>
+        <translation>&amp;O LYRA Core</translation>
     </message>
     <message>
-        <source>Show information about Scrypta Client</source>
-        <translation>Zobraz informace o Scrypta Client</translation>
+        <source>Show information about LYRA Core</source>
+        <translation>Zobraz informace o LYRA Core</translation>
     </message>
     <message>
-        <source>Modify configuration options for lyra</source>
-        <translation>Upravit možnosti konfigurace pro lyra</translation>
+        <source>Modify configuration options for LYRA</source>
+        <translation>Upravit možnosti konfigurace pro LYRA</translation>
     </message>
     <message>
-        <source>Sign messages with your lyra addresses to prove you own them</source>
-        <translation>Podepsat zprávy Vaší lyra adresou pro prokázaní, že jste jejich vlastníkem</translation>
+        <source>Sign messages with your LYRA addresses to prove you own them</source>
+        <translation>Podepsat zprávy Vaší LYRA adresou pro prokázaní, že jste jejich vlastníkem</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified lyra addresses</source>
-        <translation>Ověřit zprávy k zajištění, že bylypodepsány vybranými lyra adresami</translation>
+        <source>Verify messages to ensure they were signed with specified LYRA addresses</source>
+        <translation>Ověřit zprávy k zajištění, že bylypodepsány vybranými LYRA adresami</translation>
     </message>
     <message>
         <source>&amp;BIP38 tool</source>
@@ -666,8 +666,8 @@
         <translation>Otevřít Masternodový konfigurační soubor</translation>
     </message>
     <message>
-        <source>Open a lyra: URI or payment request</source>
-        <translation>Otevřít lyra: URI nebo platební žádost</translation>
+        <source>Open a LYRA: URI or payment request</source>
+        <translation>Otevřít LYRA: URI nebo platební žádost</translation>
     </message>
     <message>
         <source>&amp;Blockchain explorer</source>
@@ -678,12 +678,12 @@
         <translation>Okno blokového průzkumníka</translation>
     </message>
     <message>
-        <source>Show the Scrypta Client help message to get a list with possible lyra command-line options</source>
-        <translation>Zobrazit Scrypta Client pomocnou zpráv pro získání seznamu možných parametrů lyra pro příkazy do příkazové řádky</translation>
+        <source>Show the LYRA Core help message to get a list with possible LYRA command-line options</source>
+        <translation>Zobrazit LYRA Core pomocnou zpráv pro získání seznamu možných parametrů LYRA pro příkazy do příkazové řádky</translation>
     </message>
     <message>
-        <source>Scrypta Client client</source>
-        <translation>Scrypta Client klient</translation>
+        <source>LYRA Core client</source>
+        <translation>LYRA Core klient</translation>
     </message>
     <message>
         <source>Synchronizing with network...</source>
@@ -1070,8 +1070,8 @@ MultiSend: %1</translation>
         <translation>Upravit adresu k odeslání platby</translation>
     </message>
     <message>
-        <source>The entered address "%1" is not a valid lyra address.</source>
-        <translation>Zadaná adresa "%1" není validní lyra adresa.</translation>
+        <source>The entered address "%1" is not a valid LYRA address.</source>
+        <translation>Zadaná adresa "%1" není validní LYRA adresa.</translation>
     </message>
     <message>
         <source>The entered address "%1" is already in the address book.</source>
@@ -1116,12 +1116,12 @@ MultiSend: %1</translation>
         <translation>verze</translation>
     </message>
     <message>
-        <source>Scrypta Client</source>
-        <translation>Scrypta Client</translation>
+        <source>LYRA Core</source>
+        <translation>LYRA Core</translation>
     </message>
     <message>
-        <source>About Scrypta Client</source>
-        <translation>O Scrypta Client</translation>
+        <source>About LYRA Core</source>
+        <translation>O LYRA Core</translation>
     </message>
     <message>
         <source>Command-line options</source>
@@ -1155,16 +1155,16 @@ MultiSend: %1</translation>
         <translation>Vítejte</translation>
     </message>
     <message>
-        <source>Welcome to Scrypta Client.</source>
-        <translation>Vítejte v Scrypta Client.</translation>
+        <source>Welcome to LYRA Core.</source>
+        <translation>Vítejte v LYRA Core.</translation>
     </message>
     <message>
-        <source>As this is the first time the program is launched, you can choose where Scrypta Client will store its data.</source>
-        <translation>Při prvním spuštění programu si můžete vybrat, kam bude Scrypta Client ukládat svá data.</translation>
+        <source>As this is the first time the program is launched, you can choose where LYRA Core will store its data.</source>
+        <translation>Při prvním spuštění programu si můžete vybrat, kam bude LYRA Core ukládat svá data.</translation>
     </message>
     <message>
-        <source>Scrypta Client will download and store a copy of the lyra block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>Scrypta Client stáhne a uloží kopii lyra blockchainu. Nejméně %1GB dat bude do této složky uloženo a v průběhu času bude ukládat další data. Peněženka bude v této složce uložena také.</translation>
+        <source>LYRA Core will download and store a copy of the LYRA block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>LYRA Core stáhne a uloží kopii LYRA blockchainu. Nejméně %1GB dat bude do této složky uloženo a v průběhu času bude ukládat další data. Peněženka bude v této složce uložena také.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -1175,8 +1175,8 @@ MultiSend: %1</translation>
         <translation>Použít vlastní složku pro data</translation>
     </message>
     <message>
-        <source>Scrypta Client</source>
-        <translation>Scrypta Client</translation>
+        <source>LYRA Core</source>
+        <translation>LYRA Core</translation>
     </message>
     <message>
         <source>Error: Specified data directory "%1" cannot be created.</source>
@@ -1442,24 +1442,24 @@ Prosím zkontrolujte adresu a zkuste to znovu.</translation>
         <translation>Vyberte úrpvěň ochrany soukromí</translation>
     </message>
     <message>
-        <source>Use 2 separate masternodes to mix funds up to 10000 lyra</source>
-        <translation>Použí 2 oddělené masternody k promíchání prostředků až do 10000 lyra</translation>
+        <source>Use 2 separate masternodes to mix funds up to 10000 LYRA</source>
+        <translation>Použí 2 oddělené masternody k promíchání prostředků až do 10000 LYRA</translation>
     </message>
     <message>
         <source>Use 16 separate masternodes</source>
         <translation>Použít 16 oddělených masternodů</translation>
     </message>
     <message>
-        <source>This option is the quickest and will cost about ~0.025 lyra to anonymize 10000 lyra</source>
-        <translation>Tato možnost je nejrychleší a bude stát zhruba ~0.025 lyra pro anonymizaci 10000 lyra</translation>
+        <source>This option is the quickest and will cost about ~0.025 LYRA to anonymize 10000 LYRA</source>
+        <translation>Tato možnost je nejrychleší a bude stát zhruba ~0.025 LYRA pro anonymizaci 10000 LYRA</translation>
     </message>
     <message>
         <source>This is the slowest and most secure option. Using maximum anonymity will cost</source>
         <translation>Toto je nejpomalejší a nejvíce bezpečná volba. Použití maximalní anonymity bude stát</translation>
     </message>
     <message>
-        <source>0.1 lyra per 10000 lyra you anonymize.</source>
-        <translation>0.1 lyra za 10000 lyra anonymizujete.</translation>
+        <source>0.1 LYRA per 10000 LYRA you anonymize.</source>
+        <translation>0.1 LYRA za 10000 LYRA anonymizujete.</translation>
     </message>
     <message>
         <source>Obfuscation Configuration</source>
@@ -1524,16 +1524,16 @@ Prosím zkontrolujte adresu a zkuste to znovu.</translation>
         <translation>Expert</translation>
     </message>
     <message>
-        <source>Automatically start lyra after logging in to the system.</source>
-        <translation>Automaticky spustit lyra po přihlášení do systému</translation>
+        <source>Automatically start LYRA after logging in to the system.</source>
+        <translation>Automaticky spustit LYRA po přihlášení do systému</translation>
     </message>
     <message>
-        <source>&amp;Start lyra on system login</source>
-        <translation>&amp;Spusti lyra při přihlášení do systému</translation>
+        <source>&amp;Start LYRA on system login</source>
+        <translation>&amp;Spusti LYRA při přihlášení do systému</translation>
     </message>
     <message>
-        <source>Amount of lyra to keep anonymized</source>
-        <translation>Počet lyra pro anonymní držení</translation>
+        <source>Amount of LYRA to keep anonymized</source>
+        <translation>Počet LYRA pro anonymní držení</translation>
     </message>
     <message>
         <source>Show Masternodes Tab</source>
@@ -1639,8 +1639,8 @@ Prosím zkontrolujte adresu a zkuste to znovu.</translation>
         <translation>Obfuskační Balance:</translation>
     </message>
     <message>
-        <source>0 lyra / 0 Rounds</source>
-        <translation>0 lyra / 0 Kol</translation>
+        <source>0 LYRA / 0 Rounds</source>
+        <translation>0 LYRA / 0 Kol</translation>
     </message>
     <message>
         <source>Enabled/Disabled</source>
@@ -2066,8 +2066,8 @@ Prosím zkontrolujte adresu a zkuste to znovu.</translation>
         <translation>Změna:</translation>
     </message>
     <message>
-        <source>0 lyra</source>
-        <translation>0 lyra</translation>
+        <source>0 LYRA</source>
+        <translation>0 LYRA</translation>
     </message>
     <message>
         <source>Transaction Fee:</source>
@@ -2199,8 +2199,8 @@ Prosím zkontrolujte adresu a zkuste to znovu.</translation>
 <context>
     <name>SignVerifyMessageDialog</name>
     <message>
-        <source>The lyra address to sign the message with</source>
-        <translation>lyra adresa pro podepsání zprávy</translation>
+        <source>The LYRA address to sign the message with</source>
+        <translation>LYRA adresa pro podepsání zprávy</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -2227,16 +2227,16 @@ Prosím zkontrolujte adresu a zkuste to znovu.</translation>
         <translation>Kopírovat aktuální podpis do systémové mezipaměti</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this lyra address</source>
-        <translation>Podepsat zprávu k prokázání, že vlastníte tuto lyra adresu</translation>
+        <source>Sign the message to prove you own this LYRA address</source>
+        <translation>Podepsat zprávu k prokázání, že vlastníte tuto LYRA adresu</translation>
     </message>
     <message>
-        <source>The lyra address the message was signed with</source>
-        <translation>lyra adresa zprávy byla podpsána</translation>
+        <source>The LYRA address the message was signed with</source>
+        <translation>LYRA adresa zprávy byla podpsána</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified lyra address</source>
-        <translation>Verifikujte zprávu pro ujištění, že byla podepsána zmíněnou lyra adresou</translation>
+        <source>Verify the message to ensure it was signed with the specified LYRA address</source>
+        <translation>Verifikujte zprávu pro ujištění, že byla podepsána zmíněnou LYRA adresou</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -2278,8 +2278,8 @@ Prosím zkontrolujte adresu a zkuste to znovu.</translation>
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>Scrypta Client</source>
-        <translation>Scrypta Client</translation>
+        <source>LYRA Core</source>
+        <translation>LYRA Core</translation>
     </message>
     </context>
 <context>

@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Lyra
+Comment=Lyra P2P Cryptocurrency
+Comment[fr]=Lyra, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Lyra, eşten eşe kriptografik sanal para birimi
+Exec=lyra-qt %u
+Terminal=false
+Type=Application
+Icon=lyra128
+MimeType=x-scheme-handler/lyra;
+Categories=Office;Finance;

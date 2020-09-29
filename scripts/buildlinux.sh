@@ -13,6 +13,18 @@ sudo apt-get install libzmq3-dev -y
 sudo apt-get install libminiupnpc-dev -y
 sudo apt-get install libgmp3-dev libevent-dev bsdmainutils libboost-all-dev openssl -y
 
+# Install libtool	
+sudo apt-get install libtool -y
+
+# Install Libcurl
+sudo apt-get install libcurl4-openssl-dev -y
+
+# Install openssl
+apt-get install openssl -y
+sudo apt-get install -y autoconf g++ make openssl libssl-dev libcurl4-openssl-dev -y
+sudo apt-get install -y libcurl4-openssl-dev pkg-config -y
+sudo apt-get install -y libsasl2-dev -y
+
 ./autogen.sh
-./configure
+./configure --with-unsupported-ssl
 make

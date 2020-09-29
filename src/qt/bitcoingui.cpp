@@ -1,11 +1,12 @@
 // Copyright (c) 2011-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2017-2018 Scrypta Development Team
+// Copyright (c) 2015-2017 The LYRA developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "bitcoingui.h"
 
+#include "context.h"
 #include "bitcoinunits.h"
 #include "clientmodel.h"
 #include "guiconstants.h"
@@ -18,6 +19,8 @@
 #include "optionsmodel.h"
 #include "rpcconsole.h"
 #include "utilitydialog.h"
+#include "bootstrapdialog.h"
+#include "bootstrap/bootstrapmodel.h"
 
 #ifdef ENABLE_WALLET
 #include "blockexplorer.h"
@@ -104,6 +107,7 @@ BitcoinGUI::BitcoinGUI(const NetworkStyle* networkStyle, QWidget* parent) : QMai
                                                                             notificator(0),
                                                                             rpcConsole(0),
                                                                             explorerWindow(0),
+                                                                            bootstrapWindow(0),
                                                                             prevBlocks(0),
                                                                             spinnerFrame(0)
 {
@@ -112,7 +116,7 @@ BitcoinGUI::BitcoinGUI(const NetworkStyle* networkStyle, QWidget* parent) : QMai
 
     GUIUtil::restoreWindowGeometry("nWindow", QSize(850, 550), this);
 
-    QString windowTitle = tr("Scrypta Client") + " - ";
+    QString windowTitle = tr("LYRA Core") + " - ";
 #ifdef ENABLE_WALLET
     /* if compiled with wallet support, -disablewallet can still disable the wallet */
     enableWallet = !GetBoolArg("-disablewallet", false);
@@ -142,6 +146,8 @@ BitcoinGUI::BitcoinGUI(const NetworkStyle* networkStyle, QWidget* parent) : QMai
 #endif
 
     rpcConsole = new RPCConsole(enableWallet ? this : 0);
+    bootstrapWindow = new BootstrapDialog(GetContext().GetBootstrapModel(), this);
+
 #ifdef ENABLE_WALLET
     if (enableWallet) {
         /** Create wallet frame*/
@@ -243,8 +249,11 @@ BitcoinGUI::BitcoinGUI(const NetworkStyle* networkStyle, QWidget* parent) : QMai
 
     connect(openBlockExplorerAction, SIGNAL(triggered()), explorerWindow, SLOT(show()));
 
+    connect(openBootstrapAction, SIGNAL(triggered()), bootstrapWindow, SLOT(show()));
+
     // prevents an open debug window from becoming stuck/unusable on client shutdown
     connect(quitAction, SIGNAL(triggered()), explorerWindow, SLOT(hide()));
+    connect(quitAction, SIGNAL(triggered()), bootstrapWindow, SLOT(hide()));
 
     // Install event filter to be able to catch status tip events (QEvent::StatusTip)
     this->installEventFilter(this);
@@ -291,7 +300,7 @@ void BitcoinGUI::createActions(const NetworkStyle* networkStyle)
     tabGroup->addAction(overviewAction);
 
     sendCoinsAction = new QAction(QIcon(":/icons/send"), tr("&Send"), this);
-    sendCoinsAction->setStatusTip(tr("Send coins to a lyra address"));
+    sendCoinsAction->setStatusTip(tr("Send coins to a LYRA address"));
     sendCoinsAction->setToolTip(sendCoinsAction->statusTip());
     sendCoinsAction->setCheckable(true);
 #ifdef Q_OS_MAC
@@ -357,8 +366,8 @@ void BitcoinGUI::createActions(const NetworkStyle* networkStyle)
     quitAction->setStatusTip(tr("Quit application"));
     quitAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_Q));
     quitAction->setMenuRole(QAction::QuitRole);
-    aboutAction = new QAction(networkStyle->getAppIcon(), tr("&About Scrypta Client"), this);
-    aboutAction->setStatusTip(tr("Show information about Scrypta Client"));
+    aboutAction = new QAction(networkStyle->getAppIcon(), tr("&About LYRA Core"), this);
+    aboutAction->setStatusTip(tr("Show information about LYRA Core"));
     aboutAction->setMenuRole(QAction::AboutRole);
 #if QT_VERSION < 0x050000
     aboutQtAction = new QAction(QIcon(":/trolltech/qmessagebox/images/qtlogo-64.png"), tr("About &Qt"), this);
@@ -368,7 +377,7 @@ void BitcoinGUI::createActions(const NetworkStyle* networkStyle)
     aboutQtAction->setStatusTip(tr("Show information about Qt"));
     aboutQtAction->setMenuRole(QAction::AboutQtRole);
     optionsAction = new QAction(QIcon(":/icons/options"), tr("&Options..."), this);
-    optionsAction->setStatusTip(tr("Modify configuration options for lyra"));
+    optionsAction->setStatusTip(tr("Modify configuration options for LYRA"));
     optionsAction->setMenuRole(QAction::PreferencesRole);
     toggleHideAction = new QAction(networkStyle->getAppIcon(), tr("&Show / Hide"), this);
     toggleHideAction->setStatusTip(tr("Show or hide the main Window"));
@@ -384,9 +393,9 @@ void BitcoinGUI::createActions(const NetworkStyle* networkStyle)
     unlockWalletAction->setToolTip(tr("Unlock wallet"));
     lockWalletAction = new QAction(tr("&Lock Wallet"), this);
     signMessageAction = new QAction(QIcon(":/icons/edit"), tr("Sign &message..."), this);
-    signMessageAction->setStatusTip(tr("Sign messages with your lyra addresses to prove you own them"));
+    signMessageAction->setStatusTip(tr("Sign messages with your LYRA addresses to prove you own them"));
     verifyMessageAction = new QAction(QIcon(":/icons/transaction_0"), tr("&Verify message..."), this);
-    verifyMessageAction->setStatusTip(tr("Verify messages to ensure they were signed with specified lyra addresses"));
+    verifyMessageAction->setStatusTip(tr("Verify messages to ensure they were signed with specified LYRA addresses"));
     bip38ToolAction = new QAction(QIcon(":/icons/key"), tr("&BIP38 tool"), this);
     bip38ToolAction->setToolTip(tr("Encrypt and decrypt private keys using a passphrase"));
     multiSendAction = new QAction(QIcon(":/icons/edit"), tr("&MultiSend"), this);
@@ -403,6 +412,8 @@ void BitcoinGUI::createActions(const NetworkStyle* networkStyle)
     openPeersAction->setStatusTip(tr("Show peers info"));
     openRepairAction = new QAction(QIcon(":/icons/options"), tr("Wallet &Repair"), this);
     openRepairAction->setStatusTip(tr("Show wallet repair options"));
+    openBootstrapAction = new QAction(QIcon(":/icons/options"), tr("&Blockchain Bootstrap"), this);
+    openBootstrapAction->setStatusTip(tr("Reload blockchain from the cloud or file"));
     openConfEditorAction = new QAction(QIcon(":/icons/edit"), tr("Open Wallet &Configuration File"), this);
     openConfEditorAction->setStatusTip(tr("Open configuration file"));
     openMNConfEditorAction = new QAction(QIcon(":/icons/edit"), tr("Open &Masternode Configuration File"), this);
@@ -416,13 +427,13 @@ void BitcoinGUI::createActions(const NetworkStyle* networkStyle)
     usedReceivingAddressesAction->setStatusTip(tr("Show the list of used receiving addresses and labels"));
 
     openAction = new QAction(QApplication::style()->standardIcon(QStyle::SP_FileIcon), tr("Open &URI..."), this);
-    openAction->setStatusTip(tr("Open a lyra: URI or payment request"));
+    openAction->setStatusTip(tr("Open a LYRA: URI or payment request"));
     openBlockExplorerAction = new QAction(QIcon(":/icons/explorer"), tr("&Blockchain explorer"), this);
     openBlockExplorerAction->setStatusTip(tr("Block explorer window"));
 
     showHelpMessageAction = new QAction(QApplication::style()->standardIcon(QStyle::SP_MessageBoxInformation), tr("&Command-line options"), this);
     showHelpMessageAction->setMenuRole(QAction::NoRole);
-    showHelpMessageAction->setStatusTip(tr("Show the Scrypta Client help message to get a list with possible lyra command-line options"));
+    showHelpMessageAction->setStatusTip(tr("Show the LYRA Core help message to get a list with possible LYRA command-line options"));
 
     connect(quitAction, SIGNAL(triggered()), qApp, SLOT(quit()));
     connect(aboutAction, SIGNAL(triggered()), this, SLOT(aboutClicked()));
@@ -491,6 +502,7 @@ void BitcoinGUI::createMenuBar()
         tools->addAction(openNetworkAction);
         tools->addAction(openPeersAction);
         tools->addAction(openRepairAction);
+        tools->addAction(openBootstrapAction);
         tools->addSeparator();
         tools->addAction(openConfEditorAction);
         tools->addAction(openMNConfEditorAction);
@@ -623,7 +635,7 @@ void BitcoinGUI::createTrayIcon(const NetworkStyle* networkStyle)
 {
 #ifndef Q_OS_MAC
     trayIcon = new QSystemTrayIcon(this);
-    QString toolTip = tr("Scrypta Client client") + " " + networkStyle->getTitleAddText();
+    QString toolTip = tr("LYRA Core client") + " " + networkStyle->getTitleAddText();
     trayIcon->setToolTip(toolTip);
     trayIcon->setIcon(networkStyle->getAppIcon());
     trayIcon->show();
@@ -668,6 +680,7 @@ void BitcoinGUI::createTrayIconMenu()
     trayIconMenu->addAction(openNetworkAction);
     trayIconMenu->addAction(openPeersAction);
     trayIconMenu->addAction(openRepairAction);
+    trayIconMenu->addAction(openBootstrapAction);
     trayIconMenu->addSeparator();
     trayIconMenu->addAction(openConfEditorAction);
     trayIconMenu->addAction(openMNConfEditorAction);
@@ -813,7 +826,7 @@ void BitcoinGUI::setNumConnections(int count)
     }
     QIcon connectionItem = QIcon(icon).pixmap(STATUSBAR_ICONSIZE, STATUSBAR_ICONSIZE);
     labelConnectionsIcon->setIcon(connectionItem);
-    labelConnectionsIcon->setToolTip(tr("%n active connection(s) to lyra network", "", count));
+    labelConnectionsIcon->setToolTip(tr("%n active connection(s) to LYRA network", "", count));
 }
 
 void BitcoinGUI::setNumBlocks(int count)
@@ -879,7 +892,7 @@ void BitcoinGUI::setNumBlocks(int count)
                            masternodeSync.RequestedMasternodeAttempt + 1 :
                            MASTERNODE_SYNC_THRESHOLD;
             progress = nAttempt + (masternodeSync.RequestedMasternodeAssets - 1) * MASTERNODE_SYNC_THRESHOLD;
-            progressBar->setMaximum(2 * MASTERNODE_SYNC_THRESHOLD);
+            progressBar->setMaximum(4 * MASTERNODE_SYNC_THRESHOLD);
             progressBar->setFormat(tr("Synchronizing additional data: %p%"));
             progressBar->setValue(progress);
         }
@@ -907,7 +920,7 @@ void BitcoinGUI::setNumBlocks(int count)
         }
 
         progressBarLabel->setVisible(true);
-        progressBar->setFormat(tr("%1 behind. Scanning block %2").arg(timeBehindText).arg(count));
+        progressBar->setFormat(tr("%1 behind").arg(timeBehindText));
         progressBar->setMaximum(1000000000);
         progressBar->setValue(clientModel->getVerificationProgress() * 1000000000.0 + 0.5);
         progressBar->setVisible(true);
@@ -943,7 +956,7 @@ void BitcoinGUI::setNumBlocks(int count)
 
 void BitcoinGUI::message(const QString& title, const QString& message, unsigned int style, bool* ret)
 {
-    QString strTitle = tr("Scrypta Client"); // default title
+    QString strTitle = tr("LYRA Core"); // default title
     // Default to information icon
     int nMBoxIcon = QMessageBox::Information;
     int nNotifyIcon = Notificator::Information;
@@ -968,7 +981,7 @@ void BitcoinGUI::message(const QString& title, const QString& message, unsigned 
             break;
         }
     }
-    // Append title to "lyra - "
+    // Append title to "LYRA - "
     if (!msgType.isEmpty())
         strTitle += " - " + msgType;
 

@@ -160,7 +160,7 @@
         <translation>Bekräfta plånboks krypering</translation>
     </message>
     <message>
-        <source>LYRA will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your LYRA from being stolen by malware infecting your computer.</source>
+        <source>LYRA will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your LYRAs from being stolen by malware infecting your computer.</source>
         <translation>LYRA kommer att stängas ner nu för att färdigställa kryperingsprocessen. Kom ihåg att kryptering av din plånbok inte kan säkerställa dina LYRAs från att bli stulna av skadeprogram som infekterat din dator.</translation>
     </message>
     <message>
@@ -223,8 +223,8 @@
         <translation>BIP 38 Kryptering</translation>
     </message>
     <message>
-        <source>Enter a LYRA Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
-        <translation>Skriv in en LYRA adress som du vill kryptera med BIP 38.
+        <source>Enter a Lyra Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
+        <translation>Skriv in en Lyra adress som du vill kryptera med BIP 38.
 Skriv in en lösenfras i den mellersta boxen. Tryck kryptera för att beräkna den krypterade privata nyckeln.</translation>
     </message>
     <message>
@@ -583,7 +583,7 @@ Skriv in en lösenfras i den mellersta boxen. Tryck kryptera för att beräkna d
         <translation>flik vertygsrad</translation>
     </message>
     <message>
-        <source>Scrypta Client</source>
+        <source>LYRA Core</source>
         <translation>LYRA Kärna</translation>
     </message>
     <message>
@@ -591,8 +591,8 @@ Skriv in en lösenfras i den mellersta boxen. Tryck kryptera för att beräkna d
         <translation>Skicka mynt till en LYRA adress</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and LYRA: URIs)</source>
-        <translation>Begär betalning (genererar QR kod och LYRA: URls)</translation>
+        <source>Request payments (generates QR codes and lyra: URIs)</source>
+        <translation>Begär betalning (genererar QR kod och lyra: URls)</translation>
     </message>
     <message>
         <source>&amp;Masternodes</source>
@@ -603,11 +603,11 @@ Skriv in en lösenfras i den mellersta boxen. Tryck kryptera för att beräkna d
         <translation>Utforska masternoder</translation>
     </message>
     <message>
-        <source>&amp;About Scrypta Client</source>
+        <source>&amp;About LYRA Core</source>
         <translation>Om LYRA Kärnan</translation>
     </message>
     <message>
-        <source>Show information about Scrypta Client</source>
+        <source>Show information about LYRA Core</source>
         <translation>Visa information om LYRA Kärnan</translation>
     </message>
     <message>
@@ -631,7 +631,7 @@ Skriv in en lösenfras i den mellersta boxen. Tryck kryptera för att beräkna d
         <translation>Kryptera och avkryptera privata nycklar genom användning av lösenfras</translation>
     </message>
     <message>
-        <source>Scrypta Client client</source>
+        <source>LYRA Core client</source>
         <translation>LYRA kärn klient</translation>
     </message>
     <message>
@@ -841,14 +841,14 @@ Skriv in en lösenfras i den mellersta boxen. Tryck kryptera för att beräkna d
 <context>
     <name>HelpMessageDialog</name>
     <message>
-        <source>Scrypta Client</source>
+        <source>LYRA Core</source>
         <translation>LYRA Kärna</translation>
     </message>
     </context>
 <context>
     <name>Intro</name>
     <message>
-        <source>Scrypta Client</source>
+        <source>LYRA Core</source>
         <translation>LYRA Kärna</translation>
     </message>
     <message>
@@ -1181,7 +1181,7 @@ Skriv in en lösenfras i den mellersta boxen. Tryck kryptera för att beräkna d
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>Scrypta Client</source>
+        <source>LYRA Core</source>
         <translation>LYRA Kärna</translation>
     </message>
     </context>
@@ -1365,7 +1365,7 @@ Skriv in en lösenfras i den mellersta boxen. Tryck kryptera för att beräkna d
     </message>
     </context>
 <context>
-    <name>LYRA-core</name>
+    <name>lyra-core</name>
     <message>
         <source>Error</source>
         <translation>Fel</translation>

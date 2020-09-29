@@ -1,6 +1,6 @@
 // Copyright (c) 2011-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2017-2018 Scrypta Development Team
+// Copyright (c) 2015-2017 The LYRA developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -110,7 +110,7 @@ void setupAddressWidget(QValidatedLineEdit* widget, QWidget* parent)
 #if QT_VERSION >= 0x040700
     // We don't want translators to use own addresses in translations
     // and this is the only place, where this address is supplied.
-    widget->setPlaceholderText(QObject::tr("Enter a LYRA address (e.g. %1)").arg("Kfmk1AJ6UCMqKHi6js7sMDQktTxGtVMqmQ"));
+    widget->setPlaceholderText(QObject::tr("Enter a LYRA address (e.g. %1)").arg("LV9cVvqWBg8BTw5ap1v1uExfzT1k3JfE28"));
 #endif
     widget->setValidator(new BitcoinAddressEntryValidator(parent));
     widget->setCheckValidator(new BitcoinAddressCheckValidator(parent));
@@ -127,7 +127,7 @@ void setupAmountWidget(QLineEdit* widget, QWidget* parent)
 
 bool parseBitcoinURI(const QUrl& uri, SendCoinsRecipient* out)
 {
-    // return if URI is not valid or is no lyra: URI
+    // return if URI is not valid or is no LYRA: URI
     if (!uri.isValid() || uri.scheme() != QString(URI_SCHEME))
         return false;
 
@@ -161,7 +161,7 @@ bool parseBitcoinURI(const QUrl& uri, SendCoinsRecipient* out)
             fShouldReturnFalse = false;
         } else if (i->first == "amount") {
             if (!i->second.isEmpty()) {
-                if (!BitcoinUnits::parse(BitcoinUnits::lyra, i->second, &rv.amount)) {
+                if (!BitcoinUnits::parse(BitcoinUnits::LYRA, i->second, &rv.amount)) {
                     return false;
                 }
             }
@@ -196,7 +196,7 @@ QString formatBitcoinURI(const SendCoinsRecipient& info)
     int paramCount = 0;
 
     if (info.amount) {
-        ret += QString("?amount=%1").arg(BitcoinUnits::format(BitcoinUnits::lyra, info.amount, false, BitcoinUnits::separatorNever));
+        ret += QString("?amount=%1").arg(BitcoinUnits::format(BitcoinUnits::LYRA, info.amount, false, BitcoinUnits::separatorNever));
         paramCount++;
     }
 
@@ -581,12 +581,12 @@ bool DHMSTableWidgetItem::operator<(QTableWidgetItem const& item) const
 #ifdef WIN32
 boost::filesystem::path static StartupShortcutPath()
 {
-    return GetSpecialFolderPath(CSIDL_STARTUP) / "lyra.lnk";
+    return GetSpecialFolderPath(CSIDL_STARTUP) / "LYRA.lnk";
 }
 
 bool GetStartOnSystemStartup()
 {
-    // check for lyra.lnk
+    // check for LYRA.lnk
     return boost::filesystem::exists(StartupShortcutPath());
 }
 
@@ -699,7 +699,7 @@ bool SetStartOnSystemStartup(bool fAutoStart)
         // Write a lyra.desktop file to the autostart directory:
         optionFile << "[Desktop Entry]\n";
         optionFile << "Type=Application\n";
-        optionFile << "Name=lyra\n";
+        optionFile << "Name=LYRA\n";
         optionFile << "Exec=" << pszExePath << " -min\n";
         optionFile << "Terminal=false\n";
         optionFile << "Hidden=false\n";

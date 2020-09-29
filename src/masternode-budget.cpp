@@ -1,5 +1,5 @@
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2017-2018 Scrypta Development Team
+// Copyright (c) 2015-2017 The LYRA developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -28,10 +28,10 @@ int nSubmittedFinalBudget;
 int GetBudgetPaymentCycleBlocks()
 {
     // Amount of blocks in a months period of time (using 1 minutes per) = (60*24*30)
-    if (Params().NetworkID() == CBaseChainParams::MAIN) return 21600;
+    if (Params().NetworkID() == CBaseChainParams::MAIN) return 43200;
     //for testing purposes
 
-    return 72; //ten times per day with block time 120 sec - if block time 60, change 72 to 144
+    return 144; //ten times per day
 }
 
 bool IsBudgetCollateralValid(uint256 nTxCollateralHash, uint256 nExpectedHash, std::string& strError, int64_t& nTime, int& nConf)
@@ -791,34 +791,43 @@ CAmount CBudgetManager::GetTotalBudget(int nHeight)
 
     if (Params().NetworkID() == CBaseChainParams::TESTNET) {
         CAmount nSubsidy = 500 * COIN;
-        return ((nSubsidy / 100) * 10) * 146; //max budget for testnet
+        return ((nSubsidy / 100) * 10) * 146;
     }
 
     //get block value and calculate from that
     CAmount nSubsidy = 0;
-    if (nHeight > 750 && nHeight <= 180301 ) {
-        nSubsidy = 0.1 * COIN;
-    } else if (nHeight > 180301 && nHeight <= 698702 ) {
-        nSubsidy = 0.09 * COIN;
-    } else if (nHeight > 698702 && nHeight <= 1217103 ) {
-        nSubsidy = 0.081 * COIN;
-    } else if (nHeight > 1217103 && nHeight <= 2253904 ) {
-        nSubsidy = 0.065 * COIN;
-    } else if (nHeight > 2253904 && nHeight <= 3290705 ) {
-        nSubsidy = 0.052 * COIN;
-    } else if (nHeight > 3290705 && nHeight <= 5364306 ) {
-        nSubsidy = 0.031 * COIN;
-    } else if (nHeight > 5365306 && nHeight <= 7437907 ) {
-        nSubsidy = 0.019 * COIN;
-    } else if (nHeight > 7437907) {
-        nSubsidy = 0.011 * COIN;
+    if (nHeight <= Params().LAST_POW_BLOCK() && nHeight >= 151200) {
+        nSubsidy = 50 * COIN;
+    } else if (nHeight <= 302399 && nHeight > Params().LAST_POW_BLOCK()) {
+        nSubsidy = 50 * COIN;
+    } else if (nHeight <= 345599 && nHeight >= 302400) {
+        nSubsidy = 45 * COIN;
+    } else if (nHeight <= 388799 && nHeight >= 345600) {
+        nSubsidy = 40 * COIN;
+    } else if (nHeight <= 431999 && nHeight >= 388800) {
+        nSubsidy = 35 * COIN;
+    } else if (nHeight <= 475199 && nHeight >= 432000) {
+        nSubsidy = 30 * COIN;
+    } else if (nHeight <= 518399 && nHeight >= 475200) {
+        nSubsidy = 25 * COIN;
+    } else if (nHeight <= 561599 && nHeight >= 518400) {
+        nSubsidy = 20 * COIN;
+    } else if (nHeight <= 604799 && nHeight >= 561600) {
+        nSubsidy = 15 * COIN;
+    } else if (nHeight <= 647999 && nHeight >= 604800) {
+        nSubsidy = 10 * COIN;
+    } else if (nHeight >= 648000) {
+        nSubsidy = 5 * COIN;
+    } else {
+        nSubsidy = 0 * COIN;
     }
 
-    // Amount of blocks in a months period of time (using 1 minutes per) = (60*24*30)=43200 [superblock]
-            // in our case with 2 minutes per block = (30*24*30)= 21600
-
-    return ((nSubsidy / 100) * 10) * 1440 * 30; //10% of one month reward
-
+    // Amount of blocks in a months period of time (using 1 minutes per) = (60*24*30)
+    if (nHeight <= 172800) {
+        return 648000 * COIN;
+    } else {
+        return ((nSubsidy / 100) * 10) * 1440 * 30;
+    }
 }
 
 void CBudgetManager::NewBlock()
@@ -947,12 +956,11 @@ void CBudgetManager::ProcessMessage(CNode* pfrom, std::string& strCommand, CData
 
         if (Params().NetworkID() == CBaseChainParams::MAIN) {
             if (nProp == 0) {
-                ////////if (pfrom->HasFulfilledRequest("mnvs")) {
-                    ///////LogPrintf("mnvs - peer already asked me for the list\n");
-                    //////Misbehaving(pfrom->GetId(), 20);
-                    //////return;
-                //////}
-
+                if (pfrom->HasFulfilledRequest("mnvs")) {
+                    LogPrintf("mnvs - peer already asked me for the list\n");
+                    Misbehaving(pfrom->GetId(), 20);
+                    return;
+                }
                 pfrom->FulfilledRequest("mnvs");
             }
         }
