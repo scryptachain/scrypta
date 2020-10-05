@@ -625,7 +625,7 @@ int main(int argc, char* argv[])
                 QObject::tr("Bootstrap failed, error: \"%1\".\nPlease restart wallet.").arg(e.what()));
             return 1;
         } catch (...) {
-            QMessageBox::critical(0, QObject::tr("Galilel Core"), QObject::tr("Bootstrap failed, unexpected error. Please restart wallet."));
+            QMessageBox::critical(0, QObject::tr("Scrypta Core"), QObject::tr("Bootstrap failed, unexpected error. Please restart wallet."));
             return 1;
         }
     }

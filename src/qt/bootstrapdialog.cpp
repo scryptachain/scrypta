@@ -98,7 +98,7 @@ void BootstrapDialog::setupUI()
 
     ui.labelTitle = new QLabel(this);
     ui.labelTitle->setWordWrap(true);
-    ui.labelTitle->setText(tr("Galilel Core can bootstrap the blockchain from the cloud or from a file. Please select an option and press Run."));
+    ui.labelTitle->setText(tr("Scrypta Core can bootstrap the blockchain from the cloud or from a file. Please select an option and press Run."));
 
     ui.radioCloud = new QRadioButton(this);
     ui.radioCloud->setText(tr("Bootstrap from the cloud"));
