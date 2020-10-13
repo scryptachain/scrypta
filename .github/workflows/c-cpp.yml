@@ -28,6 +28,8 @@ jobs:
            sudo apt-get install -y libboost-system-dev libboost-filesystem-dev libboost-chrono-dev libboost-program-options-dev libboost-test-dev libboost-thread-dev
            sudo apt-get install -y libzmq3-dev
            sudo apt-get install -y libminiupnpc-dev
+           sudo apt-get install -y libtool
+           sudo apt-get install -y libcurl4-openssl-dev
     - name: Create Distribution Tarball
       run: |
         ./autogen.sh
