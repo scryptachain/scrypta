@@ -47,6 +47,7 @@ jobs:
     - name: Create Distribution Tarball
       run: |
         ./autogen.sh
+        ./autogen.sh
         ./configure --with-incompatible-bdb --with-libressl --with-unsupported-ssl
         make dist
     - name: Download Dependencies
