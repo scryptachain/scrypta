@@ -7,7 +7,7 @@ RUN apt-get install software-properties-common -y
 RUN add-apt-repository ppa:bitcoin/bitcoin -y
 RUN apt-get update -y
 RUN apt-get install libdb4.8-dev libdb4.8++-dev -y
-RUN apt-get install libboost-system-dev libboost-filesystem-dev libboost-chrono-dev libboost-program-options-dev libboost-test-dev libboost-thread-dev -y
+RUN apt-get install wget libboost-system-dev libboost-filesystem-dev libboost-chrono-dev libboost-program-options-dev libboost-test-dev libboost-thread-dev -y
 RUN apt-get install libzmq3-dev -y
 RUN apt-get install libminiupnpc-dev -y
 RUN apt-get install libgmp3-dev libevent-dev bsdmainutils libboost-all-dev openssl -y
