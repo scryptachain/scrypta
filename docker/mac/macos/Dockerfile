@@ -15,6 +15,10 @@ RUN apt-get install -y libcurl4-openssl-dev
 RUN apt-get install libgmp3-dev libevent-dev bsdmainutils libboost-all-dev openssl -y
 RUN apt-get install -y python-pip
 RUN apt-get install -y cmake
+RUN apt-get install -y libcap-dev
+RUN apt-get install -y python-dev
+RUN apt-get install -y libbz2-dev
+RUN apt-get install -y imagemagick
 RUN PATH=$(echo "$PATH" | sed -e 's/:\/mnt.*//g')
 
 # CLONING REPO
