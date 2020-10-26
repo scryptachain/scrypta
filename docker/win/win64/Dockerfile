@@ -11,6 +11,11 @@ RUN apt-get install libboost-system-dev libboost-filesystem-dev libboost-chrono-
 RUN apt-get install libzmq3-dev -y
 RUN apt-get install libminiupnpc-dev -y
 RUN apt-get install libgmp3-dev libevent-dev bsdmainutils libboost-all-dev openssl -y
+RUN apt-get install libssl1.0-dev -y
+RUN apt-get install libcurl4-openssl-dev -y
+RUN apt-get install -y autoconf g++ make openssl libssl-dev libcurl4-openssl-dev -y
+RUN apt-get install -y libcurl4-openssl-dev pkg-config -y
+RUN apt-get install -y libsasl2-dev -y
 RUN apt install g++-mingw-w64-x86-64 -y
 RUN PATH=$(echo "$PATH" | sed -e 's/:\/mnt.*//g')
 
