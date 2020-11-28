@@ -507,8 +507,14 @@ void ReadConfigFile(map<string, string>& mapSettingsRet,
     if (!streamConfig.good()) {
         // Create empty lyra.conf if it does not exist
         FILE* configFile = fopen(GetConfigFile().string().c_str(), "a");
-        if (configFile != NULL)
+        if (configFile != NULL) {
+            std::string strHeader =
+                "# Scrypta Configuration File!\n"
+                "# If you need aditional addnodes vist site below.\n"
+                "# https://explorer.masternodes.online/currencies/lyra/ \n";
+            fwrite(strHeader.c_str(), std::strlen(strHeader.c_str()), 1, configFile);
             fclose(configFile);
+              }
         return; // Nothing to read, so just return
     }
 

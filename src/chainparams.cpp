@@ -336,14 +336,16 @@ static Checkpoints::MapCheckpoints mapCheckpoints =
       (0, uint256("0xe2aacf31ce196903e00157a50d207d04a152176b4eb83ecbb0b75b0c9455d1fd"))
       (750, uint256("0x000000bf6ca733834f543433247145ad2451728e79bcc18f5b109a6bbd11cf87"))  //Last POW Block
       (20925, uint256("0xd1e129981da28059d1d2484e8f098bab1f41e011631dee8771ab8bc16a00ee2c"))
+      (302930, uint256("0xcc63411f5e6bac2d6e88c3347b6ed3baf0744a16466d7920225ac77edfd37414"))
+      (475000, uint256("0xded790ed1b7158216d6e46206b2740a1ae9f3e1cea002d0f8cfe980ff8b3c457"))
 ;
 
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
-    1546655985, // * UNIX timestamp of last checkpoint block
-    41348,    // * total number of transactions between genesis and last checkpoint
+    1574249693, // * UNIX timestamp of last checkpoint block
+    1005815,    // * total number of transactions between genesis and last checkpoint
                 //   (the tx=... number in the SetBestChain debug.log lines)
-    2906        // * estimated number of transactions per day after checkpoint
+    2930        // * estimated number of transactions per day after checkpoint
 };
 
 static Checkpoints::MapCheckpoints mapCheckpointsTestnet =
@@ -424,7 +426,7 @@ public:
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x2D)(0x02)(0x31)(0x33).convert_to_container<std::vector<unsigned char> >();
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x02)(0x21)(0x25)(0x2B).convert_to_container<std::vector<unsigned char> >();
         // 	BIP44 coin type is from https://github.com/satoshilabs/slips/blob/master/slip-0044.md
-        base58Prefixes[EXT_COIN_TYPE] = boost::assign::list_of(0x80)(0x00)(0x00)(0x77).convert_to_container<std::vector<unsigned char> >();
+        base58Prefixes[EXT_COIN_TYPE] = boost::assign::list_of(0x80)(0x00)(0x01)(0xF1).convert_to_container<std::vector<unsigned char> >();
 
 	convertSeed6(vFixedSeeds, pnSeed6_main, ARRAYLEN(pnSeed6_main));
 	vSeeds.push_back(CDNSSeedData("seed01.scryptachain.org", "seed01.scryptachain.org"));
@@ -510,7 +512,7 @@ public:
         base58Prefixes[EXT_COIN_TYPE] = boost::assign::list_of(0x80)(0x00)(0x00)(0x01).convert_to_container<std::vector<unsigned char> >();
 
         convertSeed6(vFixedSeeds, pnSeed6_test, ARRAYLEN(pnSeed6_test));
-	vSeeds.push_back(CDNSSeedData("testseed01.scryptachain.org", "testseed01.scryptachain.org"));
+	    vSeeds.push_back(CDNSSeedData("testseed01.scryptachain.org", "testseed01.scryptachain.org"));
         vSeeds.push_back(CDNSSeedData("testseed02.scryptachain.org", "testseed02.scryptachain.org"));
         vSeeds.push_back(CDNSSeedData("testseed03.scryptachain.org", "testseed03.scryptachain.org"));
         vSeeds.push_back(CDNSSeedData("testseed04.scryptachain.org", "testseed04.scryptachain.org"));

@@ -1,6 +1,8 @@
-<p style="text-align: center;">&nbsp;</p>
-<p><strong>Scryptachain Lyra Client Official Repository</strong><br /><br /><strong>Main Features:</strong></p>
-<ul>
+# Scrypta Client Official Repository
+<p><a href="https://camo.githubusercontent.com/4e892209b4b1e2d1a773ec97e544a92f068a6f0b/68747470733a2f2f6d69726f2e6d656469756d2e636f6d2f6d61782f333136382f312a31674778414b57714b5135577a635170755f766932412e6a706567" target="_blank" rel="noopener noreferrer"><img style="display: block; margin-left: auto; margin-right: auto;" src="https://camo.githubusercontent.com/4e892209b4b1e2d1a773ec97e544a92f068a6f0b/68747470733a2f2f6d69726f2e6d656469756d2e636f6d2f6d61782f333136382f312a31674778414b57714b5135577a635170755f766932412e6a706567" alt="" data-canonical-src="https://miro.medium.com/max/3168/1*1gGxAKWqKQ5WzcQpu_vi2A.jpeg" /></a></p>
+<p style="text-align: center;">&nbsp;&nbsp;<a title="English &mdash; Scrypta Wiki" href="https://en.scrypta.wiki/general-info/what-is.html" target="_blank" rel="nofollow noopener"><strong>Wiki English</strong></a>&nbsp;&middot; &middot; &middot;&nbsp;<a title="Italiano &mdash; Scrypta Wiki" href="https://it.scrypta.wiki/general-info/cosa-%C3%A8.html" target="_blank" rel="nofollow noopener"><strong>Wiki italiano</strong></a></p>
+
+## Main Features
 <li><strong>Masternode technology</strong> used to secure the network</li>
 <li><strong>See-Saw Reward Mechanism: </strong>dynamic block reward allocation between masternodes and staking.</li>
 <li><strong>Governance Budgeting System: </strong>10% of each block rewards goes to a fund that allows node operators to vote on important proposal about developments within the Scrypta blockchain. (Only when active)</li>
@@ -92,6 +94,22 @@
 <table style="width: 373px;">
 <tbody>
 <tr>
+<td style="width: 136px;"><strong>Website</strong></td>
+<td style="width: 227px;"><a href="https://scryptachain.org/">https://scryptachain.org</a>&nbsp;</td>
+</tr>
+<tr>
+<td style="width: 136px;"><strong>Scrypta Foundation</strong></td>
+<td style="width: 227px;"><a href="https://scrypta.foundation/">https://scrypta.foundation</a>&nbsp;</td>
+</tr>
+<tr>
+<td style="width: 136px;"><strong>Official Wiki</strong></td>
+<td style="width: 227px;"><a href="https://wiki.scryptachain.org/">https://wiki.scryptachain.org</a>&nbsp;</td>
+</tr>
+<tr>
+<td style="width: 136px;"><strong>Official Mobile App</strong></td>
+<td style="width: 227px;"><a href="https://manent.app/en/">https://manent.app/en</a>&nbsp;</td>
+</tr>
+<tr>
 <td style="width: 136px;"><strong>Twitter</strong></td>
 <td style="width: 227px;">https://twitter.com/scryptachain</td>
 </tr>
@@ -100,16 +118,27 @@
 <td style="width: 227px;"><a href="https://discord.io/scrypta/">https://discord.io/scrypta</a>&nbsp;</td>
 </tr>
 <tr>
-<td style="width: 136px;"><strong>Website</strong></td>
-<td style="width: 227px;"><a href="https://scryptachain.org/">https://scryptachain.org</a>&nbsp;</td>
-</tr>
-<tr>
 <td style="width: 136px;"><strong>Contact</strong></td>
-<td style="width: 227px;">scryptachain@criptext.com</td>
+<td style="width: 227px;">info@scryptachain.org</td>
 </tr>
 </tbody>
 </table>
-<p>&nbsp;</p>
-<p>&nbsp;</p
-<br>
-<a href="http://tiny.cc/devbounty"><img src="https://i.imgur.com/Yf2iz8w.png" title="source: imgur.com" /></a>
+
+# Install with bash script
+
+If you're on Ubuntu you can install the wallet with our `install.sh` script.
+
+Just open a terminal and run following commands:
+
+```
+git clone https://github.com/scryptachain/scrypta
+cd scrypta
+chmod 777 install.sh
+./install.sh
+```
+
+# Install with Docker
+
+To install inside a Docker container follow this guide:
+
+https://github.com/scryptachain/scrypta/blob/master/Docker.md
