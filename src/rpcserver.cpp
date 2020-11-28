@@ -29,6 +29,18 @@
 #include <boost/shared_ptr.hpp>
 #include <boost/thread.hpp>
 
+// Boost Support for 1.70+
+#if BOOST_VERSION >= 107000
+    #define GetIOService(s) ((boost::asio::io_context&)(s).get_executor().context())
+    #define GetIOServiceFromPtr(s) ((boost::asio::io_context&)(s->get_executor().context())) // this one
+    typedef boost::asio::io_context ioContext;
+
+#else
+    #define GetIOService(s) ((s).get_io_service())
+    #define GetIOServiceFromPtr(s) ((s)->get_io_service())
+    typedef boost::asio::io_service ioContext;
+#endif
+
 using namespace boost;
 using namespace boost::asio;
 using namespace json_spirit;
@@ -49,6 +61,9 @@ static boost::thread_group* rpc_worker_group = NULL;
 static boost::asio::io_service::work* rpc_dummy_work = NULL;
 static std::vector<CSubNet> rpc_allow_subnets; //!< List of subnets to allow RPC connections from
 static std::vector<boost::shared_ptr<ip::tcp::acceptor> > rpc_acceptors;
+
+//typedef io_context io_service;
+
 
 void RPCTypeCheck(const Array& params,
     const list<Value_type>& typesExpected,
@@ -487,7 +502,7 @@ static void RPCListen(boost::shared_ptr<basic_socket_acceptor<Protocol> > accept
     const bool fUseSSL)
 {
     // Accept connection
-    boost::shared_ptr<AcceptedConnectionImpl<Protocol> > conn(new AcceptedConnectionImpl<Protocol>(acceptor->get_io_service(), context, fUseSSL));
+    boost::shared_ptr<AcceptedConnectionImpl<Protocol> > conn(new AcceptedConnectionImpl<Protocol>(GetIOService(*acceptor), context, fUseSSL));
 
     acceptor->async_accept(
         conn->sslStream.lowest_layer(),
