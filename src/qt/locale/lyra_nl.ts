@@ -598,7 +598,7 @@
         <translation>Tabblad werkbalk</translation>
     </message>
     <message>
-        <source>LYRA Core</source>
+        <source>Scrypta Core</source>
         <translation>LYRA Kern</translation>
     </message>
     <message>
@@ -618,11 +618,11 @@
         <translation>Bekijk masternodes</translation>
     </message>
     <message>
-        <source>&amp;About LYRA Core</source>
+        <source>&amp;About Scrypta Core</source>
         <translation>&amp;Over LYRA Kern</translation>
     </message>
     <message>
-        <source>Show information about LYRA Core</source>
+        <source>Show information about Scrypta Core</source>
         <translation>Toon informatie over LYRA Kern</translation>
     </message>
     <message>
@@ -678,8 +678,8 @@
         <translation>Block verkenner venster</translation>
     </message>
     <message>
-        <source>LYRA Core client</source>
-        <translation>LYRA Core client</translation>
+        <source>Scrypta Core client</source>
+        <translation>Scrypta Core client</translation>
     </message>
     <message numerus="yes">
         <source>%n active connection(s) to LYRA network</source>
@@ -1040,7 +1040,7 @@ MultiSend: %1</translation>
         <translation>versie</translation>
     </message>
     <message>
-        <source>LYRA Core</source>
+        <source>Scrypta Core</source>
         <translation>LYRA Kern</translation>
     </message>
     <message>
@@ -1048,8 +1048,8 @@ MultiSend: %1</translation>
         <translation>(%1-bit)</translation>
     </message>
     <message>
-        <source>About LYRA Core</source>
-        <translation>Over LYRA Core</translation>
+        <source>About Scrypta Core</source>
+        <translation>Over Scrypta Core</translation>
     </message>
     <message>
         <source>Command-line options</source>
@@ -1079,15 +1079,15 @@ MultiSend: %1</translation>
         <translation>Welkom</translation>
     </message>
     <message>
-        <source>Welcome to LYRA Core.</source>
-        <translation>Welkom bij LYRA Core</translation>
+        <source>Welcome to Scrypta Core.</source>
+        <translation>Welkom bij Scrypta Core</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
         <translation>Gebruik de standaard datafolder </translation>
     </message>
     <message>
-        <source>LYRA Core</source>
+        <source>Scrypta Core</source>
         <translation>LYRA Kern</translation>
     </message>
     <message>
@@ -2024,8 +2024,8 @@ MultiSend: %1</translation>
 <context>
     <name>ShutdownWindow</name>
     <message>
-        <source>LYRA Core is shutting down...</source>
-        <translation>LYRA Core is aan het afsluiten...</translation>
+        <source>Scrypta Core is shutting down...</source>
+        <translation>Scrypta Core is aan het afsluiten...</translation>
     </message>
     </context>
 <context>
@@ -2134,7 +2134,7 @@ MultiSend: %1</translation>
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>LYRA Core</source>
+        <source>Scrypta Core</source>
         <translation>LYRA Kern</translation>
     </message>
     <message>
@@ -2150,8 +2150,8 @@ MultiSend: %1</translation>
         <translation>De Dash Core ontwikkelaars</translation>
     </message>
     <message>
-        <source>The LYRA Core developers</source>
-        <translation>De LYRA Core ontwikkelaars</translation>
+        <source>The Scrypta Core developers</source>
+        <translation>De Scrypta Core ontwikkelaars</translation>
     </message>
     <message>
         <source>[testnet]</source>
@@ -2504,8 +2504,8 @@ MultiSend: %1</translation>
         <translation>Copyright (C) 2014-%i The Dash Core Ontwikkelaars</translation>
     </message>
     <message>
-        <source>Copyright (C) 2015-%i The LYRA Core Developers</source>
-        <translation>Copyright (C) 2015-%i The LYRA Core Ontwikkelaars</translation>
+        <source>Copyright (C) 2015-%i The Scrypta Core Developers</source>
+        <translation>Copyright (C) 2015-%i The Scrypta Core Ontwikkelaars</translation>
     </message>
     <message>
         <source>Error</source>

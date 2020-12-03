@@ -46,7 +46,7 @@ static bool AppInitRawTx(int argc, char* argv[])
 
     if (argc < 2 || mapArgs.count("-?") || mapArgs.count("-help")) {
         // First part of help message is specific to this utility
-        std::string strUsage = _("Lyra Core lyra-tx utility version") + " " + FormatFullVersion() + "\n\n" +
+        std::string strUsage = _("Scrypta Core lyra-tx utility version") + " " + FormatFullVersion() + "\n\n" +
                                _("Usage:") + "\n" +
                                "  lyra-tx [options] <hex-tx> [commands]  " + _("Update hex-encoded lyra transaction") + "\n" +
                                "  lyra-tx [options] -create [commands]   " + _("Create hex-encoded lyra transaction") + "\n" +

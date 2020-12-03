@@ -3,7 +3,7 @@ Release Process
 
 Before every release candidate:
 
-* Update translations (ping Fuzzbawls on Slack) see [translation_process.md](https://github.com/LYRA-Project/LYRA/blob/master/doc/translation_process.md#synchronising-translations).
+* Update translations (ping Fuzzbawls on Slack) see [translation_process.md](https://github.com/Scrypta-Project/Scrypta/blob/master/doc/translation_process.md#synchronising-translations).
 
 Before every minor and major release:
 
@@ -29,7 +29,7 @@ Check out the source code in the following directory hierarchy.
     git clone https://github.com/devrandom/gitian-builder.git
     git clone https://github.com/lyra-project/lyra.git
 
-### LYRA maintainers/release engineers, suggestion for writing release notes
+### Scrypta maintainers/release engineers, suggestion for writing release notes
 
 Write release notes. git shortlog helps a lot, for example:
 
@@ -97,7 +97,7 @@ NOTE: Offline builds must use the --url flag to ensure Gitian fetches only from 
 
 The gbuild invocations below <b>DO NOT DO THIS</b> by default.
 
-### Build and sign LYRA Core for Linux, Windows, and OS X:
+### Build and sign Scrypta Core for Linux, Windows, and OS X:
 
     pushd ./gitian-builder
     ./bin/gbuild --memory 3000 --commit lyra=v${VERSION} ../lyra/contrib/gitian-descriptors/gitian-linux.yml
@@ -184,7 +184,7 @@ Codesigner only: Commit the detached codesign payloads:
 Non-codesigners: wait for Windows/OS X detached signatures:
 
 - Once the Windows/OS X builds each have 3 matching signatures, they will be signed with their respective release keys.
-- Detached signatures will then be committed to the [lyra-detached-sigs](https://github.com/LYRA-Project/lyra-detached-sigs) repository, which can be combined with the unsigned apps to create signed binaries.
+- Detached signatures will then be committed to the [lyra-detached-sigs](https://github.com/Scrypta-Project/lyra-detached-sigs) repository, which can be combined with the unsigned apps to create signed binaries.
 
 Create (and optionally verify) the signed OS X binary:
 
@@ -260,6 +260,6 @@ Note: check that SHA256SUMS itself doesn't end up in SHA256SUMS, which is a spur
 
   - Archive release notes for the new version to `doc/release-notes/` (branch `master` and branch of the release)
 
-  - Create a [new GitHub release](https://github.com/LYRA-Project/LYRA/releases/new) with a link to the archived release notes.
+  - Create a [new GitHub release](https://github.com/Scrypta-Project/Scrypta/releases/new) with a link to the archived release notes.
 
   - Celebrate

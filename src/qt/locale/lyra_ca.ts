@@ -354,12 +354,12 @@
         <translation>A&amp;juda</translation>
     </message>
     <message>
-        <source>LYRA Core</source>
-        <translation>LYRA Core</translation>
+        <source>Scrypta Core</source>
+        <translation>Scrypta Core</translation>
     </message>
     <message>
-        <source>&amp;About LYRA Core</source>
-        <translation>&amp;Sobre LYRA Core</translation>
+        <source>&amp;About Scrypta Core</source>
+        <translation>&amp;Sobre Scrypta Core</translation>
     </message>
     <message>
         <source>&amp;BIP38 tool</source>
@@ -552,12 +552,12 @@
         <translation>versió</translation>
     </message>
     <message>
-        <source>LYRA Core</source>
-        <translation>LYRA Core</translation>
+        <source>Scrypta Core</source>
+        <translation>Scrypta Core</translation>
     </message>
     <message>
-        <source>About LYRA Core</source>
-        <translation>Sobre LYRA Core</translation>
+        <source>About Scrypta Core</source>
+        <translation>Sobre Scrypta Core</translation>
     </message>
     <message>
         <source>Usage:</source>
@@ -575,12 +575,12 @@
         <translation>Benvingut</translation>
     </message>
     <message>
-        <source>Welcome to LYRA Core.</source>
-        <translation>Benvingut a LYRA Core.</translation>
+        <source>Welcome to Scrypta Core.</source>
+        <translation>Benvingut a Scrypta Core.</translation>
     </message>
     <message>
-        <source>LYRA Core</source>
-        <translation>LYRA Core</translation>
+        <source>Scrypta Core</source>
+        <translation>Scrypta Core</translation>
     </message>
     <message>
         <source>Error</source>
@@ -1132,8 +1132,8 @@
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>LYRA Core</source>
-        <translation>LYRA Core</translation>
+        <source>Scrypta Core</source>
+        <translation>Scrypta Core</translation>
     </message>
     <message>
         <source>Version %1</source>

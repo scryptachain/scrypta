@@ -232,7 +232,7 @@
     <name>Bip38ToolDialog</name>
     <message>
         <source>BIP 38 Tool</source>
-        <translation>BIP 38 Strumento</translation>
+        <translation>Strumento BIP 38</translation>
     </message>
     <message>
         <source>&amp;BIP 38 Encrypt</source>
@@ -590,8 +590,8 @@
         <translation>Schede degli strumenti</translation>
     </message>
     <message>
-        <source>LYRA Core</source>
-        <translation>LYRA Core</translation>
+        <source>Scrypta Core</source>
+        <translation>Scrypta Core</translation>
     </message>
     <message>
         <source>Send coins to a LYRA address</source>
@@ -610,12 +610,12 @@
         <translation>Esplora i masternodes</translation>
     </message>
     <message>
-        <source>&amp;About LYRA Core</source>
-        <translation>&amp;Informazioni LYRA Core</translation>
+        <source>&amp;About Scrypta Core</source>
+        <translation>&amp;Informazioni Scrypta Core</translation>
     </message>
     <message>
-        <source>Show information about LYRA Core</source>
-        <translation>Visualizza informazioni su LYRA Core</translation>
+        <source>Show information about Scrypta Core</source>
+        <translation>Visualizza informazioni su Scrypta Core</translation>
     </message>
     <message>
         <source>Modify configuration options for LYRA</source>
@@ -646,8 +646,8 @@
         <translation>Finestra Block Explorer</translation>
     </message>
     <message>
-        <source>Show the LYRA Core help message to get a list with possible LYRA command-line options</source>
-        <translation>Mostra il messaggio di aiuto LYRA Core per ottenere un elenco con le possibili opzioni di riga di comando LYRA</translation>
+        <source>Show the Scrypta Core help message to get a list with possible LYRA command-line options</source>
+        <translation>Mostra il messaggio di aiuto Scrypta Core per ottenere un elenco con le possibili opzioni di riga di comando LYRA</translation>
     </message>
     <message>
         <source>Synchronizing with network...</source>
@@ -893,8 +893,8 @@ MultiSend: %1</translation>
         <translation>versione</translation>
     </message>
     <message>
-        <source>LYRA Core</source>
-        <translation>LYRA Core</translation>
+        <source>Scrypta Core</source>
+        <translation>Scrypta Core</translation>
     </message>
     <message>
         <source>(%1-bit)</source>
@@ -920,8 +920,8 @@ MultiSend: %1</translation>
         <translation>Benvenuto</translation>
     </message>
     <message>
-        <source>LYRA Core</source>
-        <translation>LYRA Core</translation>
+        <source>Scrypta Core</source>
+        <translation>Scrypta Core</translation>
     </message>
     <message>
         <source>Error</source>
@@ -1177,8 +1177,8 @@ MultiSend: %1</translation>
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>LYRA Core</source>
-        <translation>LYRA Core</translation>
+        <source>Scrypta Core</source>
+        <translation>Scrypta Core</translation>
     </message>
     </context>
 <context>

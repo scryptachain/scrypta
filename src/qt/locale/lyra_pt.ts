@@ -1242,8 +1242,8 @@
         <translation>Carteira esta bloqueada.</translation>
     </message>
     <message>
-        <source>Wallet needed to be rewritten: restart LYRA Core to complete</source>
-        <translation>Carteira precisa ser reescrita: reinicie o LYRA Core para completar.</translation>
+        <source>Wallet needed to be rewritten: restart Scrypta Core to complete</source>
+        <translation>Carteira precisa ser reescrita: reinicie o Scrypta Core para completar.</translation>
     </message>
     <message>
         <source>Wallet options:</source>

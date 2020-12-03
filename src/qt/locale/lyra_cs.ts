@@ -598,8 +598,8 @@
         <translation>Nástrojová lišta záložek</translation>
     </message>
     <message>
-        <source>LYRA Core</source>
-        <translation>LYRA Core</translation>
+        <source>Scrypta Core</source>
+        <translation>Scrypta Core</translation>
     </message>
     <message>
         <source>Send coins to a LYRA address</source>
@@ -618,24 +618,24 @@
         <translation>Procházet masternody</translation>
     </message>
     <message>
-        <source>&amp;About LYRA Core</source>
-        <translation>&amp;O LYRA Core</translation>
+        <source>&amp;About Scrypta Core</source>
+        <translation>&amp;O Scrypta Core</translation>
     </message>
     <message>
-        <source>Show information about LYRA Core</source>
-        <translation>Zobraz informace o LYRA Core</translation>
+        <source>Show information about Scrypta Core</source>
+        <translation>Zobraz informace o Scrypta Core</translation>
     </message>
     <message>
-        <source>Modify configuration options for LYRA</source>
-        <translation>Upravit možnosti konfigurace pro LYRA</translation>
+        <source>Modify configuration options for Scrypta</source>
+        <translation>Upravit možnosti konfigurace pro Scrypta</translation>
     </message>
     <message>
-        <source>Sign messages with your LYRA addresses to prove you own them</source>
-        <translation>Podepsat zprávy Vaší LYRA adresou pro prokázaní, že jste jejich vlastníkem</translation>
+        <source>Sign messages with your Scrypta addresses to prove you own them</source>
+        <translation>Podepsat zprávy Vaší Scrypta adresou pro prokázaní, že jste jejich vlastníkem</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified LYRA addresses</source>
-        <translation>Ověřit zprávy k zajištění, že bylypodepsány vybranými LYRA adresami</translation>
+        <source>Verify messages to ensure they were signed with specified Scrypta addresses</source>
+        <translation>Ověřit zprávy k zajištění, že bylypodepsány vybranými Scrypta adresami</translation>
     </message>
     <message>
         <source>&amp;BIP38 tool</source>
@@ -678,12 +678,12 @@
         <translation>Okno blokového průzkumníka</translation>
     </message>
     <message>
-        <source>Show the LYRA Core help message to get a list with possible LYRA command-line options</source>
-        <translation>Zobrazit LYRA Core pomocnou zpráv pro získání seznamu možných parametrů LYRA pro příkazy do příkazové řádky</translation>
+        <source>Show the Scrypta Core help message to get a list with possible Scrypta command-line options</source>
+        <translation>Zobrazit Scrypta Core pomocnou zpráv pro získání seznamu možných parametrů Scrypta pro příkazy do příkazové řádky</translation>
     </message>
     <message>
-        <source>LYRA Core client</source>
-        <translation>LYRA Core klient</translation>
+        <source>Scrypta Core client</source>
+        <translation>Scrypta Core klient</translation>
     </message>
     <message>
         <source>Synchronizing with network...</source>
@@ -1116,12 +1116,12 @@ MultiSend: %1</translation>
         <translation>verze</translation>
     </message>
     <message>
-        <source>LYRA Core</source>
-        <translation>LYRA Core</translation>
+        <source>Scrypta Core</source>
+        <translation>Scrypta Core</translation>
     </message>
     <message>
-        <source>About LYRA Core</source>
-        <translation>O LYRA Core</translation>
+        <source>About Scrypta Core</source>
+        <translation>O Scrypta Core</translation>
     </message>
     <message>
         <source>Command-line options</source>
@@ -1155,16 +1155,16 @@ MultiSend: %1</translation>
         <translation>Vítejte</translation>
     </message>
     <message>
-        <source>Welcome to LYRA Core.</source>
-        <translation>Vítejte v LYRA Core.</translation>
+        <source>Welcome to Scrypta Core.</source>
+        <translation>Vítejte v Scrypta Core.</translation>
     </message>
     <message>
-        <source>As this is the first time the program is launched, you can choose where LYRA Core will store its data.</source>
-        <translation>Při prvním spuštění programu si můžete vybrat, kam bude LYRA Core ukládat svá data.</translation>
+        <source>As this is the first time the program is launched, you can choose where Scrypta Core will store its data.</source>
+        <translation>Při prvním spuštění programu si můžete vybrat, kam bude Scrypta Core ukládat svá data.</translation>
     </message>
     <message>
-        <source>LYRA Core will download and store a copy of the LYRA block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>LYRA Core stáhne a uloží kopii LYRA blockchainu. Nejméně %1GB dat bude do této složky uloženo a v průběhu času bude ukládat další data. Peněženka bude v této složce uložena také.</translation>
+        <source>Scrypta Core will download and store a copy of the Scrypta block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>Scrypta Core stáhne a uloží kopii Scrypta blockchainu. Nejméně %1GB dat bude do této složky uloženo a v průběhu času bude ukládat další data. Peněženka bude v této složce uložena také.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -1175,8 +1175,8 @@ MultiSend: %1</translation>
         <translation>Použít vlastní složku pro data</translation>
     </message>
     <message>
-        <source>LYRA Core</source>
-        <translation>LYRA Core</translation>
+        <source>Scrypta Core</source>
+        <translation>Scrypta Core</translation>
     </message>
     <message>
         <source>Error: Specified data directory "%1" cannot be created.</source>
@@ -2278,8 +2278,8 @@ Prosím zkontrolujte adresu a zkuste to znovu.</translation>
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>LYRA Core</source>
-        <translation>LYRA Core</translation>
+        <source>Scrypta Core</source>
+        <translation>Scrypta Core</translation>
     </message>
     </context>
 <context>

@@ -78,7 +78,7 @@ if BUILD_BITCOIN_UTILS
 endif
 
 .PHONY: FORCE
-# lyra core #
+# Scrypta core #
 BITCOIN_CORE_H = \
   bootstrap/bootstrapmodel.h \
   bootstrap/curl.h \

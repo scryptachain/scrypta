@@ -602,7 +602,7 @@
         <translation>Herramienta de pestañas</translation>
     </message>
     <message>
-        <source>LYRA Core</source>
+        <source>Scrypta Core</source>
         <translation>Núcleo LYRA</translation>
     </message>
     <message>
@@ -622,11 +622,11 @@
         <translation>Explorar nodos maestros</translation>
     </message>
     <message>
-        <source>&amp;About LYRA Core</source>
+        <source>&amp;About Scrypta Core</source>
         <translation>&amp;Sobre el núcleo de LYRA</translation>
     </message>
     <message>
-        <source>Show information about LYRA Core</source>
+        <source>Show information about Scrypta Core</source>
         <translation>Mostrar información sobre el núcleo de LYRA</translation>
     </message>
     <message>
@@ -682,12 +682,12 @@
         <translation>Ventana del explorador de bloques</translation>
     </message>
     <message>
-        <source>Show the LYRA Core help message to get a list with possible LYRA command-line options</source>
-        <translation>Mostrar la ayuda de LYRA Core para obtener una lista de posibles opciones en línea de comandos</translation>
+        <source>Show the Scrypta Core help message to get a list with possible LYRA command-line options</source>
+        <translation>Mostrar la ayuda de Scrypta Core para obtener una lista de posibles opciones en línea de comandos</translation>
     </message>
     <message>
-        <source>LYRA Core client</source>
-        <translation>Cliente LYRA Core</translation>
+        <source>Scrypta Core client</source>
+        <translation>Cliente Scrypta Core</translation>
     </message>
     <message numerus="yes">
         <source>%n active connection(s) to LYRA network</source>
@@ -1184,7 +1184,7 @@ MultiEnvío: %1</translation>
         <translation>versión</translation>
     </message>
     <message>
-        <source>LYRA Core</source>
+        <source>Scrypta Core</source>
         <translation>Núcleo LYRA</translation>
     </message>
     <message>
@@ -1192,8 +1192,8 @@ MultiEnvío: %1</translation>
         <translation>(%1-bit)</translation>
     </message>
     <message>
-        <source>About LYRA Core</source>
-        <translation>Acerca de LYRA Core</translation>
+        <source>About Scrypta Core</source>
+        <translation>Acerca de Scrypta Core</translation>
     </message>
     <message>
         <source>Command-line options</source>
@@ -1239,16 +1239,16 @@ MultiEnvío: %1</translation>
         <translation>Bienvenido/a</translation>
     </message>
     <message>
-        <source>Welcome to LYRA Core.</source>
-        <translation>Bienvenido/a a LYRA Core.</translation>
+        <source>Welcome to Scrypta Core.</source>
+        <translation>Bienvenido/a a Scrypta Core.</translation>
     </message>
     <message>
-        <source>As this is the first time the program is launched, you can choose where LYRA Core will store its data.</source>
-        <translation>Al ser la primera vez que se inicia el programa, usted puede elegir dónde guardará LYRA Core sus datos.</translation>
+        <source>As this is the first time the program is launched, you can choose where Scrypta Core will store its data.</source>
+        <translation>Al ser la primera vez que se inicia el programa, usted puede elegir dónde guardará Scrypta Core sus datos.</translation>
     </message>
     <message>
-        <source>LYRA Core will download and store a copy of the LYRA block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>LYRA Core descargará y guardará una copia de la cadena de bloques LYRA. Por lo menos %1GB de datos serán guardados en esta carpeta, y crecerá con el tiempo. El monedero también se guardará en esta carpeta.</translation>
+        <source>Scrypta Core will download and store a copy of the LYRA block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>Scrypta Core descargará y guardará una copia de la cadena de bloques LYRA. Por lo menos %1GB de datos serán guardados en esta carpeta, y crecerá con el tiempo. El monedero también se guardará en esta carpeta.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -1259,7 +1259,7 @@ MultiEnvío: %1</translation>
         <translation>Usar una carpeta de datos personalizada:</translation>
     </message>
     <message>
-        <source>LYRA Core</source>
+        <source>Scrypta Core</source>
         <translation>Núcleo LYRA</translation>
     </message>
     <message>
@@ -3127,7 +3127,7 @@ https://www.transifex.com/lyra-project/lyra-project-translations</translation>
 <context>
     <name>ShutdownWindow</name>
     <message>
-        <source>LYRA Core is shutting down...</source>
+        <source>Scrypta Core is shutting down...</source>
         <translation>El programa LYRA se está cerrando...</translation>
     </message>
     <message>
@@ -3277,7 +3277,7 @@ https://www.transifex.com/lyra-project/lyra-project-translations</translation>
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>LYRA Core</source>
+        <source>Scrypta Core</source>
         <translation>Núcleo LYRA</translation>
     </message>
     <message>
@@ -3293,8 +3293,8 @@ https://www.transifex.com/lyra-project/lyra-project-translations</translation>
         <translation>Los desarrolladores de Dash Core</translation>
     </message>
     <message>
-        <source>The LYRA Core developers</source>
-        <translation>Los desarrolladores de LYRA Core</translation>
+        <source>The Scrypta Core developers</source>
+        <translation>Los desarrolladores de Scrypta Core</translation>
     </message>
     <message>
         <source>[testnet]</source>
@@ -3911,8 +3911,8 @@ https://www.transifex.com/lyra-project/lyra-project-translations</translation>
         <translation>Escuchar únicamente a la tarjeta de red indicada para conexiones JSON-RPC. Use la notación [host]:puerto para IPv6. Esta opción puede ser especificada varias veces (por defecto: escuchar en todas las tarjetas de red)</translation>
     </message>
     <message>
-        <source>Cannot obtain a lock on data directory %s. LYRA Core is probably already running.</source>
-        <translation>No se puede obtener un bloqueo sobre el directorio de datos %s. LYRA Core esta probablemente en ejecución.</translation>
+        <source>Cannot obtain a lock on data directory %s. Scrypta Core is probably already running.</source>
+        <translation>No se puede obtener un bloqueo sobre el directorio de datos %s. Scrypta Core esta probablemente en ejecución.</translation>
     </message>
     <message>
         <source>Change automatic finalized budget voting behavior. mode=auto: Vote for only exact finalized budget match to my generated budget. (string, default: auto)</source>
@@ -4107,8 +4107,8 @@ por ejemplo: alertnotify=echo %%s | mail -s "LYRA Alert" admin@foo.com
 </translation>
     </message>
     <message>
-        <source>Unable to bind to %s on this computer. LYRA Core is probably already running.</source>
-        <translation>Imposible conectar a %s en esta computadora. Es probable que LYRA Core ya este corriendo.</translation>
+        <source>Unable to bind to %s on this computer. Scrypta Core is probably already running.</source>
+        <translation>Imposible conectar a %s en esta computadora. Es probable que Scrypta Core ya este corriendo.</translation>
     </message>
     <message>
         <source>Unable to locate enough Obfuscation denominated funds for this transaction.</source>
@@ -4135,8 +4135,8 @@ por ejemplo: alertnotify=echo %%s | mail -s "LYRA Alert" admin@foo.com
         <translation>Advertencia: -paytxfee esta muy alta! Esta es la comisión de transacción que pagarás si envías una transacción.</translation>
     </message>
     <message>
-        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong LYRA Core will not work properly.</source>
-        <translation>Advertencia: Por favor verifique que la fecha y hora de su computadora sean correctas! Si su reloj esta fuera de hora LYRA Core no funcionará adecuadamente.</translation>
+        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong Scrypta Core will not work properly.</source>
+        <translation>Advertencia: Por favor verifique que la fecha y hora de su computadora sean correctas! Si su reloj esta fuera de hora Scrypta Core no funcionará adecuadamente.</translation>
     </message>
     <message>
         <source>Warning: The network does not appear to fully agree! Some miners appear to be experiencing issues.</source>
@@ -4283,8 +4283,8 @@ por ejemplo: alertnotify=echo %%s | mail -s "LYRA Alert" admin@foo.com
         <translation>Copyright (C) 2014-%i The Dash Core Developers</translation>
     </message>
     <message>
-        <source>Copyright (C) 2015-%i The LYRA Core Developers</source>
-        <translation>Copyright (C) 2015-%i The LYRA Core Developers</translation>
+        <source>Copyright (C) 2015-%i The Scrypta Core Developers</source>
+        <translation>Copyright (C) 2015-%i The Scrypta Core Developers</translation>
     </message>
     <message>
         <source>Corrupted block database detected</source>
@@ -4355,7 +4355,7 @@ por ejemplo: alertnotify=echo %%s | mail -s "LYRA Alert" admin@foo.com
         <translation>Error al cargar wallet.dat: Billetera dañada</translation>
     </message>
     <message>
-        <source>Error loading wallet.dat: Wallet requires newer version of LYRA Core</source>
+        <source>Error loading wallet.dat: Wallet requires newer version of Scrypta Core</source>
         <translation>Error al cargar wallet.dat: La Billetera requiere una nueva versión del Núcleo LYRA</translation>
     </message>
     <message>
@@ -4467,8 +4467,8 @@ por ejemplo: alertnotify=echo %%s | mail -s "LYRA Alert" admin@foo.com
         <translation>Información</translation>
     </message>
     <message>
-        <source>Initialization sanity check failed. LYRA Core is shutting down.</source>
-        <translation>La prueba de salud de inicialización ha fallado. LYRA Core se cerrará.</translation>
+        <source>Initialization sanity check failed. Scrypta Core is shutting down.</source>
+        <translation>La prueba de salud de inicialización ha fallado. Scrypta Core se cerrará.</translation>
     </message>
     <message>
         <source>Input is not valid.</source>
@@ -5087,8 +5087,8 @@ por ejemplo: alertnotify=echo %%s | mail -s "LYRA Alert" admin@foo.com
         <translation>Monedero bloqueado.</translation>
     </message>
     <message>
-        <source>Wallet needed to be rewritten: restart LYRA Core to complete</source>
-        <translation>Monedero necesita ser reescrito: reinicie LYRA Core para completar</translation>
+        <source>Wallet needed to be rewritten: restart Scrypta Core to complete</source>
+        <translation>Monedero necesita ser reescrito: reinicie Scrypta Core para completar</translation>
     </message>
     <message>
         <source>Wallet options:</source>

@@ -1,1 +1,7 @@
 .vscode
+docker/*/*/build/
+docker/*/*/libs/
+docker/*/*/lyrad
+docker/*/*/lyra-qt
+docker/*/*/lyra-cli
+docker/*/*/scrypta-wallet*

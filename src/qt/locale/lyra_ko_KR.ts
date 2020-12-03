@@ -602,8 +602,8 @@
         <translation>탭 도구 모음</translation>
     </message>
     <message>
-        <source>LYRA Core</source>
-        <translation>LYRA Core</translation>
+        <source>Scrypta Core</source>
+        <translation>Scrypta Core</translation>
     </message>
     <message>
         <source>Send coins to a LYRA address</source>
@@ -622,12 +622,12 @@
         <translation>마스터노드 검색</translation>
     </message>
     <message>
-        <source>&amp;About LYRA Core</source>
-        <translation>LYRA Core &amp;정보</translation>
+        <source>&amp;About Scrypta Core</source>
+        <translation>Scrypta Core &amp;정보</translation>
     </message>
     <message>
-        <source>Show information about LYRA Core</source>
-        <translation>LYRA Core에 대한 정보 표시</translation>
+        <source>Show information about Scrypta Core</source>
+        <translation>Scrypta Core에 대한 정보 표시</translation>
     </message>
     <message>
         <source>Modify configuration options for LYRA</source>
@@ -682,12 +682,12 @@
         <translation>블록 탐색 창</translation>
     </message>
     <message>
-        <source>Show the LYRA Core help message to get a list with possible LYRA command-line options</source>
-        <translation>LYRA Core 도움말 메세지를 표시하여 사용 가능한 LYRA 명령행 옵션 목록 표시</translation>
+        <source>Show the Scrypta Core help message to get a list with possible LYRA command-line options</source>
+        <translation>Scrypta Core 도움말 메세지를 표시하여 사용 가능한 LYRA 명령행 옵션 목록 표시</translation>
     </message>
     <message>
-        <source>LYRA Core client</source>
-        <translation>LYRA Core 클라이언트</translation>
+        <source>Scrypta Core client</source>
+        <translation>Scrypta Core 클라이언트</translation>
     </message>
     <message numerus="yes">
         <source>%n active connection(s) to LYRA network</source>
@@ -1184,16 +1184,16 @@ Address: %4
         <translation>버전</translation>
     </message>
     <message>
-        <source>LYRA Core</source>
-        <translation>LYRA Core</translation>
+        <source>Scrypta Core</source>
+        <translation>Scrypta Core</translation>
     </message>
     <message>
         <source>(%1-bit)</source>
         <translation>(%1-bit)</translation>
     </message>
     <message>
-        <source>About LYRA Core</source>
-        <translation>LYRA Core 정보</translation>
+        <source>About Scrypta Core</source>
+        <translation>Scrypta Core 정보</translation>
     </message>
     <message>
         <source>Command-line options</source>
@@ -1239,16 +1239,16 @@ Address: %4
         <translation>환영합니다</translation>
     </message>
     <message>
-        <source>Welcome to LYRA Core.</source>
-        <translation>LYRA Core 환영합니다.</translation>
+        <source>Welcome to Scrypta Core.</source>
+        <translation>Scrypta Core 환영합니다.</translation>
     </message>
     <message>
-        <source>As this is the first time the program is launched, you can choose where LYRA Core will store its data.</source>
-        <translation>이 프로그램이 처음 실행되었으므로 LYRA Core가 데이터를 저장할 위치를 선택할 수 있습니다.</translation>
+        <source>As this is the first time the program is launched, you can choose where Scrypta Core will store its data.</source>
+        <translation>이 프로그램이 처음 실행되었으므로 Scrypta Core가 데이터를 저장할 위치를 선택할 수 있습니다.</translation>
     </message>
     <message>
-        <source>LYRA Core will download and store a copy of the LYRA block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>LYRA Core는 LYRA 블록체인을 다운로드하여 저장합니다. 최소 %1GB의 데이터가 디렉토리에 저장되며 시간이 지날수록 증가합니다. 또한 지갑도 해당 디렉토리에 저장됩니다.</translation>
+        <source>Scrypta Core will download and store a copy of the LYRA block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>Scrypta Core는 LYRA 블록체인을 다운로드하여 저장합니다. 최소 %1GB의 데이터가 디렉토리에 저장되며 시간이 지날수록 증가합니다. 또한 지갑도 해당 디렉토리에 저장됩니다.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -1259,8 +1259,8 @@ Address: %4
         <translation>사용자 지정 데이터 디렉토리 사용:</translation>
     </message>
     <message>
-        <source>LYRA Core</source>
-        <translation>LYRA Core</translation>
+        <source>Scrypta Core</source>
+        <translation>Scrypta Core</translation>
     </message>
     <message>
         <source>Error: Specified data directory "%1" cannot be created.</source>
@@ -3135,8 +3135,8 @@ https://www.transifex.com/lyra-project/lyra-project-translations</translation>
 <context>
     <name>ShutdownWindow</name>
     <message>
-        <source>LYRA Core is shutting down...</source>
-        <translation>LYRA Core가 종료됩니다...</translation>
+        <source>Scrypta Core is shutting down...</source>
+        <translation>Scrypta Core가 종료됩니다...</translation>
     </message>
     <message>
         <source>Do not shut down the computer until this window disappears.</source>
@@ -3285,8 +3285,8 @@ https://www.transifex.com/lyra-project/lyra-project-translations</translation>
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>LYRA Core</source>
-        <translation>LYRA Core</translation>
+        <source>Scrypta Core</source>
+        <translation>Scrypta Core</translation>
     </message>
     <message>
         <source>Version %1</source>
@@ -3301,8 +3301,8 @@ https://www.transifex.com/lyra-project/lyra-project-translations</translation>
         <translation>Dash Core 개발자</translation>
     </message>
     <message>
-        <source>The LYRA Core developers</source>
-        <translation>LYRA Core 개발자</translation>
+        <source>The Scrypta Core developers</source>
+        <translation>Scrypta Core 개발자</translation>
     </message>
     <message>
         <source>[testnet]</source>
@@ -3920,8 +3920,8 @@ https://www.transifex.com/lyra-project/lyra-project-translations</translation>
         <translation>JSON-RPC연결 수신을 위해 주어진 주소를 지정합니다. [host]: IPv6 포트 표기법 사용. 이 옵션은 여러번 지정할 수 있습니다. (기본값 : 모든 인터페이스에 지정)</translation>
     </message>
     <message>
-        <source>Cannot obtain a lock on data directory %s. LYRA Core is probably already running.</source>
-        <translation>        &lt;translation&gt;잠겨진 데이터 디렉토리 %s 를 가져올 수 없습니다. LYRA Core는 이미 실행 중입니다.</translation>
+        <source>Cannot obtain a lock on data directory %s. Scrypta Core is probably already running.</source>
+        <translation>        &lt;translation&gt;잠겨진 데이터 디렉토리 %s 를 가져올 수 없습니다. Scrypta Core는 이미 실행 중입니다.</translation>
     </message>
     <message>
         <source>Change automatic finalized budget voting behavior. mode=auto: Vote for only exact finalized budget match to my generated budget. (string, default: auto)</source>
@@ -4116,8 +4116,8 @@ rpcpassword=%s
 </translation>
     </message>
     <message>
-        <source>Unable to bind to %s on this computer. LYRA Core is probably already running.</source>
-        <translation>이 컴퓨터를 %s 로 지정하는것은 불가능합니다. LYRA Core는 이미 실행 중입니다.</translation>
+        <source>Unable to bind to %s on this computer. Scrypta Core is probably already running.</source>
+        <translation>이 컴퓨터를 %s 로 지정하는것은 불가능합니다. Scrypta Core는 이미 실행 중입니다.</translation>
     </message>
     <message>
         <source>Unable to locate enough Obfuscation denominated funds for this transaction.</source>
@@ -4144,7 +4144,7 @@ rpcpassword=%s
         <translation>경고 : -paytxfee가 매우 높게 설정되었습니다! 이것은 전송할 경우 지불 할 트랜잭션 수수료입니다.</translation>
     </message>
     <message>
-        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong LYRA Core will not work properly.</source>
+        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong Scrypta Core will not work properly.</source>
         <translation>경고: 컴퓨터의 날짜와 시간이 올바르게 설정되어 있는지 확인해 주세요! 만일 시계가 잘못되어 있다면 LYRA 코어는 정상적으로 작동하지 않을 수 있습니다.</translation>
     </message>
     <message>
@@ -4292,8 +4292,8 @@ rpcpassword=%s
         <translation>Copyright (C) 2014-%i The Dash Core 개발자들</translation>
     </message>
     <message>
-        <source>Copyright (C) 2015-%i The LYRA Core Developers</source>
-        <translation>Copyright (C) 2015-%i The LYRA Core 개발자</translation>
+        <source>Copyright (C) 2015-%i The Scrypta Core Developers</source>
+        <translation>Copyright (C) 2015-%i The Scrypta Core 개발자</translation>
     </message>
     <message>
         <source>Corrupted block database detected</source>
@@ -4364,7 +4364,7 @@ rpcpassword=%s
         <translation>wallet.dat을 불러오는 중 오류가 발생했습니다: 지갑 손상됨</translation>
     </message>
     <message>
-        <source>Error loading wallet.dat: Wallet requires newer version of LYRA Core</source>
+        <source>Error loading wallet.dat: Wallet requires newer version of Scrypta Core</source>
         <translation>wallet.dat를 로드하는 중 오류가 발생했습니다. 지갑에 최신 버전의 LYRA 코어가 필요합니다.</translation>
     </message>
     <message>
@@ -4476,8 +4476,8 @@ rpcpassword=%s
         <translation>정보</translation>
     </message>
     <message>
-        <source>Initialization sanity check failed. LYRA Core is shutting down.</source>
-        <translation>초기화 정확성 검사에 실패 했습니다. LYRA Core가 종료됩니다.</translation>
+        <source>Initialization sanity check failed. Scrypta Core is shutting down.</source>
+        <translation>초기화 정확성 검사에 실패 했습니다. Scrypta Core가 종료됩니다.</translation>
     </message>
     <message>
         <source>Input is not valid.</source>
@@ -5096,7 +5096,7 @@ rpcpassword=%s
         <translation>지갑이 잠겼습니다.</translation>
     </message>
     <message>
-        <source>Wallet needed to be rewritten: restart LYRA Core to complete</source>
+        <source>Wallet needed to be rewritten: restart Scrypta Core to complete</source>
         <translation>지갑을 다시 작성해야 합니다: 완료하려면 LYRA 코어를 재시작해야 합니다</translation>
     </message>
     <message>

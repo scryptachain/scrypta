@@ -13,7 +13,7 @@
  * for both lyrad and lyra-qt, to make it harder for attackers to
  * target servers or GUI users specifically.
  */
-const std::string CLIENT_NAME("LYRA Core");
+const std::string CLIENT_NAME("Scrypta Core");
 
 /**
  * Client version number

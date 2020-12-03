@@ -140,10 +140,6 @@
             <property name="text">
              <string>&amp;Request payment</string>
             </property>
-            <property name="icon">
-             <iconset resource="../lyra.qrc">
-              <normaloff>:/icons/receiving_addresses</normaloff>:/icons/receiving_addresses</iconset>
-            </property>
            </widget>
           </item>
           <item>

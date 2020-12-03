@@ -591,7 +591,7 @@ Syötä salausavain laatikon keskelle. Paina salaa tuottaaksesi salatun yksityis
         <translation>&amp;Apua</translation>
     </message>
     <message>
-        <source>LYRA Core</source>
+        <source>Scrypta Core</source>
         <translation>LYRA Ydin</translation>
     </message>
     <message>
@@ -611,11 +611,11 @@ Syötä salausavain laatikon keskelle. Paina salaa tuottaaksesi salatun yksityis
         <translation>Selaa masternodeja</translation>
     </message>
     <message>
-        <source>&amp;About LYRA Core</source>
-        <translation>LYRA Core &amp;ytimestä</translation>
+        <source>&amp;About Scrypta Core</source>
+        <translation>Scrypta Core &amp;ytimestä</translation>
     </message>
     <message>
-        <source>Show information about LYRA Core</source>
+        <source>Show information about Scrypta Core</source>
         <translation>Näytä tietoja LYRA Ytimestä</translation>
     </message>
     <message>
@@ -671,11 +671,11 @@ Syötä salausavain laatikon keskelle. Paina salaa tuottaaksesi salatun yksityis
         <translation>Lohkon tutkija näkymä</translation>
     </message>
     <message>
-        <source>Show the LYRA Core help message to get a list with possible LYRA command-line options</source>
+        <source>Show the Scrypta Core help message to get a list with possible LYRA command-line options</source>
         <translation>Näytä LYRA Ydin apuviesti saadaksesi lista mahdollisista LYRA komentolinja komennoista.</translation>
     </message>
     <message>
-        <source>LYRA Core client</source>
+        <source>Scrypta Core client</source>
         <translation>LYRA Ydin asiakasohjelma</translation>
     </message>
     <message>
@@ -934,7 +934,7 @@ Syötä salausavain laatikon keskelle. Paina salaa tuottaaksesi salatun yksityis
 <context>
     <name>HelpMessageDialog</name>
     <message>
-        <source>LYRA Core</source>
+        <source>Scrypta Core</source>
         <translation>LYRA Ydin</translation>
     </message>
     <message>
@@ -953,11 +953,11 @@ Syötä salausavain laatikon keskelle. Paina salaa tuottaaksesi salatun yksityis
         <translation>Tervetuloa</translation>
     </message>
     <message>
-        <source>Welcome to LYRA Core.</source>
+        <source>Welcome to Scrypta Core.</source>
         <translation>Tervetuloa LYRA Ytimeen.</translation>
     </message>
     <message>
-        <source>LYRA Core</source>
+        <source>Scrypta Core</source>
         <translation>LYRA Ydin</translation>
     </message>
     <message>
@@ -2009,7 +2009,7 @@ Please check the address and try again.</source>
 <context>
     <name>ShutdownWindow</name>
     <message>
-        <source>LYRA Core is shutting down...</source>
+        <source>Scrypta Core is shutting down...</source>
         <translation>LYRA core sammuu...</translation>
     </message>
     <message>
@@ -2151,7 +2151,7 @@ Please check the address and try again.</source>
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>LYRA Core</source>
+        <source>Scrypta Core</source>
         <translation>LYRA Ydin</translation>
     </message>
     <message>
@@ -2167,7 +2167,7 @@ Please check the address and try again.</source>
         <translation>Dash Core kehittäjät</translation>
     </message>
     <message>
-        <source>The LYRA Core developers</source>
+        <source>The Scrypta Core developers</source>
         <translation>LYRA core kehittäjät</translation>
     </message>
     <message>
@@ -2521,8 +2521,8 @@ Please check the address and try again.</source>
         <translation>Virhe ladattaessa wallet.dat tiedostoa: Lompakko korruptoitunut</translation>
     </message>
     <message>
-        <source>Error loading wallet.dat: Wallet requires newer version of LYRA Core</source>
-        <translation>Virhe ladattaessa wallet.dat tiedostoa: Lompakko vaatii uudemman version LYRA Coresta</translation>
+        <source>Error loading wallet.dat: Wallet requires newer version of Scrypta Core</source>
+        <translation>Virhe ladattaessa wallet.dat tiedostoa: Lompakko vaatii uudemman version Scrypta Coresta</translation>
     </message>
     <message>
         <source>Error reading from database, shutting down.</source>

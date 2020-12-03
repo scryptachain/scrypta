@@ -7,7 +7,6 @@
 <li><strong>See-Saw Reward Mechanism: </strong>dynamic block reward allocation between masternodes and staking.</li>
 <li><strong>Governance Budgeting System: </strong>10% of each block rewards goes to a fund that allows node operators to vote on important proposal about developments within the Scrypta blockchain. (Only when active)</li>
 <li><strong>SwifTX</strong> for fast transactions with guaranteed zero confirmation.for&nbsp;</li>
-<li><strong>Obfuscation protocol</strong> for anonymized transactions using coin mixing technology empowered by masternodes.</li>
 </ul>
 <p>for More information at <a href="https://scryptachain.org/" target="_blank" rel="noopener">https://scryptachain.org</a></p>
 <p>&nbsp;</p>

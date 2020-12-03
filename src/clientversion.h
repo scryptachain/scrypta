@@ -38,7 +38,7 @@
 #define DO_STRINGIZE(X) #X
 
 //! Copyright string used in Windows .rc files
-#define COPYRIGHT_STR "2009-" STRINGIZE(COPYRIGHT_YEAR) " The Bitcoin Core Developers, 2014-" STRINGIZE(COPYRIGHT_YEAR) " The Dash Core Developers, 2015-" STRINGIZE(COPYRIGHT_YEAR) " The LYRA Core Developers"
+#define COPYRIGHT_STR "2009-2014 The Bitcoin Core Developers, 2014-2015 The Dash Core Developers, 2015-2020 The Scrypta Core Developers"
 
 /**
  * lyrad-res.rc includes this file, but it cannot cope with real c++ code.

@@ -598,16 +598,16 @@
         <translation>Værktøjslinier</translation>
     </message>
     <message>
-        <source>LYRA Core</source>
-        <translation>LYRA kerne</translation>
+        <source>Scrypta Core</source>
+        <translation>Scrypta kerne</translation>
     </message>
     <message>
-        <source>Send coins to a LYRA address</source>
-        <translation>Send mønter til en LYRA adresse</translation>
+        <source>Send coins to a Scrypta address</source>
+        <translation>Send mønter til en Scrypta adresse</translation>
     </message>
     <message>
         <source>Request payments (generates QR codes and lyra: URIs)</source>
-        <translation>Anmod om betaling (genrerer QR kode og LYRA URL)</translation>
+        <translation>Anmod om betaling (genrerer QR kode og Scrypta URL)</translation>
     </message>
     <message>
         <source>&amp;Masternodes</source>
@@ -618,20 +618,20 @@
         <translation>Vis masternoder</translation>
     </message>
     <message>
-        <source>&amp;About LYRA Core</source>
+        <source>&amp;About Scrypta Core</source>
         <translation>&amp;Om LYRA kerne</translation>
     </message>
     <message>
-        <source>Show information about LYRA Core</source>
+        <source>Show information about Scrypta Core</source>
         <translation>Vis information om LYRA kerne</translation>
     </message>
     <message>
-        <source>Modify configuration options for LYRA</source>
-        <translation>Ret konfigurationsindstillinger for LYRA</translation>
+        <source>Modify configuration options for Scrypta</source>
+        <translation>Ret konfigurationsindstillinger for Scrypta</translation>
     </message>
     <message>
-        <source>Sign messages with your LYRA addresses to prove you own them</source>
-        <translation>Underskriv beskeder med Deres LYRA adresser for at bekræfte at De ejer dem.</translation>
+        <source>Sign messages with your Scrypta addresses to prove you own them</source>
+        <translation>Underskriv beskeder med Deres Scrypta adresser for at bekræfte at De ejer dem.</translation>
     </message>
     <message>
         <source>Verify messages to ensure they were signed with specified LYRA addresses</source>
@@ -678,12 +678,12 @@
         <translation>Blockexplorer vindue</translation>
     </message>
     <message>
-        <source>Show the LYRA Core help message to get a list with possible LYRA command-line options</source>
-        <translation>Vis hjelpetekster fra LYRA kernen for at få en liste med mulige LYRA kommandolinie-startparametre</translation>
+        <source>Show the Scrypta Core help message to get a list with possible Scrypta command-line options</source>
+        <translation>Vis hjelpetekster fra Scrypta kernen for at få en liste med mulige Scrypta kommandolinie-startparametre</translation>
     </message>
     <message>
-        <source>LYRA Core client</source>
-        <translation>LYRA kerneklient</translation>
+        <source>Scrypta Core client</source>
+        <translation>Scrypta kerneklient</translation>
     </message>
     <message>
         <source>Synchronizing with network...</source>
@@ -1160,16 +1160,16 @@ Adresse: %4
         <translation>version</translation>
     </message>
     <message>
-        <source>LYRA Core</source>
-        <translation>LYRA kerne</translation>
+        <source>Scrypta Core</source>
+        <translation>Scrypta kerne</translation>
     </message>
     <message>
         <source>(%1-bit)</source>
         <translation>(%1-bit)</translation>
     </message>
     <message>
-        <source>About LYRA Core</source>
-        <translation>om LYRA kerne</translation>
+        <source>About Scrypta Core</source>
+        <translation>om Scrypta kerne</translation>
     </message>
     <message>
         <source>Command-line options</source>
@@ -1215,16 +1215,16 @@ Adresse: %4
         <translation>Velkommen</translation>
     </message>
     <message>
-        <source>Welcome to LYRA Core.</source>
-        <translation>Velkommen til LYRA kerne</translation>
+        <source>Welcome to Scrypta Core.</source>
+        <translation>Velkommen til Scrypta kerne</translation>
     </message>
     <message>
-        <source>As this is the first time the program is launched, you can choose where LYRA Core will store its data.</source>
+        <source>As this is the first time the program is launched, you can choose where Scrypta Core will store its data.</source>
         <translation>Da det er første gang programmet startes, kan De vælge hvor LYRA kernen skal lagre sine data</translation>
     </message>
     <message>
-        <source>LYRA Core will download and store a copy of the LYRA block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>LYRA kernen vil nu hente og gemme en kopi af LYRA blockchain. Der skal være mindst %1GB ledigt på lagermediet, og behovet vil stige efterhånden som tiden går. Selve tegnebogen vil også blive gemt her.</translation>
+        <source>Scrypta Core will download and store a copy of the Scrypta block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>Scrypta kernen vil nu hente og gemme en kopi af Scrypta blockchain. Der skal være mindst %1GB ledigt på lagermediet, og behovet vil stige efterhånden som tiden går. Selve tegnebogen vil også blive gemt her.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -1235,8 +1235,8 @@ Adresse: %4
         <translation>Anvend en mappe valgt af brugeren</translation>
     </message>
     <message>
-        <source>LYRA Core</source>
-        <translation>LYRA kerne</translation>
+        <source>Scrypta Core</source>
+        <translation>Scrypta kerne</translation>
     </message>
     <message>
         <source>Error: Specified data directory "%1" cannot be created.</source>
@@ -3093,7 +3093,7 @@ https://www.transifex.com/lyra-project/lyra-project-translations</translation>
 <context>
     <name>ShutdownWindow</name>
     <message>
-        <source>LYRA Core is shutting down...</source>
+        <source>Scrypta Core is shutting down...</source>
         <translation>LYRA kernen lukker ned</translation>
     </message>
     <message>
@@ -3243,7 +3243,7 @@ https://www.transifex.com/lyra-project/lyra-project-translations</translation>
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>LYRA Core</source>
+        <source>Scrypta Core</source>
         <translation>LYRA kerne</translation>
     </message>
     <message>
@@ -3259,7 +3259,7 @@ https://www.transifex.com/lyra-project/lyra-project-translations</translation>
         <translation>DASH "core" udviklerne</translation>
     </message>
     <message>
-        <source>The LYRA Core developers</source>
+        <source>The Scrypta Core developers</source>
         <translation>LYRA "core" udviklerne</translation>
     </message>
     <message>
@@ -3861,7 +3861,7 @@ https://www.transifex.com/lyra-project/lyra-project-translations</translation>
         <translation>Forbind til den opgivne adresse og lyt efter JSON-.RPC forbindelser. Brug [host]:port notation for IPv6. Der kan indsættes flere linier (standard: Forbind til alle interfaces)</translation>
     </message>
     <message>
-        <source>Cannot obtain a lock on data directory %s. LYRA Core is probably already running.</source>
+        <source>Cannot obtain a lock on data directory %s. Scrypta Core is probably already running.</source>
         <translation>Kan ikke låse datamappen %s. LYRA core kører sandsynligvis allerede.</translation>
     </message>
     <message>
@@ -4058,7 +4058,7 @@ For eksempel: alertnotify=Echo %% | mail - s "LYRA ALARM!" e-mail@administrator.
 </translation>
     </message>
     <message>
-        <source>Unable to bind to %s on this computer. LYRA Core is probably already running.</source>
+        <source>Unable to bind to %s on this computer. Scrypta Core is probably already running.</source>
         <translation>Det var ikke muligt at forbinde %s på denne computer. LYRA kører sandsynligvis allerede.</translation>
     </message>
     <message>
@@ -4086,7 +4086,7 @@ For eksempel: alertnotify=Echo %% | mail - s "LYRA ALARM!" e-mail@administrator.
         <translation>Advarsel! -paytxfee er sat meget højt. Det er dette gebyr De kommer til at betale for transaktionen, hvis De gennemfører. </translation>
     </message>
     <message>
-        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong LYRA Core will not work properly.</source>
+        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong Scrypta Core will not work properly.</source>
         <translation>Advarsel! Kontroller at computerens dato og tid er korrekt indstillet. Hvis tiden ikke er rigtig, vil LYRA core ikke fungere ordentligt.</translation>
     </message>
     <message>
@@ -4234,8 +4234,8 @@ For eksempel: alertnotify=Echo %% | mail - s "LYRA ALARM!" e-mail@administrator.
         <translation>Copyright (C) 2014-%i The Dash Core Developers </translation>
     </message>
     <message>
-        <source>Copyright (C) 2015-%i The LYRA Core Developers</source>
-        <translation>Copyright (C) 2015-%i The LYRA Core Developers</translation>
+        <source>Copyright (C) 2015-%i The Scrypta Core Developers</source>
+        <translation>Copyright (C) 2015-%i The Scrypta Core Developers</translation>
     </message>
     <message>
         <source>Corrupted block database detected</source>
@@ -4306,7 +4306,7 @@ For eksempel: alertnotify=Echo %% | mail - s "LYRA ALARM!" e-mail@administrator.
         <translation>Fejl ved indlæsning af wallet.dat: Tegnebogen er beskadiget</translation>
     </message>
     <message>
-        <source>Error loading wallet.dat: Wallet requires newer version of LYRA Core</source>
+        <source>Error loading wallet.dat: Wallet requires newer version of Scrypta Core</source>
         <translation>Fejl ved indlæsning af wallet.dat: Tegnebogen kræver en nyere version af LYRA core</translation>
     </message>
     <message>
@@ -4418,7 +4418,7 @@ For eksempel: alertnotify=Echo %% | mail - s "LYRA ALARM!" e-mail@administrator.
         <translation>Info:</translation>
     </message>
     <message>
-        <source>Initialization sanity check failed. LYRA Core is shutting down.</source>
+        <source>Initialization sanity check failed. Scrypta Core is shutting down.</source>
         <translation>Initiering af sanitetskontrollen fejlede. LYRA core lukker ned. </translation>
     </message>
     <message>
@@ -4994,7 +4994,7 @@ For eksempel: alertnotify=Echo %% | mail - s "LYRA ALARM!" e-mail@administrator.
         <translation>Tegnebogen er låst</translation>
     </message>
     <message>
-        <source>Wallet needed to be rewritten: restart LYRA Core to complete</source>
+        <source>Wallet needed to be rewritten: restart Scrypta Core to complete</source>
         <translation>Tegnebogen måtte genskrives. Genstart LYRA core for at gøre færdig</translation>
     </message>
     <message>

@@ -222,6 +222,10 @@ QString formatPingTime(double dPingTime);
 // QProgressBar uses around 10% CPU even when app is in background
 class ProgressBar : public QProgressBar
 {
+public:
+    ProgressBar(QWidget* parent = nullptr) : QProgressBar(parent) {}
+
+private:
     bool event(QEvent* e)
     {
         return (e->type() != QEvent::StyleAnimationUpdate) ? QProgressBar::event(e) : false;

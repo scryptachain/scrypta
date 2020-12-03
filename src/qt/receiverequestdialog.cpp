@@ -129,13 +129,12 @@ void ReceiveRequestDialog::update()
     QString target = info.label;
     if (target.isEmpty())
         target = info.address;
-    setWindowTitle(tr("Request payment to %1").arg(target));
+    setWindowTitle(tr("Payment request informations").arg(target));
 
     QString uri = GUIUtil::formatBitcoinURI(info);
     ui->btnSaveAs->setEnabled(false);
     QString html;
     html += "<html><font face='verdana, arial, helvetica, sans-serif'>";
-    html += "<b>" + tr("Payment information") + "</b><br>";
     html += "<b>" + tr("URI") + "</b>: ";
     html += "<a style=\"color:#5B4C7C;\" href=\"" + uri + "\">" + GUIUtil::HtmlEscape(uri) + "</a><br>";
     html += "<b>" + tr("Address") + "</b>: " + GUIUtil::HtmlEscape(info.address) + "<br>";

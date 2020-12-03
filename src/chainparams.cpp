@@ -183,7 +183,7 @@ public:
         fHeadersFirstSyncingActive = false;
 
         nPoolMaxTransactions = 3;
-        strBootstrapUrl = "http://bootstrap.scryptachain.org/latest.zip";
+        strBootstrapUrl = "https://bs.scryptachain.org/latest.zip";
 
         strSporkKey = "02381786ba02d6dd08229fd4f4d6ef285ac21f93833f6b108045bbf180fffedf51";
         strObfuscationPoolDummyAddress = "LTxuXP8eUcdu7dYZR7QP42AScrSdjTGQR2";

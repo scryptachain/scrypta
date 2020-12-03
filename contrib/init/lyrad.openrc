@@ -16,8 +16,8 @@ BITCOIND_USER=${BITCOIND_USER:-lyra}
 BITCOIND_GROUP=${BITCOIND_GROUP:-lyra}
 BITCOIND_BIN=${BITCOIND_BIN:-/usr/bin/lyrad}
 
-name="LYRA Core Daemon"
-description="LYRA crypto-currency p2p network daemon"
+name="Scrypta Core Daemon"
+description="Scrypta Core daemon"
 
 command="/usr/bin/lyrad"
 command_args="-pid=\"${BITCOIND_PIDFILE}\" \
