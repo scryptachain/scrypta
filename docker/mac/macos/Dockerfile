@@ -19,6 +19,9 @@ RUN apt-get install -y libcap-dev
 RUN apt-get install -y python-dev
 RUN apt-get install -y libbz2-dev
 RUN apt-get install -y imagemagick
+RUN apt-get install -y librsvg2-bin
+RUN apt-get install -y libtiff-tools
+
 RUN PATH=$(echo "$PATH" | sed -e 's/:\/mnt.*//g')
 
 # CLONING REPO
@@ -43,6 +46,7 @@ RUN autoreconf -i
 RUN ./autogen.sh
 RUN ./configure --prefix=$(pwd)/depends/x86_64-apple-darwin11
 RUN make -j16
+RUN make deploy
 
 EXPOSE 42222 42223
 CMD tail -f /dev/null
