@@ -1,7 +1,6 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2017-2018 Scrypta Development Team
 // Copyright (c) 2015-2018 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
@@ -220,10 +219,10 @@ Value stop(const Array& params, bool fHelp)
     if (fHelp || params.size() > 1)
         throw runtime_error(
             "stop\n"
-            "\nStop lyra server.");
+            "\nStop LYRA server.");
     // Shutdown will take long enough that the response should get back
     StartShutdown();
-    return "lyra server stopping";
+    return "LYRA server stopping";
 }
 
 
@@ -300,14 +299,34 @@ static const CRPCCommand vRPCCommands[] =
         {"hidden", "reconsiderblock", &reconsiderblock, true, true, false},
         {"hidden", "setmocktime", &setmocktime, true, false, false},
 
-        /* lyra features */
+        /* Lyra features */
         {"lyra", "masternode", &masternode, true, true, false},
-        {"lyra", "masternodelist", &masternodelist, true, true, false},
+        {"lyra", "listmasternodes", &listmasternodes, true, true, false},
+        {"lyra", "getmasternodecount", &getmasternodecount, true, true, false},
+        {"lyra", "masternodeconnect", &masternodeconnect, true, true, false},
+        {"lyra", "masternodecurrent", &masternodecurrent, true, true, false},
+        {"lyra", "masternodedebug", &masternodedebug, true, true, false},
+        {"lyra", "startmasternode", &startmasternode, true, true, false},
+        {"lyra", "createmasternodekey", &createmasternodekey, true, true, false},
+        {"lyra", "getmasternodeoutputs", &getmasternodeoutputs, true, true, false},
+        {"lyra", "listmasternodeconf", &listmasternodeconf, true, true, false},
+        {"lyra", "getmasternodestatus", &getmasternodestatus, true, true, false},
+        {"lyra", "getmasternodewinners", &getmasternodewinners, true, true, false},
+        {"lyra", "getmasternodescores", &getmasternodescores, true, true, false},
         {"lyra", "mnbudget", &mnbudget, true, true, false},
-        {"lyra", "mnbudgetvoteraw", &mnbudgetvoteraw, true, true, false},
+        {"lyra", "preparebudget", &preparebudget, true, true, false},
+        {"lyra", "submitbudget", &submitbudget, true, true, false},
+        {"lyra", "mnbudgetvote", &mnbudgetvote, true, true, false},
+        {"lyra", "getbudgetvotes", &getbudgetvotes, true, true, false},
+        {"lyra", "getnextsuperblock", &getnextsuperblock, true, true, false},
+        {"lyra", "getbudgetprojection", &getbudgetprojection, true, true, false},
+        {"lyra", "getbudgetinfo", &getbudgetinfo, true, true, false},
+        {"lyra", "mnbudgetrawvote", &mnbudgetrawvote, true, true, false},
         {"lyra", "mnfinalbudget", &mnfinalbudget, true, true, false},
+        {"lyra", "checkbudgets", &checkbudgets, true, true, false},
         {"lyra", "mnsync", &mnsync, true, true, false},
         {"lyra", "spork", &spork, true, true, false},
+        {"lyra", "getpoolinfo", &getpoolinfo, true, true, false},
 #ifdef ENABLE_WALLET
         {"lyra", "obfuscation", &obfuscation, false, false, true}, /* not threadSafe because of SendMoney */
 
@@ -471,8 +490,8 @@ private:
 void ServiceConnection(AcceptedConnection* conn);
 
 //! Forward declaration required for RPCListen
-template <typename Protocol>
-static void RPCAcceptHandler(boost::shared_ptr<basic_socket_acceptor<Protocol> > acceptor,
+template <typename Protocol, typename SocketAcceptorService>
+static void RPCAcceptHandler(boost::shared_ptr<basic_socket_acceptor<Protocol, SocketAcceptorService> > acceptor,
     ssl::context& context,
     bool fUseSSL,
     boost::shared_ptr<AcceptedConnection> conn,
@@ -481,8 +500,8 @@ static void RPCAcceptHandler(boost::shared_ptr<basic_socket_acceptor<Protocol> >
 /**
  * Sets up I/O resources to accept and handle a new connection.
  */
-template <typename Protocol>
-static void RPCListen(boost::shared_ptr<basic_socket_acceptor<Protocol> > acceptor,
+template <typename Protocol, typename SocketAcceptorService>
+static void RPCListen(boost::shared_ptr<basic_socket_acceptor<Protocol, SocketAcceptorService> > acceptor,
     ssl::context& context,
     const bool fUseSSL)
 {
@@ -492,7 +511,7 @@ static void RPCListen(boost::shared_ptr<basic_socket_acceptor<Protocol> > accept
     acceptor->async_accept(
         conn->sslStream.lowest_layer(),
         conn->peer,
-        boost::bind(&RPCAcceptHandler<Protocol>,
+        boost::bind(&RPCAcceptHandler<Protocol, SocketAcceptorService>,
             acceptor,
             boost::ref(context),
             fUseSSL,
@@ -504,8 +523,8 @@ static void RPCListen(boost::shared_ptr<basic_socket_acceptor<Protocol> > accept
 /**
  * Accept and handle incoming connection.
  */
-template <typename Protocol>
-static void RPCAcceptHandler(boost::shared_ptr<basic_socket_acceptor<Protocol> > acceptor,
+template <typename Protocol, typename SocketAcceptorService>
+static void RPCAcceptHandler(boost::shared_ptr<basic_socket_acceptor<Protocol, SocketAcceptorService> > acceptor,
     ssl::context& context,
     const bool fUseSSL,
     boost::shared_ptr<AcceptedConnection> conn,
@@ -583,7 +602,7 @@ void StartRPCThreads()
                                                "The username and password MUST NOT be the same.\n"
                                                "If the file does not exist, create it with owner-readable-only file permissions.\n"
                                                "It is also recommended to set alertnotify so you are notified of problems;\n"
-                                               "for example: alertnotify=echo %%s | mail -s \"lyra Alert\" admin@foo.com\n"),
+                                               "for example: alertnotify=echo %%s | mail -s \"LYRA Alert\" admin@foo.com\n"),
                                              GetConfigFile().string(),
                                              EncodeBase58(&rand_pwd[0], &rand_pwd[0] + 32)),
             "", CClientUIInterface::MSG_ERROR | CClientUIInterface::SECURE);
@@ -593,7 +612,7 @@ void StartRPCThreads()
 
     assert(rpc_io_service == NULL);
     rpc_io_service = new asio::io_service();
-    rpc_ssl_context = new ssl::context(ssl::context::sslv23);
+    rpc_ssl_context = new ssl::context(*rpc_io_service, ssl::context::sslv23);
 
     const bool fUseSSL = GetBoolArg("-rpcssl", false);
 
@@ -615,7 +634,7 @@ void StartRPCThreads()
             LogPrintf("ThreadRPCServer ERROR: missing server private key file %s\n", pathPKFile.string());
 
         string strCiphers = GetArg("-rpcsslciphers", "TLSv1.2+HIGH:TLSv1+HIGH:!SSLv2:!aNULL:!eNULL:!3DES:@STRENGTH");
-        SSL_CTX_set_cipher_list(rpc_ssl_context->native_handle(), strCiphers.c_str());
+        SSL_CTX_set_cipher_list(rpc_ssl_context->impl(), strCiphers.c_str());
     }
 
     std::vector<ip::tcp::endpoint> vEndpoints;

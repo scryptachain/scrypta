@@ -12,9 +12,8 @@ RUN apt-get install libzmq3-dev -y
 RUN apt-get install libminiupnpc-dev -y
 RUN apt-get install libgmp3-dev libevent-dev bsdmainutils libboost-all-dev openssl -y
 RUN apt-get install libssl1.0-dev -y
-RUN apt-get install libcurl4-openssl-dev -y
-RUN apt-get install -y autoconf g++ make openssl libssl-dev libcurl4-openssl-dev -y
-RUN apt-get install -y libcurl4-openssl-dev pkg-config -y
+RUN apt-get install -y autoconf g++ make openssl libssl-dev -y
+RUN apt-get install -y libcurl4-gnutls-dev pkg-config -y
 RUN apt-get install -y libsasl2-dev -y
 RUN apt install g++-mingw-w64-x86-64 -y
 RUN PATH=$(echo "$PATH" | sed -e 's/:\/mnt.*//g')
@@ -26,13 +25,18 @@ RUN git clone https://github.com/scryptachain/scrypta
 # BUILDING WINDOWS
 WORKDIR /opt/scrypta
 WORKDIR /opt/scrypta/depends
-RUN make HOST=x86_64-w64-mingw32
+RUN make HOST=x86_64-w64-mingw32 -j16
 WORKDIR /opt/scrypta
+RUN ./autogen.sh; exit 0
+RUN libtoolize --automake --copy --debug --force
+RUN autoreconf -i
 RUN ./autogen.sh
 RUN ./configure -prefix=$(pwd)/depends/x86_64-w64-mingw32 
-RUN make
+RUN make -j16
+WORKDIR /opt/scrypta/src
+RUN strip lyrad.exe lyra-cli.exe
 WORKDIR /opt/scrypta/src/qt
-RUN strip lyra-qt
+RUN strip lyra-qt.exe
 
 EXPOSE 42222 42223
 CMD tail -f /dev/null

@@ -30,7 +30,7 @@ class QUrl;
 class QWidget;
 QT_END_NAMESPACE
 
-/** Utility functions used by the lyra Qt UI.
+/** Utility functions used by the LYRA Qt UI.
  */
 namespace GUIUtil
 {
@@ -38,7 +38,7 @@ namespace GUIUtil
 QString dateTimeStr(const QDateTime& datetime);
 QString dateTimeStr(qint64 nTime);
 
-// Render lyra addresses in monospace font
+// Render LYRA addresses in monospace font
 QFont bitcoinAddressFont();
 
 // Set up widgets for address and amounts
@@ -222,6 +222,10 @@ QString formatPingTime(double dPingTime);
 // QProgressBar uses around 10% CPU even when app is in background
 class ProgressBar : public QProgressBar
 {
+public:
+    ProgressBar(QWidget* parent = nullptr) : QProgressBar(parent) {}
+
+private:
     bool event(QEvent* e)
     {
         return (e->type() != QEvent::StyleAnimationUpdate) ? QProgressBar::event(e) : false;

@@ -30,7 +30,7 @@ QT_TRANSLATE_NOOP("lyra-core", ""
 "notation for IPv6. This option can be specified multiple times (default: "
 "bind to all interfaces)"),
 QT_TRANSLATE_NOOP("lyra-core", ""
-"Cannot obtain a lock on data directory %s. Scrypta Client is probably already "
+"Cannot obtain a lock on data directory %s. Scrypta Core is probably already "
 "running."),
 QT_TRANSLATE_NOOP("lyra-core", ""
 "Change automatic finalized budget voting behavior. mode=auto: Vote for only "
@@ -45,7 +45,7 @@ QT_TRANSLATE_NOOP("lyra-core", ""
 "Delete all wallet transactions and only recover those parts of the "
 "blockchain through -rescan on startup"),
 QT_TRANSLATE_NOOP("lyra-core", ""
-"Disable all lyra specific functionality (Masternodes, Obfuscation, SwiftTX, "
+"Disable all LYRA specific functionality (Masternodes, Obfuscation, SwiftTX, "
 "Budgeting) (0-1, default: %u)"),
 QT_TRANSLATE_NOOP("lyra-core", ""
 "Distributed under the MIT software license, see the accompanying file "
@@ -76,10 +76,10 @@ QT_TRANSLATE_NOOP("lyra-core", ""
 "Execute command when the best block changes (%s in cmd is replaced by block "
 "hash)"),
 QT_TRANSLATE_NOOP("lyra-core", ""
-"Fees (in lyra/Kb) smaller than this are considered zero fee for relaying "
+"Fees (in LYRA/Kb) smaller than this are considered zero fee for relaying "
 "(default: %s)"),
 QT_TRANSLATE_NOOP("lyra-core", ""
-"Fees (in lyra/Kb) smaller than this are considered zero fee for transaction "
+"Fees (in LYRA/Kb) smaller than this are considered zero fee for transaction "
 "creation (default: %s)"),
 QT_TRANSLATE_NOOP("lyra-core", ""
 "Flush database activity from memory pool to disk log every <n> megabytes "
@@ -164,17 +164,17 @@ QT_TRANSLATE_NOOP("lyra-core", ""
 "If the file does not exist, create it with owner-readable-only file "
 "permissions.\n"
 "It is also recommended to set alertnotify so you are notified of problems;\n"
-"for example: alertnotify=echo %%s | mail -s \"lyra Alert\" admin@foo.com\n"),
+"for example: alertnotify=echo %%s | mail -s \"LYRA Alert\" admin@foo.com\n"),
 QT_TRANSLATE_NOOP("lyra-core", ""
-"Unable to bind to %s on this computer. Scrypta Client is probably already running."),
+"Unable to bind to %s on this computer. Scrypta Core is probably already running."),
 QT_TRANSLATE_NOOP("lyra-core", ""
 "Unable to locate enough Obfuscation denominated funds for this transaction."),
 QT_TRANSLATE_NOOP("lyra-core", ""
 "Unable to locate enough Obfuscation non-denominated funds for this "
-"transaction that are not equal 10000 lyra."),
+"transaction that are not equal 10000 LYRA."),
 QT_TRANSLATE_NOOP("lyra-core", ""
 "Unable to locate enough funds for this transaction that are not equal 10000 "
-"lyra."),
+"LYRA."),
 QT_TRANSLATE_NOOP("lyra-core", ""
 "Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: "
 "%s)"),
@@ -186,7 +186,7 @@ QT_TRANSLATE_NOOP("lyra-core", ""
 "pay if you send a transaction."),
 QT_TRANSLATE_NOOP("lyra-core", ""
 "Warning: Please check that your computer's date and time are correct! If "
-"your clock is wrong Scrypta Client will not work properly."),
+"your clock is wrong Scrypta Core will not work properly."),
 QT_TRANSLATE_NOOP("lyra-core", ""
 "Warning: The network does not appear to fully agree! Some miners appear to "
 "be experiencing issues."),
@@ -238,9 +238,10 @@ QT_TRANSLATE_NOOP("lyra-core", "Connect only to the specified node(s)"),
 QT_TRANSLATE_NOOP("lyra-core", "Connect through SOCKS5 proxy"),
 QT_TRANSLATE_NOOP("lyra-core", "Connect to a node to retrieve peer addresses, and disconnect"),
 QT_TRANSLATE_NOOP("lyra-core", "Connection options:"),
-QT_TRANSLATE_NOOP("lyra-core", "Copyright (C) 2009-%i The Bitcoin Core Developers"),
-QT_TRANSLATE_NOOP("lyra-core", "Copyright (C) 2014-%i The Dash Core Developers"),
-QT_TRANSLATE_NOOP("lyra-core", "Copyright (C) 2015-%i The Scrypta Client Developers"),
+QT_TRANSLATE_NOOP("lyra-core", "Copyright (C) 2009-2014 The Bitcoin Core Developers"),
+QT_TRANSLATE_NOOP("lyra-core", "Copyright (C) 2014-2015 The Dash Core Developers"),
+QT_TRANSLATE_NOOP("lyra-core", "Copyright (C) 2015-2018 The PIVX Core Developers"),
+QT_TRANSLATE_NOOP("lyra-core", "Copyright (C) 2018-%i The Scrypta Core Developers"),
 QT_TRANSLATE_NOOP("lyra-core", "Corrupted block database detected"),
 QT_TRANSLATE_NOOP("lyra-core", "Could not parse -rpcbind value %s as network address"),
 QT_TRANSLATE_NOOP("lyra-core", "Could not parse masternode.conf"),
@@ -267,7 +268,7 @@ QT_TRANSLATE_NOOP("lyra-core", "Error initializing wallet database environment %
 QT_TRANSLATE_NOOP("lyra-core", "Error loading block database"),
 QT_TRANSLATE_NOOP("lyra-core", "Error loading wallet.dat"),
 QT_TRANSLATE_NOOP("lyra-core", "Error loading wallet.dat: Wallet corrupted"),
-QT_TRANSLATE_NOOP("lyra-core", "Error loading wallet.dat: Wallet requires newer version of Scrypta Client"),
+QT_TRANSLATE_NOOP("lyra-core", "Error loading wallet.dat: Wallet requires newer version of Scrypta Core"),
 QT_TRANSLATE_NOOP("lyra-core", "Error opening block database"),
 QT_TRANSLATE_NOOP("lyra-core", "Error reading from database, shutting down."),
 QT_TRANSLATE_NOOP("lyra-core", "Error recovering public key."),
@@ -280,7 +281,7 @@ QT_TRANSLATE_NOOP("lyra-core", "Error: Wallet locked, unable to create transacti
 QT_TRANSLATE_NOOP("lyra-core", "Error: You already have pending entries in the Obfuscation pool"),
 QT_TRANSLATE_NOOP("lyra-core", "Failed to listen on any port. Use -listen=0 if you want this."),
 QT_TRANSLATE_NOOP("lyra-core", "Failed to read block"),
-QT_TRANSLATE_NOOP("lyra-core", "Fee (in lyra/kB) to add to transactions you send (default: %s)"),
+QT_TRANSLATE_NOOP("lyra-core", "Fee (in LYRA/kB) to add to transactions you send (default: %s)"),
 QT_TRANSLATE_NOOP("lyra-core", "Finalizing transaction."),
 QT_TRANSLATE_NOOP("lyra-core", "Force safe mode (default: %u)"),
 QT_TRANSLATE_NOOP("lyra-core", "Found enough users, signing ( waiting %s )"),
@@ -295,7 +296,7 @@ QT_TRANSLATE_NOOP("lyra-core", "Incompatible mode."),
 QT_TRANSLATE_NOOP("lyra-core", "Incompatible version."),
 QT_TRANSLATE_NOOP("lyra-core", "Incorrect or no genesis block found. Wrong datadir for network?"),
 QT_TRANSLATE_NOOP("lyra-core", "Information"),
-QT_TRANSLATE_NOOP("lyra-core", "Initialization sanity check failed. Scrypta Client is shutting down."),
+QT_TRANSLATE_NOOP("lyra-core", "Initialization sanity check failed. Scrypta Core is shutting down."),
 QT_TRANSLATE_NOOP("lyra-core", "Input is not valid."),
 QT_TRANSLATE_NOOP("lyra-core", "Insufficient funds."),
 QT_TRANSLATE_NOOP("lyra-core", "Invalid -onion address: '%s'"),
@@ -311,7 +312,7 @@ QT_TRANSLATE_NOOP("lyra-core", "Invalid netmask specified in -whitelist: '%s'"),
 QT_TRANSLATE_NOOP("lyra-core", "Invalid port detected in masternode.conf"),
 QT_TRANSLATE_NOOP("lyra-core", "Invalid private key."),
 QT_TRANSLATE_NOOP("lyra-core", "Invalid script detected."),
-QT_TRANSLATE_NOOP("lyra-core", "Keep N lyra anonymized (default: %u)"),
+QT_TRANSLATE_NOOP("lyra-core", "Keep N LYRA anonymized (default: %u)"),
 QT_TRANSLATE_NOOP("lyra-core", "Keep at most <n> unconnectable transactions in memory (default: %u)"),
 QT_TRANSLATE_NOOP("lyra-core", "Last Obfuscation was too recent."),
 QT_TRANSLATE_NOOP("lyra-core", "Last successful Obfuscation action was too recent."),
@@ -438,7 +439,7 @@ QT_TRANSLATE_NOOP("lyra-core", "Verifying blocks..."),
 QT_TRANSLATE_NOOP("lyra-core", "Verifying wallet..."),
 QT_TRANSLATE_NOOP("lyra-core", "Wallet %s resides outside data directory %s"),
 QT_TRANSLATE_NOOP("lyra-core", "Wallet is locked."),
-QT_TRANSLATE_NOOP("lyra-core", "Wallet needed to be rewritten: restart Scrypta Client to complete"),
+QT_TRANSLATE_NOOP("lyra-core", "Wallet needed to be rewritten: restart Scrypta Core to complete"),
 QT_TRANSLATE_NOOP("lyra-core", "Wallet options:"),
 QT_TRANSLATE_NOOP("lyra-core", "Wallet window title"),
 QT_TRANSLATE_NOOP("lyra-core", "Warning"),

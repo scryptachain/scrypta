@@ -1,13 +1,13 @@
-Scrypta Client
+Scrypta Core
 =====================
 
 Setup
 ---------------------
-[Scrypta Client](http://lyra.org/wallet) is the original lyra client and it builds the backbone of the network. However, it downloads and stores the entire history of lyra transactions; depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more. Thankfully you only have to do this once.
+[Scrypta Core](https://scryptachain.org) is the original Scrypta client and it builds the backbone of the network. However, it downloads and stores the entire history of Scrypta transactions; depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more. Thankfully you only have to do this once.
 
 Running
 ---------------------
-The following are some helpful notes on how to run lyra on your native platform.
+The following are some helpful notes on how to run Scrypta on your native platform.
 
 ### Unix
 
@@ -22,18 +22,18 @@ Unpack the files into a directory, and then run lyra-qt.exe.
 
 ### OSX
 
-Drag lyra-Qt to your applications folder, and then run lyra-Qt.
+Drag Scrypta-Qt to your applications folder, and then run Scrypta-Qt.
 
 ### Need Help?
 
-* See the documentation at the [lyra Wiki](https://en.bitcoin.it/wiki/Main_Page) ***TODO***
+* See the documentation at the [Scrypta Wiki](https://en.bitcoin.it/wiki/Main_Page) ***TODO***
 for help and more information.
-* Ask for help on [BitcoinTalk](https://bitcointalk.org/index.php?topic=1262920.0) or on the [lyra Forum](http://forum.lyra.org/).
-* Join one of our Slack groups [lyra Slack Groups](https://lyra.org/slack-logins/).
+* Ask for help on [BitcoinTalk](https://bitcointalk.org/index.php?topic=1262920.0) or on the [Scrypta Forum](http://forum.lyra.org/).
+* Join one of our Slack groups [Scrypta Slack Groups](https://lyra.org/slack-logins/).
 
 Building
 ---------------------
-The following are developer notes on how to build lyra on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
+The following are developer notes on how to build Scrypta on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
 
 - [OSX Build Notes](build-osx.md)
 - [Unix Build Notes](build-unix.md)
@@ -41,7 +41,7 @@ The following are developer notes on how to build lyra on your native platform. 
 
 Development
 ---------------------
-The lyra repo's [root README](https://github.com/lyra-Project/lyra/blob/master/README.md) contains relevant information on the development process and automated testing.
+The Lyra repo's [root README](https://github.com/Scrypta-Project/Scrypta/blob/master/README.md) contains relevant information on the development process and automated testing.
 
 - [Developer Notes](developer-notes.md)
 - [Multiwallet Qt Development](multiwallet-qt.md)
@@ -55,8 +55,8 @@ The lyra repo's [root README](https://github.com/lyra-Project/lyra/blob/master/R
 
 ### Resources
 
-* Discuss on the [BitcoinTalk](https://bitcointalk.org/index.php?topic=1262920.0) or the [lyra](http://forum.lyra.org/) forum.
-* Join the [lyra-Dev](https://lyra-dev.slack.com/) Slack group ([Sign-Up](https://lyra-dev.herokuapp.com/)).
+* Discuss on the [BitcoinTalk](https://bitcointalk.org/index.php?topic=1262920.0) or the [Scrypta](http://forum.lyra.org/) forum.
+* Join the [Scrypta-Dev](https://lyra-dev.slack.com/) Slack group ([Sign-Up](https://lyra-dev.herokuapp.com/)).
 
 ### Miscellaneous
 - [Assets Attribution](assets-attribution.md)

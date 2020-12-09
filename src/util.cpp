@@ -1,7 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2017-2018 Scrypta Development Team
 // Copyright (c) 2015-2018 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
@@ -106,7 +105,7 @@ std::string to_internal(const std::string&);
 
 using namespace std;
 
-//lyra only features
+//LYRA only features
 bool fMasterNode = false;
 string strMasterNodePrivKey = "";
 string strMasterNodeAddr = "";
@@ -114,7 +113,7 @@ bool fLiteMode = false;
 bool fEnableSwiftTX = true;
 int nSwiftTXDepth = 5;
 int nObfuscationRounds = 2;
-int nAnonymizelyraAmount = 1000;
+int nAnonymizeLyraAmount = 1000;
 int nLiquidityProvider = 0;
 /** Spork enforcement enabled time */
 int64_t enforceMasternodePaymentsTime = 4085657524;
@@ -232,7 +231,7 @@ bool LogAcceptCategory(const char* category)
             const vector<string>& categories = mapMultiArgs["-debug"];
             ptrCategory.reset(new set<string>(categories.begin(), categories.end()));
             // thread_specific_ptr automatically deletes the set when the thread ends.
-            // "lyra" is a composite category enabling all lyra-related debug output
+            // "lyra" is a composite category enabling all LYRA-related debug output
             if (ptrCategory->count(string("lyra"))) {
                 ptrCategory->insert(string("obfuscation"));
                 ptrCategory->insert(string("swifttx"));
@@ -418,13 +417,13 @@ void PrintExceptionContinue(std::exception* pex, const char* pszThread)
 boost::filesystem::path GetDefaultDataDir()
 {
     namespace fs = boost::filesystem;
-// Windows < Vista: C:\Documents and Settings\Username\Application Data\lyra
-// Windows >= Vista: C:\Users\Username\AppData\Roaming\lyra
-// Mac: ~/Library/Application Support/lyra
+// Windows < Vista: C:\Documents and Settings\Username\Application Data\LYRA
+// Windows >= Vista: C:\Users\Username\AppData\Roaming\LYRA
+// Mac: ~/Library/Application Support/LYRA
 // Unix: ~/.lyra
 #ifdef WIN32
     // Windows
-    return GetSpecialFolderPath(CSIDL_APPDATA) / "lyra";
+    return GetSpecialFolderPath(CSIDL_APPDATA) / "LYRA";
 #else
     fs::path pathRet;
     char* pszHome = getenv("HOME");
@@ -436,7 +435,7 @@ boost::filesystem::path GetDefaultDataDir()
     // Mac
     pathRet /= "Library/Application Support";
     TryCreateDirectory(pathRet);
-    return pathRet / "lyra";
+    return pathRet / "LYRA";
 #else
     // Unix
     return pathRet / ".lyra";
@@ -514,7 +513,7 @@ void ReadConfigFile(map<string, string>& mapSettingsRet,
                 "# https://explorer.masternodes.online/currencies/lyra/ \n";
             fwrite(strHeader.c_str(), std::strlen(strHeader.c_str()), 1, configFile);
             fclose(configFile);
-              }
+        }
         return; // Nothing to read, so just return
     }
 
@@ -786,6 +785,18 @@ void SetupEnvironment()
     // boost::filesystem::path, which is then used to explicitly imbue the path.
     std::locale loc = boost::filesystem::path::imbue(std::locale::classic());
     boost::filesystem::path::imbue(loc);
+}
+
+bool SetupNetworking()
+{
+#ifdef WIN32
+    // Initialize Windows Sockets
+    WSADATA wsadata;
+    int ret = WSAStartup(MAKEWORD(2, 2), &wsadata);
+    if (ret != NO_ERROR || LOBYTE(wsadata.wVersion) != 2 || HIBYTE(wsadata.wVersion) != 2)
+        return false;
+#endif
+    return true;
 }
 
 void SetThreadPriority(int nPriority)

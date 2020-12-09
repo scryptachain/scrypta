@@ -1,6 +1,6 @@
 // Copyright (c) 2011-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2017-2018 Scrypta Development Team
+// Copyright (c) 2015-2018 The PIVX developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -19,18 +19,18 @@ BitcoinUnits::BitcoinUnits(QObject* parent) : QAbstractListModel(parent),
 QList<BitcoinUnits::Unit> BitcoinUnits::availableUnits()
 {
     QList<BitcoinUnits::Unit> unitlist;
-    unitlist.append(lyra);
-    unitlist.append(mlyra);
-    unitlist.append(ulyra);
+    unitlist.append(LYRA);
+    unitlist.append(mLYRA);
+    unitlist.append(uLYRA);
     return unitlist;
 }
 
 bool BitcoinUnits::valid(int unit)
 {
     switch (unit) {
-    case lyra:
-    case mlyra:
-    case ulyra:
+    case LYRA:
+    case mLYRA:
+    case uLYRA:
         return true;
     default:
         return false;
@@ -40,11 +40,11 @@ bool BitcoinUnits::valid(int unit)
 QString BitcoinUnits::id(int unit)
 {
     switch (unit) {
-    case lyra:
+    case LYRA:
         return QString("lyra");
-    case mlyra:
+    case mLYRA:
         return QString("mlyra");
-    case ulyra:
+    case uLYRA:
         return QString::fromUtf8("ulyra");
     default:
         return QString("???");
@@ -55,23 +55,23 @@ QString BitcoinUnits::name(int unit)
 {
     if (Params().NetworkID() == CBaseChainParams::MAIN) {
         switch (unit) {
-        case lyra:
-            return QString("lyra");
-        case mlyra:
-            return QString("mlyra");
-        case ulyra:
-            return QString::fromUtf8("μlyra");
+        case LYRA:
+            return QString("LYRA");
+        case mLYRA:
+            return QString("mLYRA");
+        case uLYRA:
+            return QString::fromUtf8("μLYRA");
         default:
             return QString("???");
         }
     } else {
         switch (unit) {
-        case lyra:
-            return QString("tlyra");
-        case mlyra:
-            return QString("mtlyra");
-        case ulyra:
-            return QString::fromUtf8("μtlyra");
+        case LYRA:
+            return QString("tLYRA");
+        case mLYRA:
+            return QString("mtLYRA");
+        case uLYRA:
+            return QString::fromUtf8("μtLYRA");
         default:
             return QString("???");
         }
@@ -82,23 +82,23 @@ QString BitcoinUnits::description(int unit)
 {
     if (Params().NetworkID() == CBaseChainParams::MAIN) {
         switch (unit) {
-        case lyra:
-            return QString("lyra");
-        case mlyra:
-            return QString("Milli-lyra (1 / 1" THIN_SP_UTF8 "000)");
-        case ulyra:
-            return QString("Micro-lyra (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+        case LYRA:
+            return QString("LYRA");
+        case mLYRA:
+            return QString("Milli-LYRA (1 / 1" THIN_SP_UTF8 "000)");
+        case uLYRA:
+            return QString("Micro-LYRA (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
         default:
             return QString("???");
         }
     } else {
         switch (unit) {
-        case lyra:
-            return QString("Testlyras");
-        case mlyra:
-            return QString("Milli-Testlyra (1 / 1" THIN_SP_UTF8 "000)");
-        case ulyra:
-            return QString("Micro-Testlyra (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+        case LYRA:
+            return QString("TestLYRAs");
+        case mLYRA:
+            return QString("Milli-TestLYRA (1 / 1" THIN_SP_UTF8 "000)");
+        case uLYRA:
+            return QString("Micro-TestLYRA (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
         default:
             return QString("???");
         }
@@ -108,11 +108,11 @@ QString BitcoinUnits::description(int unit)
 qint64 BitcoinUnits::factor(int unit)
 {
     switch (unit) {
-    case lyra:
+    case LYRA:
         return 100000000;
-    case mlyra:
+    case mLYRA:
         return 100000;
-    case ulyra:
+    case uLYRA:
         return 100;
     default:
         return 100000000;
@@ -122,11 +122,11 @@ qint64 BitcoinUnits::factor(int unit)
 int BitcoinUnits::decimals(int unit)
 {
     switch (unit) {
-    case lyra:
+    case LYRA:
         return 8;
-    case mlyra:
+    case mLYRA:
         return 5;
-    case ulyra:
+    case uLYRA:
         return 2;
     default:
         return 0;

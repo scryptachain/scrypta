@@ -23,25 +23,14 @@
       <item>
        <widget class="QPushButton" name="back">
         <property name="text">
-         <string/>
-        </property>
-        <property name="icon">
-         <iconset resource="../bitcoin.qrc">
-          <normaloff>:/icons/back</normaloff>:/icons/back</iconset>
-        </property>
-        <property name="flat">
-         <bool>false</bool>
+          <string>Back</string>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QPushButton" name="forward">
         <property name="text">
-         <string/>
-        </property>
-        <property name="icon">
-         <iconset resource="../bitcoin.qrc">
-          <normaloff>:/icons/forward</normaloff>:/icons/forward</iconset>
+            <string>Forward</string>
         </property>
        </widget>
       </item>
@@ -162,7 +151,7 @@
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources>
-  <include location="../bitcoin.qrc"/>
+  <include location="../lyra.qrc"/>
  </resources>
  <connections/>
 </ui>

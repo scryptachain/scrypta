@@ -19,6 +19,9 @@ RUN apt-get install -y libcap-dev
 RUN apt-get install -y python-dev
 RUN apt-get install -y libbz2-dev
 RUN apt-get install -y imagemagick
+RUN apt-get install -y librsvg2-bin
+RUN apt-get install -y libtiff-tools
+
 RUN PATH=$(echo "$PATH" | sed -e 's/:\/mnt.*//g')
 
 # CLONING REPO
@@ -34,27 +37,16 @@ RUN pip install setuptools
 RUN wget -c https://github.com/phracker/MacOSX-SDKs/releases/download/MacOSX10.11.sdk/MacOSX10.11.sdk.tar.xz
 RUN tar -xf MacOSX10.11.sdk.tar.xz
 WORKDIR /opt/scrypta/depends
-RUN make HOST=x86_64-apple-darwin11
-WORKDIR /opt/scrypta
+RUN make -j16 HOST=x86_64-apple-darwin11
 
-RUN ./autogen.sh
-RUN mkdir db4
-RUN wget -c 'http://download.oracle.com/berkeley-db/db-4.8.30.NC.tar.gz'
-RUN tar -xzvf db-4.8.30.NC.tar.gz
-WORKDIR /opt/scrypta/db-4.8.30.NC/build_unix/
-RUN ../dist/configure --enable-cxx --disable-shared --with-pic --prefix=$(pwd)/db4
-RUN make install
 WORKDIR /opt/scrypta
+RUN ./autogen.sh; exit 0
+RUN libtoolize --automake --copy --debug --force
+RUN autoreconf -i
 RUN ./autogen.sh
 RUN ./configure --prefix=$(pwd)/depends/x86_64-apple-darwin11
-RUN make
+RUN make -j16
 RUN make deploy
-
-RUN make
-WORKDIR /opt/scrypta
-RUN ./autogen.sh 
-RUN ./configure --prefix=$(pwd)/depends/x86_64-pc-linux-gnu
-RUN make
 
 EXPOSE 42222 42223
 CMD tail -f /dev/null

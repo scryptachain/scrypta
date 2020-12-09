@@ -89,7 +89,7 @@ use old versions of Upstart and do not supply the start-stop-daemon uitility.
 Copy lyrad.init to /etc/init.d/lyrad. Test by running "service lyrad start".
 
 Using this script, you can adjust the path and flags to the lyrad program by
-setting the lyraD and FLAGS environment variables in the file
+setting the LYRAD and FLAGS environment variables in the file
 /etc/sysconfig/lyrad. You can also use the DAEMONOPTS environment variable here.
 
 5. Auto-respawn

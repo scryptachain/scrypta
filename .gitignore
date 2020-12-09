@@ -1,3 +1,10 @@
+.vscode
+docker/*/*/build/
+docker/*/*/libs/
+docker/*/*/lyrad
+docker/*/*/lyra-qt
+docker/*/*/lyra-cli
+docker/*/*/scrypta-wallet*
 docker/**/build/
 .vs/ProjectSettings.json
 .vs/scrypta/v16/.suo

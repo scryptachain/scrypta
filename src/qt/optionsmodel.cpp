@@ -1,6 +1,6 @@
 // Copyright (c) 2011-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2017-2018 Scrypta Development Team
+// Copyright (c) 2015-2018 The PIVX developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -61,7 +61,7 @@ void OptionsModel::Init()
 
     // Display
     if (!settings.contains("nDisplayUnit"))
-        settings.setValue("nDisplayUnit", BitcoinUnits::lyra);
+        settings.setValue("nDisplayUnit", BitcoinUnits::LYRA);
     nDisplayUnit = settings.value("nDisplayUnit").toInt();
 
     if (!settings.contains("strThirdPartyTxUrls"))
@@ -75,11 +75,11 @@ void OptionsModel::Init()
     if (!settings.contains("nObfuscationRounds"))
         settings.setValue("nObfuscationRounds", 2);
 
-    if (!settings.contains("nAnonymizelyraAmount"))
-        settings.setValue("nAnonymizelyraAmount", 1000);
+    if (!settings.contains("nAnonymizeLyraAmount"))
+        settings.setValue("nAnonymizeLyraAmount", 1000);
 
     nObfuscationRounds = settings.value("nObfuscationRounds").toLongLong();
-    nAnonymizelyraAmount = settings.value("nAnonymizelyraAmount").toLongLong();
+    nAnonymizeLyraAmount = settings.value("nAnonymizeLyraAmount").toLongLong();
 
     if (!settings.contains("fShowMasternodesTab"))
         settings.setValue("fShowMasternodesTab", masternodeConfig.getCount());
@@ -146,8 +146,8 @@ void OptionsModel::Init()
 
     if (settings.contains("nObfuscationRounds"))
         SoftSetArg("-obfuscationrounds", settings.value("nObfuscationRounds").toString().toStdString());
-    if (settings.contains("nAnonymizelyraAmount"))
-        SoftSetArg("-anonymizelyraamount", settings.value("nAnonymizelyraAmount").toString().toStdString());
+    if (settings.contains("nAnonymizeLyraAmount"))
+        SoftSetArg("-anonymizelyraamount", settings.value("nAnonymizeLyraAmount").toString().toStdString());
 
     language = settings.value("language").toString();
 }
@@ -227,8 +227,8 @@ QVariant OptionsModel::data(const QModelIndex& index, int role) const
             return settings.value("nThreadsScriptVerif");
         case ObfuscationRounds:
             return QVariant(nObfuscationRounds);
-        case AnonymizelyraAmount:
-            return QVariant(nAnonymizelyraAmount);
+        case AnonymizeLyraAmount:
+            return QVariant(nAnonymizeLyraAmount);
         case Listen:
             return settings.value("fListen");
         default:
@@ -337,10 +337,10 @@ bool OptionsModel::setData(const QModelIndex& index, const QVariant& value, int 
             settings.setValue("nObfuscationRounds", nObfuscationRounds);
             emit obfuscationRoundsChanged(nObfuscationRounds);
             break;
-        case AnonymizelyraAmount:
-            nAnonymizelyraAmount = value.toInt();
-            settings.setValue("nAnonymizelyraAmount", nAnonymizelyraAmount);
-            emit anonymizelyraAmountChanged(nAnonymizelyraAmount);
+        case AnonymizeLyraAmount:
+            nAnonymizeLyraAmount = value.toInt();
+            settings.setValue("nAnonymizeLyraAmount", nAnonymizeLyraAmount);
+            emit anonymizeLyraAmountChanged(nAnonymizeLyraAmount);
             break;
         case CoinControlFeatures:
             fCoinControlFeatures = value.toBool();

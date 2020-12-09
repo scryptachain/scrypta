@@ -1,7 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2017-2018 Scrypta Development Team
 // Copyright (c) 2015-2018 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
@@ -42,7 +41,7 @@ using namespace boost;
 using namespace std;
 
 #if defined(NDEBUG)
-#error "lyra cannot be compiled without assertions."
+#error "LYRA cannot be compiled without assertions."
 #endif
 
 /**
@@ -69,7 +68,7 @@ bool fCheckBlockIndex = false;
 unsigned int nCoinCacheSize = 5000;
 bool fAlerts = DEFAULT_ALERTS;
 
-unsigned int nStakeMinAge = 1 * 60 * 60; // Minimum stake age requested is set to 1 hour-
+unsigned int nStakeMinAge = 60 * 60;
 int64_t nReserveBalance = 0;
 
 /** Fees smaller than this (in duffs) are considered zero fee (for relaying and mining)
@@ -1007,13 +1006,6 @@ bool CheckTransaction(const CTransaction& tx, CValidationState& state)
         if (vInOutPoints.count(txin.prevout))
             return state.DoS(100, error("CheckTransaction() : duplicate inputs"),
                 REJECT_INVALID, "bad-txns-inputs-duplicate");
-         // Fix bad stake inputs
-        if (chainActive.Height() >= 71080) {
-            std::string txh = txin.prevout.hash.ToString();
-            if (txh == "0c0b80544fd578541015d0acbe372acf64dc33cdbea299bdbb2de2aaad6fb555")
-                return state.DoS(100, error("CheckTransaction() : bad inputs"),
-                                 REJECT_INVALID, "bad-txns-inputs-stake");
-        }
         vInOutPoints.insert(txin.prevout);
     }
 
@@ -1598,6 +1590,10 @@ bool ReadBlockFromDisk(CBlock& block, const CBlockIndex* pindex)
     return true;
 }
 
+CAmount GetCurrentCollateral()
+{
+        return Params().MasternodeCollateralAmt();
+}
 
 double ConvertBitsToDouble(unsigned int nBits)
 {
@@ -1617,34 +1613,33 @@ double ConvertBitsToDouble(unsigned int nBits)
 
     return dDiff;
 }
+
 int64_t GetBlockValue(int nHeight)
 {
-
     int64_t nSubsidy = 0;
     nHeight--;
 
     if (nHeight <= 10) {
         nSubsidy = 0 * COIN;
-    }
-    else if (nHeight > 10 && nHeight <= 30 ) {
-        nSubsidy = 450000 * COIN;                     // Premine 18% of total supply
-    } else if (nHeight > 30 && nHeight <= 499 ) {
+    } else if (nHeight > 10 && nHeight <= 30) {
+        nSubsidy = 450000 * COIN; // Premine 18% of total supply
+    } else if (nHeight > 30 && nHeight <= 499) {
         nSubsidy = 0 * COIN;
-    } else if (nHeight > 499 && nHeight <= 750 ) {  // Last POW Block
+    } else if (nHeight > 499 && nHeight <= 750) { // Last POW Block
         nSubsidy = 2 * COIN;
-    } else if (nHeight > 750 && nHeight <= 180301 ) {
+    } else if (nHeight > 750 && nHeight <= 180301) {
         nSubsidy = 10 * COIN;
-    } else if (nHeight > 180301 && nHeight <= 698702 ) {
+    } else if (nHeight > 180301 && nHeight <= 698702) {
         nSubsidy = 9 * COIN;
-    } else if (nHeight > 698702 && nHeight <= 1217103 ) {
+    } else if (nHeight > 698702 && nHeight <= 1217103) {
         nSubsidy = 8.1 * COIN;
-    } else if (nHeight > 1217103 && nHeight <= 2253904 ) {
+    } else if (nHeight > 1217103 && nHeight <= 2253904) {
         nSubsidy = 6.5 * COIN;
-    } else if (nHeight > 2253904 && nHeight <= 3290705 ) {
+    } else if (nHeight > 2253904 && nHeight <= 3290705) {
         nSubsidy = 5.2 * COIN;
-    } else if (nHeight > 3290705 && nHeight <= 5364306 ) {
+    } else if (nHeight > 3290705 && nHeight <= 5364306) {
         nSubsidy = 3.1 * COIN;
-    } else if (nHeight > 5365306 && nHeight <= 7437907 ) {
+    } else if (nHeight > 5365306 && nHeight <= 7437907) {
         nSubsidy = 1.9 * COIN;
     } else if (nHeight > 7437907) {
         nSubsidy = 1.1 * COIN;
@@ -1658,9 +1653,8 @@ int64_t GetBlockValue(int nHeight)
     if (nMoneySupply >= Params().MaxMoneyOut())
         nSubsidy = 0;
 
-	return nSubsidy;
+    return nSubsidy;
 }
-
 
 int64_t GetMasternodePayment(int nHeight, int64_t blockValue, int nMasternodeCount)
 {
@@ -1670,11 +1664,11 @@ int64_t GetMasternodePayment(int nHeight, int64_t blockValue, int nMasternodeCou
         ret = blockValue / 5; // Under that block_height MN get 20% of block reward
     } else if (nHeight > Params().LAST_POW_BLOCK()) {
         int64_t nMoneySupply = chainActive.Tip()->nMoneySupply;
-        int64_t mNodeCoins = mnodeman.size() * 15000 * COIN; // Collateral needed to run a single Scrypta Masternode
+        int64_t mNodeCoins = mnodeman.size() * GetCurrentCollateral() * COIN; // Collateral needed to run a single Scrypta Masternode
 
         //if a mn count is inserted into the function we are looking for a specific result for a masternode count
-        if(nMasternodeCount)
-            mNodeCoins = nMasternodeCount * 15000 * COIN;
+        if (nMasternodeCount)
+            mNodeCoins = nMasternodeCount * GetCurrentCollateral() * COIN;
 
         // Use this log to compare the masternode count for different clients
         LogPrintf("Adjusting seesaw at height %d with %d masternodes (without drift: %d) at %ld\n", nHeight, nMasternodeCount, nMasternodeCount - Params().MasternodeCountDrift(), GetTime());
@@ -2000,8 +1994,8 @@ void Misbehaving(NodeId pnode, int howmuch)
     state->nMisbehavior += howmuch;
     int banscore = GetArg("-banscore", 100);
     if (state->nMisbehavior >= banscore && state->nMisbehavior - howmuch < banscore) {
-        /////////LogPrintf("Misbehaving: %s (%d -> %d) BAN THRESHOLD EXCEEDED\n", state->name, state->nMisbehavior - howmuch, state->nMisbehavior);
-        ////////state->fShouldBan = true;
+        LogPrintf("Misbehaving: %s (%d -> %d) BAN THRESHOLD EXCEEDED\n", state->name, state->nMisbehavior - howmuch, state->nMisbehavior);
+        state->fShouldBan = true;
     } else
         LogPrintf("Misbehaving: %s (%d -> %d)\n", state->name, state->nMisbehavior - howmuch, state->nMisbehavior);
 }
@@ -2433,10 +2427,32 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
     if (block.IsProofOfWork())
         nExpectedMint += nFees;
 
-    //Check that the block does not overmint
     if (!IsBlockValueValid(block, nExpectedMint, pindex->nMint)) {
-        return state.DoS(100, error("ConnectBlock() : reward pays too much (actual=%s vs limit=%s)", FormatMoney(pindex->nMint), FormatMoney(nExpectedMint)),
+        return state.DoS(100,
+            error("ConnectBlock() : reward pays too much (actual=%s vs limit=%s)",
+                FormatMoney(pindex->nMint), FormatMoney(nExpectedMint)),
             REJECT_INVALID, "bad-cb-amount");
+    }
+
+        if (IsSporkActive(SPORK_17_BLOCK_RECIPIENT_ENFORCEMENT) && ActiveProtocol() >= BLOCK_RECIPIENT_ENFORCEMENT) {
+        bool properStake = block.nNonce == 0;
+        unsigned int stakeRecipientSize = block.vtx[properStake].vout.size() - (int)properStake;
+        LogPrintf("block %d has %d recipients\n", pindex->nHeight, stakeRecipientSize);
+        if (stakeRecipientSize == 1) {
+            LogPrintf("  - block does not honour the current masternode payment required.\n");
+            if (IsSporkActive(SPORK_17_BLOCK_RECIPIENT_ENFORCEMENT) && ActiveProtocol() >= BLOCK_RECIPIENT_ENFORCEMENT)
+                return false;
+        } else {
+            auto mnOut = block.vtx[1].vout[stakeRecipientSize].nValue;
+            auto mnExp = GetMasternodePayment(pindex->nHeight, nExpectedMint, 0);
+            if (mnExp - mnOut > 100) {
+                LogPrintf("  - masternode isnt receiving the full reward (expected %llu, found %llu)\n", mnExp, mnOut);
+                if (IsSporkActive(SPORK_17_BLOCK_RECIPIENT_ENFORCEMENT) && ActiveProtocol() >= BLOCK_RECIPIENT_ENFORCEMENT)
+                    return false;
+            } else {
+                LogPrintf("  - masternode is receiving expected reward (expected %llu, found %llu)\n", mnExp, mnOut);
+            }
+        }
     }
 
     if (!control.Wait())
@@ -3376,7 +3392,7 @@ bool CheckBlock(const CBlock& block, CValidationState& state, bool fCheckPOW, bo
                 nHeight = (*mi).second->nHeight + 1;
         }
 
-        // lyra
+        // LYRA
         // It is entierly possible that we don't have enough data and this could fail
         // (i.e. the block could indeed be valid). Store the block for later consideration
         // but issue an initial reject message.
@@ -3419,14 +3435,14 @@ bool CheckWork(const CBlock block, CBlockIndex* const pindexPrev)
 
     unsigned int nBitsRequired = GetNextWorkRequired(pindexPrev, &block);
 
-    if (block.IsProofOfWork() && (pindexPrev->nHeight + 1 <= 68589)) {
-        double n1 = ConvertBitsToDouble(block.nBits);
-        double n2 = ConvertBitsToDouble(nBitsRequired);
-
-        if (abs(n1 - n2) > n1 * 0.5)
-            return error("%s : incorrect proof of work (DGW pre-fork) - %f %f %f at %d", __func__, abs(n1 - n2), n1, n2, pindexPrev->nHeight + 1);
-
-        return true;
+    if (block.nBits != nBitsRequired) {
+        if ((block.nTime == (uint32_t)Params().LyraBadBlockTime()) &&
+            (block.nBits == (uint32_t)Params().LyraBadBlockBits())) {
+            // accept Lyra block minted with incorrect proof of work threshold after pow ended!
+            printf("%s : Accepting incorrect proof of work at block %d", __func__, pindexPrev->nHeight + 1);
+            return true;
+        }
+        return error("%s : incorrect proof of work at %d", __func__, pindexPrev->nHeight + 1);
     }
 
     if (block.nBits != nBitsRequired)
@@ -4454,9 +4470,8 @@ string GetWarnings(string strFor)
     string strStatusBar;
     string strRPC;
 
-
-    /////if (!CLIENT_VERSION_IS_RELEASE)
-        ///////strStatusBar = _("This is a pre-release test build - use at your own risk - do not use for staking or merchant applications!");
+    if (!CLIENT_VERSION_IS_RELEASE)
+        strStatusBar = _("This is a pre-release test build - use at your own risk - do not use for staking or merchant applications!");
 
     if (GetBoolArg("-testsafemode", false))
         strStatusBar = strRPC = "testsafemode enabled";
@@ -5604,33 +5619,33 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
 }
 
 // Note: whenever a protocol update is needed toggle between both implementations (comment out the formerly active one)
-//       so we can leave the existing clients untouched (old SPORK will stay on so they don't see even older clients).
+//       so we can leave the existing clients untouched (old SPORK will stay on so they don't see even older clients). 
 //       Those old clients won't react to the changes of the other (new) SPORK because at the time of their implementation
 //       it was the one which was commented out
 int ActiveProtocol()
 {
-
     // SPORK_14 was used for 70710. Leave it 'ON' so they don't see < 70710 nodes. They won't react to SPORK_15
     // messages because it's not in their code
-/*
+    /*
     if (IsSporkActive(SPORK_14_NEW_PROTOCOL_ENFORCEMENT)) {
         if (chainActive.Tip()->nHeight >= Params().ModifierUpgradeBlock())
             return MIN_PEER_PROTO_VERSION_AFTER_ENFORCEMENT;
     }
 
     return MIN_PEER_PROTO_VERSION_BEFORE_ENFORCEMENT;
+*/
+
 
     // SPORK_15 is used for 70910. Nodes < 70910 don't see it and still get their protocol version via SPORK_14 and their
     // own ModifierUpgradeBlock()
-	*/
-    if (IsSporkActive(SPORK_14_NEW_PROTOCOL_ENFORCEMENT))
+
+    if (IsSporkActive(SPORK_15_NEW_PROTOCOL_ENFORCEMENT_2)) {
+        if (ActiveProtocol() >= BLOCK_RECIPIENT_ENFORCEMENT)
             return MIN_PEER_PROTO_VERSION_AFTER_ENFORCEMENT;
-
+    }
     return MIN_PEER_PROTO_VERSION_BEFORE_ENFORCEMENT;
-
 }
-
-// requires LOCK(cs_vRecvMsg)
+    // requires LOCK(cs_vRecvMsg)
 bool ProcessMessages(CNode* pfrom)
 {
     //if (fDebug)
