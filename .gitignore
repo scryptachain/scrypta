@@ -5,3 +5,14 @@ docker/*/*/lyrad
 docker/*/*/lyra-qt
 docker/*/*/lyra-cli
 docker/*/*/scrypta-wallet*
+docker/**/build/
+.vs/ProjectSettings.json
+.vs/scrypta/v16/.suo
+.vs/scrypta/v16/Browse.VC.db
+.vs/scrypta/v16/Browse.VC.opendb
+.vs/scrypta/v16/ipch/AutoPCH/42953c42f9bf4798/POW.ipch
+.vs/scrypta/v16/ipch/AutoPCH/6d0c118da0d40f7a/INIT.ipch
+.vs/scrypta/v16/ipch/AutoPCH/7e1514f33bac48a3/VERSION_SET_TEST.ipch
+.vs/scrypta/v16/ipch/AutoPCH/98b877afaaa57bd3/CLIENTVERSION.ipch
+.vs/slnx.sqlite
+.vs/VSWorkspaceState.json

@@ -13,7 +13,7 @@ RUN apt-get install -y libqrencode-dev
 
 # CLONING REPO
 WORKDIR /opt
-RUN git clone https://github.com/turinglabsorg/scrypta
+RUN git clone https://github.com/scryptachain/scrypta
 
 # BUILDING LINUX
 WORKDIR /opt/scrypta

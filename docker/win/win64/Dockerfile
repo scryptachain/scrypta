@@ -20,7 +20,7 @@ RUN PATH=$(echo "$PATH" | sed -e 's/:\/mnt.*//g')
 
 # CLONING REPO
 WORKDIR /opt
-RUN git clone https://github.com/turinglabsorg/scrypta
+RUN git clone https://github.com/scryptachain/scrypta
 
 # BUILDING WINDOWS
 WORKDIR /opt/scrypta

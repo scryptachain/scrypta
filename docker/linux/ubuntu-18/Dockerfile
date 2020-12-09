@@ -1,4 +1,5 @@
 FROM ubuntu:18.04 
+
 RUN apt-get -qq update
 RUN apt-get install -y software-properties-common 
 RUN add-apt-repository -y ppa:bitcoin/bitcoin
@@ -14,7 +15,7 @@ RUN apt-get install -y libcurl4-gnutls-dev
 
 # CLONING REPO
 WORKDIR /opt
-RUN git clone https://github.com/turinglabsorg/scrypta
+RUN git clone https://github.com/scryptachain/scrypta
 
 # BUILDING LINUX
 WORKDIR /opt/scrypta

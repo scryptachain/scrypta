@@ -11,7 +11,7 @@ RUN apt-get install -y libcurl4-gnutls-dev
 
 # CLONING REPO
 WORKDIR /opt
-RUN git clone https://github.com/turinglabsorg/scrypta
+RUN git clone https://github.com/scryptachain/scrypta
 
 # BUILDING LINUX
 WORKDIR /opt/scrypta/depends
@@ -27,6 +27,3 @@ WORKDIR /opt/scrypta/src
 RUN strip lyrad lyra-cli
 WORKDIR /opt/scrypta/src/qt
 RUN strip lyra-qt
-
-EXPOSE 42222 42223
-CMD tail -f /dev/null
