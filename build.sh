@@ -22,6 +22,10 @@ cd db-4.8.30.NC
 # Apply fix for __atomic_compare_exchange conflict
 sed -i '/__atomic_compare_exchange/d' dbinc/atomic.h
 
+# Apply fix for syntax errors in atomic.h
+sed -i '147s/^/static inline int __atomic_inc(db_atomic_t *p) { return __sync_add_and_fetch(p, 1); }\n/' dbinc/atomic.h
+sed -i '178s/^/static inline int __atomic_compare_exchange(db_atomic_t *p, atomic_value_t oldval, atomic_value_t newval) { return __sync_bool_compare_and_swap(p, oldval, newval); }\n/' dbinc/atomic.h
+
 cd build_unix/
 ../dist/configure --enable-cxx --disable-shared --with-pic --prefix=$BDB_PREFIX
 make install
