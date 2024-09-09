@@ -8,7 +8,7 @@ fi
 
 # Define the repository URL
 REPO_URL="https://github.com/Romoli-Gabriele/scrypta"
-LYRA_DIR="lyra"
+LYRA_DIR="scrypta"
 
 # Update package list and install basic build tools
 echo "Updating package list and installing build tools..."
