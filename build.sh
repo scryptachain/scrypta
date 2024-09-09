@@ -7,7 +7,7 @@ if [ "$(id -u)" != "0" ]; then
 fi
 
 # Define the repository URL
-REPO_URL="https://github.com/your-repo/lyra.git"
+REPO_URL="https://github.com/Romoli-Gabriele/scrypta"
 LYRA_DIR="lyra"
 
 # Update package list and install basic build tools
