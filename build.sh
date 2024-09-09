@@ -34,7 +34,10 @@ sed -i 's/AC_HELP_STRING/AS_HELP_STRING/g' configure.ac
 
 # Ensure ltmain.sh is present
 if [ ! -f ./ltmain.sh ]; then
+    echo "Error: libtool not found. Run autogen.sh to install libtool."
     libtoolize
+    ls
+    chmod 777 ./ltmain.sh
 fi
 
 # Run autoupdate to update configure.ac
