@@ -17,7 +17,12 @@ echo '12edc0df75bf9abd7f82f821795bcee50f42cb2e5f76a6a281b85732798364ef  db-4.8.3
 
 # Extract and build Berkeley DB
 tar -xzvf db-4.8.30.NC.tar.gz
-cd db-4.8.30.NC/build_unix/
+cd db-4.8.30.NC
+
+# Apply fix for __atomic_compare_exchange conflict
+sed -i '/__atomic_compare_exchange/d' dbinc/atomic.h
+
+cd build_unix/
 ../dist/configure --enable-cxx --disable-shared --with-pic --prefix=$BDB_PREFIX
 make install
 
