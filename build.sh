@@ -32,6 +32,12 @@ cd $LYRA_ROOT
 # Run autogen script
 ./autogen.sh
 
+# Ensure configure script is generated
+if [ ! -f ./configure ]; then
+    echo "Error: configure script not found. Ensure autogen.sh ran successfully."
+    exit 1
+fi
+
 # Configure the build with Berkeley DB
 ./configure LDFLAGS="-L${BDB_PREFIX}/lib/" CPPFLAGS="-I${BDB_PREFIX}/include/"
 
