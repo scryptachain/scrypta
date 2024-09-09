@@ -36,6 +36,11 @@ cd $LYRA_ROOT
 # Update configure.ac to replace obsolete AC_HELP_STRING
 sed -i 's/AC_HELP_STRING/AS_HELP_STRING/g' configure.ac
 
+# Ensure ltmain.sh is present
+if [ ! -f ./ltmain.sh ]; then
+    libtoolize
+fi
+
 # Run autoupdate to update configure.ac
 autoupdate
 
