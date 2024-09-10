@@ -55,16 +55,6 @@ else
     echo "Skipping Berkeley DB installation."
 fi
 
-# Install optional GUI dependencies (Qt 5 and libqrencode for lyra-qt)
-echo "Do you want to install GUI dependencies for lyra-qt? (y/n)"
-read -r install_gui
-if [ "$install_gui" == "y" ]; then
-    echo "Installing GUI dependencies..."
-    sudo apt-get install -y libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools qtwayland5 libqrencode-dev
-else
-    echo "Skipping GUI installation."
-fi
-
 # Build LYRA
 echo "Starting LYRA build..."
 ./autogen.sh
