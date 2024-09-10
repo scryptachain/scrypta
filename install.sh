@@ -1,4 +1,8 @@
 #/bin/bash
+# Run berkley.sh
+# sudo bash berkley.sh
+# Run boost.sh
+
 
 # Check if user is root
 if [ "$EUID" -ne 0 ]
@@ -8,7 +12,7 @@ fi
 sudo apt-get install -y software-properties-common python-software-properties
 sudo apt-get update
 sudo apt-get install -y openssl1.0
-sudo apt-get install -y build-essential autoconf automake libboost1.59-all-dev libleveldb-dev libgmp-dev libgmp3-dev libssl-dev libcurl4-openssl-dev libcrypto++-dev libqrencode-dev libminiupnpc-dev autogen libtool git libevent-dev libprotobuf-dev
+sudo apt-get install -y build-essential autoconf automake libleveldb-dev libgmp-dev libgmp3-dev libssl-dev libcurl4-openssl-dev libcrypto++-dev libqrencode-dev libminiupnpc-dev autogen libtool git libevent-dev libprotobuf-dev
 sudo apt-get install -y curl g++ git-core pkg-config libtool faketime bsdmainutils mingw-w64 g++-mingw-w64 nsis zip ca-certificates python
 sudo apt-get install -y libzmq3-dev
 sudo apt-get install -y libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler
