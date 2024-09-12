@@ -16,20 +16,21 @@ sudo apt-get install -y curl g++ git-core pkg-config libtool faketime bsdmainuti
 sudo apt-get install -y libzmq3-dev
 sudo apt-get install -y libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler
 sudo apt-get install -y libqrencode-dev
-sudo apt-get install -y sudo apt-get install openssl libssl1.0-dev --no-remove
+sudo apt-get install -y sudo apt-get install openssl libssl-dev --no-remove
 
 # Check if scrypta directory exists
 if [ ! -d "scrypta" ]; then
     echo "Cloning LYRA repository..."
     git clone https://github.com/Romoli-Gabriele/scrypta
     cd scrypta
+    chmod 777 ltmain.sh
 else
     echo "LYRA directory already exists. Skipping clone."
     cd scrypta
     git pull
 fi
 ./autogen.sh
-./configure --with-boost=/usr/local --prefix=/root/scrypta/depends/x86_64-w64-mingw32
+./configure --with-boost=/usr/local --prefix=/root/scrypta/depends/x86_64-w64-mingw32 --with-unsupported-ssl
 # Do make only if configure is successful
 if [ $? -eq 0 ]; then
     sudo make
