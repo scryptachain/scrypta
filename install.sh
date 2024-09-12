@@ -9,6 +9,7 @@ if [ "$EUID" -ne 0 ]
   then echo "Please run as root"
   exit
 fi
+sudo apt-add-repository ppa:bitcoin/bitcoin
 sudo apt-get install -y software-properties-common python-software-properties
 sudo apt-get update
 sudo apt-get install -y build-essential autoconf automake libleveldb-dev libgmp-dev libgmp3-dev libcrypto++-dev libqrencode-dev libminiupnpc-dev autogen libtool git libevent-dev libprotobuf-dev
