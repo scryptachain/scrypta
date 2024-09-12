@@ -16,8 +16,9 @@ sudo apt-get install -y build-essential autoconf automake libleveldb-dev libgmp-
 sudo apt-get install -y curl g++ git-core pkg-config libtool faketime bsdmainutils mingw-w64 g++-mingw-w64 nsis zip ca-certificates python
 sudo apt-get install -y libzmq3-dev
 sudo apt-get install -y libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler
-sudo apt-get install -y libqrencode-dev 
-sudo apt-get install -y libssl1.0-dev
+sudo apt-get install -y libqrencode-dev
+sudo apt-get install -y libcurl4-openssl-dev --no-remove
+sudo apt-get install -y libssl1.0-dev --no-remove
 # Check if scrypta directory exists
 if [ ! -d "scrypta" ]; then
     echo "Cloning LYRA repository..."
@@ -29,10 +30,13 @@ else
     git pull
 fi
 ./autogen.sh
-./configure
-sudo make
-mkdir /root/.lyra
-touch /root/.lyra/lyra.conf
-echo "rpcuser=lyrarpc\nrpcpassword=SomeSuperStrongPassword\nrpcallowip=127.0.0.1\nlisten=1\nserver=1\ndaemon=1\nindex=1\ntxindex=1\nlogtimestamps=1\nstaking=0\naddnode=142.93.224.34\ndatacarriersize=8000" > /root/.lyra/lyra.conf
-cd src
-./lyrad &
+./configure --with-boost=/usr/local --prefix=/usr/local
+# Do make only if configure is successful
+if [ $? -eq 0 ]; then
+    sudo make
+    mkdir /root/.lyra
+    touch /root/.lyra/lyra.conf
+    echo "rpcuser=lyrarpc\nrpcpassword=SomeSuperStrongPassword\nrpcallowip=127.0.0.1\nlisten=1\nserver=1\ndaemon=1\nindex=1\ntxindex=1\nlogtimestamps=1\nstaking=0\naddnode=142.93.224.34\ndatacarriersize=8000" > /root/.lyra/lyra.conf
+    cd src
+    ./lyrad &
+fi

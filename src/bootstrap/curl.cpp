@@ -21,13 +21,13 @@
  * THE SOFTWARE.
  */
 
-#include "curl.h"
+//#include "curl.h"
 #include "util.h"
 #include "finally.h"
 #include "clientversion.h"
 
 #include <stdlib.h>
-#include <curl/curl.h>
+//#include <curl/curl.h>
 
 /** private section */
 static void CurlGlobalInit()
