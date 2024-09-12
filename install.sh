@@ -9,15 +9,14 @@ if [ "$EUID" -ne 0 ]
   then echo "Please run as root"
   exit
 fi
-sudo apt-add-repository ppa:bitcoin/bitcoin
-sudo apt-get install -y software-properties-common python-software-properties
 sudo apt-get update
+sudo apt-get install -y software-properties-common python-software-properties
 sudo apt-get install -y build-essential autoconf automake libleveldb-dev libgmp-dev libgmp3-dev libcrypto++-dev libqrencode-dev libminiupnpc-dev autogen libtool git libevent-dev libprotobuf-dev
 sudo apt-get install -y curl g++ git-core pkg-config libtool faketime bsdmainutils mingw-w64 g++-mingw-w64 nsis zip ca-certificates python
 sudo apt-get install -y libzmq3-dev
 sudo apt-get install -y libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler
 sudo apt-get install -y libqrencode-dev
-sudo apt-get install -y sudo apt-get install openssl libssl-dev --no-remove
+sudo apt-get install -y sudo apt-get install libssl1.0-dev --no-remove
 
 # Check if scrypta directory exists
 if [ ! -d "scrypta" ]; then
@@ -31,7 +30,7 @@ else
     git pull
 fi
 ./autogen.sh
-./configure --with-boost=/usr/local --prefix=/root/scrypta/depends/x86_64-w64-mingw32 --with-unsupported-ssl
+./configure --with-boost=/usr/local
 # Do make only if configure is successful
 if [ $? -eq 0 ]; then
     sudo make

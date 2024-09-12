@@ -27,8 +27,6 @@
 #include "finally.h"
 #include "ziputil.h"
 #include "util.h"
-//#include "curl.h"
-
 #include <chrono>
 #include <fstream>
 #include <iterator>
