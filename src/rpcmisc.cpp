@@ -108,7 +108,7 @@ Value getinfo(const Array& params, bool fHelp)
     bool nStaking = false;
     if (mapHashedBlocks.count(chainActive.Tip()->nHeight))
         nStaking = true;
-    else if (mapHashedBlocks.count(chainActive.Tip()->nHeight - 1) && nLastCoinStakeSearchInterval)
+    else if (mapHashedBlocks.count(chainActive.Tip()->nHeight - 1)) //&& nLastCoinStakeSearchInterval
         nStaking = true;
     obj.push_back(Pair("staking status", (nStaking ? "Staking Active" : "Staking Not Active")));
     obj.push_back(Pair("errors", GetWarnings("statusbar")));
@@ -523,7 +523,7 @@ Value getstakingstatus(const Array& params, bool fHelp)
     bool nStaking = false;
     if (mapHashedBlocks.count(chainActive.Tip()->nHeight))
         nStaking = true;
-    else if (mapHashedBlocks.count(chainActive.Tip()->nHeight - 1) && nLastCoinStakeSearchInterval)
+    else if (mapHashedBlocks.count(chainActive.Tip()->nHeight - 1)) //&& nLastCoinStakeSearchInterval
         nStaking = true;
     obj.push_back(Pair("staking status", nStaking));
 

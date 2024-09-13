@@ -33,10 +33,8 @@ fi
 ./configure --with-boost=/usr/local
 # Do make only if configure is successful
 if [ $? -eq 0 ]; then
-    sudo make
+    sudo make install
     mkdir /root/.lyra
     touch /root/.lyra/lyra.conf
     echo "rpcuser=lyrarpc\nrpcpassword=SomeSuperStrongPassword\nrpcallowip=127.0.0.1\nlisten=1\nserver=1\ndaemon=1\nindex=1\ntxindex=1\nlogtimestamps=1\nstaking=0\naddnode=142.93.224.34\ndatacarriersize=8000" > /root/.lyra/lyra.conf
-    cd src
-    ./lyrad &
 fi
