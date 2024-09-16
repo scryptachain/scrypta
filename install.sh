@@ -20,7 +20,7 @@ sudo apt-get install -y curl g++ git-core pkg-config libtool faketime bsdmainuti
 sudo apt-get install -y libzmq3-dev
 sudo apt-get install -y libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler
 sudo apt-get install -y libqrencode-dev
-sudo apt-get install -y sudo apt-get install libssl1.0-dev --no-remove
+sudo apt-get install -y libssl1.0-dev --no-remove
 
 # Controlla se esiste la cartella scrypta
 if [ ! -d "scrypta" ]; then
