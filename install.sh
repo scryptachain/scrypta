@@ -11,6 +11,9 @@ if [ "$EUID" -ne 0 ]
   then echo "Please run as root"
   exit
 fi
+# Aggiungi i repository necessari
+sudo add-apt-repository "deb http://security.ubuntu.com/ubuntu bionic-security main"
+
 sudo apt-get update # Aggiorna i pacchetti
 
 # Installa le dipendenze
