@@ -27,8 +27,6 @@
 #include "finally.h"
 #include "ziputil.h"
 #include "util.h"
-#include "curl.h"
-
 #include <chrono>
 #include <fstream>
 #include <iterator>
@@ -518,7 +516,8 @@ bool BootstrapModel::RunFromCloudImpl(std::string& err)
     int speed = 0, bytes = 0;
     using time_point = std::chrono::system_clock::time_point;
     time_point tp1 = std::chrono::system_clock::now();
-    bool success = CURLDownloadToFile(url, tmpPath, [this, &speed, &bytes, &tp1](double total, double now)->int {
+    bool success = false;
+            /*CURLDownloadToFile(url, tmpPath, [this, &speed, &bytes, &tp1](double total, double now)->int {
         if (cancel_) {
             return CURL_CANCEL_DOWNLOAD;
         } else {
@@ -540,7 +539,7 @@ bool BootstrapModel::RunFromCloudImpl(std::string& err)
             NotifyBootstrapProgress(str, progress_);
             return CURL_CONTINUE_DOWNLOAD;
         }
-    }, err);
+    }, err);*/
 
     if (success) {
         boost::filesystem::rename(tmpPath, zipPath);

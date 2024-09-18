@@ -363,8 +363,13 @@ protected:
         return *this;
     }
 public:
-    CScript() { }
-    CScript(const CScript& b) : std::vector<unsigned char>(b.begin(), b.end()) { }
+    CScript() = default;
+    CScript(const CScript& b) = default;
+    CScript(CScript&&) = default;
+    CScript& operator=(const CScript&) = default;
+    CScript& operator=(CScript&&) = default;
+    ~CScript() = default;
+
     CScript(const_iterator pbegin, const_iterator pend) : std::vector<unsigned char>(pbegin, pend) { }
     CScript(const unsigned char* pbegin, const unsigned char* pend) : std::vector<unsigned char>(pbegin, pend) { }
 
@@ -386,7 +391,6 @@ public:
     explicit CScript(opcodetype b)     { operator<<(b); }
     explicit CScript(const CScriptNum& b) { operator<<(b); }
     explicit CScript(const std::vector<unsigned char>& b) { operator<<(b); }
-
 
     CScript& operator<<(int64_t b) { return push_int64(b); }
 
@@ -433,8 +437,6 @@ public:
 
     CScript& operator<<(const CScript& b)
     {
-        // I'm not sure if this should push the script or concatenate scripts.
-        // If there's ever a use for pushing a script onto a script, delete this member fn
         assert(!"Warning: Pushing a CScript onto a CScript with << is probably not intended, use + to concatenate!");
         return *this;
     }
@@ -445,22 +447,20 @@ public:
         return (*this) << vchKey;
     }
 
-
     bool GetOp(iterator& pc, opcodetype& opcodeRet, std::vector<unsigned char>& vchRet)
     {
-         // Wrapper so it can be called with either iterator or const_iterator
-         const_iterator pc2 = pc;
-         bool fRet = GetOp2(pc2, opcodeRet, &vchRet);
-         pc = begin() + (pc2 - begin());
-         return fRet;
+        const_iterator pc2 = pc;
+        bool fRet = GetOp2(pc2, opcodeRet, &vchRet);
+        pc = begin() + (pc2 - begin());
+        return fRet;
     }
 
     bool GetOp(iterator& pc, opcodetype& opcodeRet)
     {
-         const_iterator pc2 = pc;
-         bool fRet = GetOp2(pc2, opcodeRet, NULL);
-         pc = begin() + (pc2 - begin());
-         return fRet;
+        const_iterator pc2 = pc;
+        bool fRet = GetOp2(pc2, opcodeRet, NULL);
+        pc = begin() + (pc2 - begin());
+        return fRet;
     }
 
     bool GetOp(const_iterator& pc, opcodetype& opcodeRet, std::vector<unsigned char>& vchRet) const
@@ -481,12 +481,10 @@ public:
         if (pc >= end())
             return false;
 
-        // Read instruction
         if (end() - pc < 1)
             return false;
         unsigned int opcode = *pc++;
 
-        // Immediate operand
         if (opcode <= OP_PUSHDATA4)
         {
             unsigned int nSize = 0;
@@ -526,7 +524,6 @@ public:
         return true;
     }
 
-    /** Encode/decode small integers: */
     static int DecodeOP_N(opcodetype opcode)
     {
         if (opcode == OP_0)
@@ -570,33 +567,16 @@ public:
         return nFound;
     }
 
-    /**
-     * Pre-version-0.6, Bitcoin always counted CHECKMULTISIGs
-     * as 20 sigops. With pay-to-script-hash, that changed:
-     * CHECKMULTISIGs serialized in scriptSigs are
-     * counted more accurately, assuming they are of the form
-     *  ... OP_N CHECKMULTISIG ...
-     */
     unsigned int GetSigOpCount(bool fAccurate) const;
 
-    /**
-     * Accurately count sigOps, including sigOps in
-     * pay-to-script-hash transactions:
-     */
     unsigned int GetSigOpCount(const CScript& scriptSig) const;
 
     bool IsNormalPaymentScript() const;
     bool IsPayToScriptHash() const;
 
-    /** Called by IsStandardTx and P2SH/BIP62 VerifyScript (which makes it consensus-critical). */
     bool IsPushOnly(const_iterator pc) const;
     bool IsPushOnly() const;
 
-    /**
-     * Returns whether the script is guaranteed to fail at execution,
-     * regardless of the initial stack. This allows outputs to be pruned
-     * instantly when entering the UTXO set.
-     */
     bool IsUnspendable() const
     {
         return (size() > 0 && *begin() == OP_RETURN);
@@ -605,9 +585,7 @@ public:
     std::string ToString() const;
     void clear()
     {
-        // The default std::vector::clear() does not release memory.
         std::vector<unsigned char>().swap(*this);
     }
 };
-
 #endif // BITCOIN_SCRIPT_SCRIPT_H

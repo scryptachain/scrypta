@@ -81,7 +81,6 @@ endif
 # Scrypta core #
 BITCOIN_CORE_H = \
   bootstrap/bootstrapmodel.h \
-  bootstrap/curl.h \
   bootstrap/finally.h \
   bootstrap/ziputil.h \
   activemasternode.h \
@@ -342,7 +341,6 @@ libbitcoin_common_a_SOURCES = \
 libbitcoin_util_a_CPPFLAGS = $(BITCOIN_INCLUDES)
 libbitcoin_util_a_SOURCES = \
   bootstrap/bootstrapmodel.cpp \
-  bootstrap/curl.cpp \
   bootstrap/ziputil.cpp \
   allocators.cpp \
   compat/strnlen.cpp \

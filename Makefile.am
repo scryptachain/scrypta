@@ -2,7 +2,8 @@ ACLOCAL_AMFLAGS = -I build-aux/m4
 SUBDIRS = src
 .PHONY: deploy FORCE
 
-GZIP_ENV="-9n"
+MY_GZIP_ENV="-9n"
+export MY_GZIP_ENV
 export PYTHONPATH
 
 BITCOIND_BIN=$(top_builddir)/src/lyrad$(EXEEXT)
